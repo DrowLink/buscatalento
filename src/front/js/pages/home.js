@@ -27,6 +27,11 @@ export const Home = () => {
 					Go to login
 				</span>
 			</Link>
+			<Link to= "/profile">
+			<span className="btn btn-primary btn-lg m-3" href="#" role="button">
+					Go to Profile
+				</span>
+			</Link>
 		</div>
 	);
 };
