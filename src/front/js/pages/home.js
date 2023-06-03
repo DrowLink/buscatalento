@@ -55,13 +55,13 @@ export const Home = () => {
     				<span className="visually-hidden">Next</span>
   			</button>
 		</div>
-		
+		{/* Heading 1 */}
 		<div className="container-fluid bg-white m-0">
     		<div className="container py-4">
        			 <div  className="d-flex justify-content-start ">
            			 <div>
                 		<span className="fw-bold fs-1 d-flex justify-content-center">Los talentos mas buscados</span>
-							<div className="row d-flex justify-content-between">
+							<div className="row d-flex justify-content-between m-5">
 								<div className="col-md-4 d-flex justify-content-center">
 									<i className="fa-solid fa-guitar fa-5x"></i>
 								</div>
@@ -127,27 +127,84 @@ export const Home = () => {
 				</div>
 			</div>
 		</div>
+		{/* Heading3 */}
+		<div className="container-fluid bg-white m-0">
+    		<div className="container py-4">
+       			 <div  className="d-flex justify-content-start ">
+           			 <div>
+                		<span className="fw-bold fs-1 d-flex justify-content-center">Testimonios</span>
+							<div className="row d-flex justify-content-between mt-5">
+								<div className="col-md-4 d-flex justify-content-center">
+									<i className="fas fa-user-circle fa-5x"></i>
+								</div>
+								<div className="col-md-4 d-flex justify-content-center">
+									<i className="fas fa-user-circle fa-5x"></i>
+								</div>
+								<div className="col-md-4 d-flex justify-content-center">
+									<i className="fas fa-user-circle fa-5x"></i>
+								</div>
+							</div>
+							<div className="row d-flex justify-content-between mt-2">
+								<div className="col-md-4 mt-2 p-1">
+									<div className="d-flex justify-content-center">
+									<h2>Samuel Carmona</h2>
+									</div>
+                					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad deleniti quis, autem harum corrupti numquam veniam eligendi eos pariatur laudantium? Ex molestiae quia dolores ut illum. Neque voluptatibus non adipisci. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum obcaecati fugit dicta ipsam eaque quaerat quas, tempore perferendis aut nulla! Vel soluta cupiditate quam praesentium qui voluptatem sequi natus voluptate.</p>
+								</div>
+								<div className="col-md-4 mt-2 p-1">
+									<div className="d-flex justify-content-center">
+									<h2>Alexander De Matteo</h2>
+									</div>
+                					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad deleniti quis, autem harum corrupti numquam veniam eligendi eos pariatur laudantium? Ex molestiae quia dolores ut illum. Neque voluptatibus non adipisci. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum obcaecati fugit dicta ipsam eaque quaerat quas, tempore perferendis aut nulla! Vel soluta cupiditate quam praesentium qui voluptatem sequi natus voluptate.</p>
+								</div>
+								<div className="col-md-4 mt-2 p-1">
+									<div className="d-flex justify-content-center">
+									<h2>Samuel Carmona</h2>
+									</div>
+                					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad deleniti quis, autem harum corrupti numquam veniam eligendi eos pariatur laudantium? Ex molestiae quia dolores ut illum. Neque voluptatibus non adipisci. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum obcaecati fugit dicta ipsam eaque quaerat quas, tempore perferendis aut nulla! Vel soluta cupiditate quam praesentium qui voluptatem sequi natus voluptate.</p>
+								</div>
+							</div>
+           			 </div>
+				</div>
+			</div>
+		</div>
+		{/* Heading4 */}
+		<div className="container-fluid bg-secondary bg-opacity-25 m-0">
+    		<div className="">
+				<div className="row d-flex">
+					<div className="col-md-6 d-flex justify-content-start m-0 p-0">
+						<img src={karateteacher} id="knowthat" className="float-start" alt="..."/>
+					</div>
+					<div className="col-md-6 p-2 d-flex flex-column">
+						<div className="p-2 d-flex justify-content-center">
+						<h1>Sabias que...?</h1>
+						</div>
+						<div className="p-2 d-flex justify-content-center">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad deleniti quis, autem harum corrupti numquam veniam eligendi eos pariatur laudantium? Ex molestiae quia dolores ut illum. Neque voluptatibus non adipisci. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum obcaecati fugit dicta ipsam eaque quaerat quas, tempore perferendis aut nulla! Vel soluta cupiditate quam praesentium qui voluptatem sequi natus voluptateLorem ipsum dolor sit amet, consectetur adipisicing elit. Ad deleniti quis, autem harum corrupti numquam veniam eligendi eos pariatur laudantium? Ex molestiae quia dolores ut illum. Neque voluptatibus non adipisci. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum obcaecati fugit dicta ipsam eaque quaerat quas, tempore perferendis aut nulla! Vel soluta cupiditate quam praesentium qui voluptatem sequi natus voluptate</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{/* Heading5 */}
+		<div className="container-fluid bg-white m-0">
+    		<div className="container py-4 d-flex flex-column">
+				<div className="d-flex justify-content-center">
+					<h1>Ready for start?</h1>
+				</div>
+				<div className="d-flex justify-content-center mt-5">
+					<Link to= "/login">
+						<span className="btn btn-primary btn-lg" href="#" role="button">
+							Go to login
+						</span>
+					</Link>
+				</div>
+			</div>
+		</div>
 		<div className="text-center mt-5">
-			<h1>Hello Rigo!!</h1>
 			<div className="alert alert-info">
 				{store.message || "Loading message from the backend (make sure your python backend is running)..."}
 			</div>
-			<p>
-				This boilerplate comes with lots of documentation:{" "}
-				<a href="https://start.4geeksacademy.com/starters/react-flask">
-					Read documentation
-				</a>
-			</p>
-			<Link to= "/login">
-			<span className="btn btn-primary btn-lg" href="#" role="button">
-					Go to login
-				</span>
-			</Link>
-			<Link to= "/profile">
-			<span className="btn btn-primary btn-lg m-3" href="#" role="button">
-					Go to Profile
-				</span>
-			</Link>
 		</div>
 	</div>
 	);

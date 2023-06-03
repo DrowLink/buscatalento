@@ -18,15 +18,20 @@
     height: 650px;
 }
 
-#iconcoment{
+/* #iconcoment{
     color: aquamarine;
-}
+} */
 
 #karateteacher{
     height: 25vh;
     width: 14vw;
 }
 
-#starteacher{
+/* #starteacher{
     color: aquamarine;
+} */
+
+#knowthat{
+    height: 80vh;
+    width: 90vh;
 }
