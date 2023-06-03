@@ -5,3 +5,15 @@
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
+
+#carrusel1{
+    height: 650px;
+}
+
+#carrusel2{
+    height: 650px;
+}
+
+#carrusel3{
+    height: 650px;
+}
