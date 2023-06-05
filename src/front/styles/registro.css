@@ -1,0 +1,68 @@
+#input-box-1 {
+    height: 69vh;
+}
+
+#input-box-2 {
+    height: 90vh;
+}
+
+#circle-profile-img {
+    margin-top: 69px;
+    background: rgb(117, 117, 117);
+    border-radius: 50%;
+    width: 375px;
+    height: 375px;
+}
+
+#select-input {
+    width: 22vw;
+}
+
+#input-section-2,#input-section-3 {
+    margin-top: 100px;
+}
+
+#h1-registro {
+    text-align: center;
+}
+
+#img-talent {
+    margin-top: 69px;
+    background: rgb(117, 117, 117);
+    width: 375px;
+    height: 375px;
+}
+
+#input2-box-2,#input2-box-3 {
+    margin-top: 100px;
+}
+
+#add-photos-container {
+    width: 400px;
+    height: 400px;
+}
+
+#section3-box-talent {
+    background: rgb(117, 117, 117);
+    width: 375px;
+    height: 375px;
+}
+
+#input-box-3 {
+    display: flex;
+    justify-content: space-around;
+    height: 70vh;
+    margin-left: 3vw;
+}
+
+#confirmation-button-registro {
+    margin-right: 4vw;
+}
+
+#end-section-modal {
+    height: 17vh;
+}
+
+.progress-bar {
+    width: 50%
+}

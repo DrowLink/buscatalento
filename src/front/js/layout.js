@@ -10,10 +10,12 @@ import { Login } from "./pages/login";
 import { Profile } from "./pages/profile"
 import { Categories } from "./pages/categories";
 import { InicioSesion } from "./pages/inicio_sesion";
+import { Registro } from "./pages/registro";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import { CardPersonal } from "./pages/card_personales";
 
 //create your first component
 const Layout = () => {
@@ -34,7 +36,9 @@ const Layout = () => {
                         <Route element={<Login />} path="/login" />
                         <Route element={<Profile />} path="/profile" />
                         <Route element={<Categories />} path="/categories" />
+                        <Route element={<CardPersonal />} path="/cardpersonal" />
                         <Route element={<InicioSesion />} path="/iniciosesion" />
+                        <Route element={<Registro />} path="/registro" />
                         <Route element={<Single />} path="/single/:theid" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>

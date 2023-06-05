@@ -1,0 +1,43 @@
+#circle-profile-card-img {
+    background: rgb(117, 117, 117);
+    border-radius: 50%;
+    width: 325px;
+    height: 325px;
+}
+
+#review-card {
+    text-align: center;
+}
+
+#photo-profile-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#add-photos-container-card {
+    width: 400px;
+    height: 400px;
+}
+
+#section3-box-talent-card {
+    background: rgb(117, 117, 117);
+    width: 375px;
+    height: 375px;
+}
+
+#section-photos-card {
+    margin-top: 75px;
+}
+
+#buttons-final-card {
+    height: 650px;
+}
+
+#intercambio-button-card {
+    margin-right: 4vw;
+}
+
+#intercambio-button-card, #seguirviendo-button-card {
+    margin-top: 274px;
+}
