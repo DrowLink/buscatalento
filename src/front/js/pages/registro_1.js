@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../../styles/login.css";
+import "../../styles/registro_1.css";
 import PeopleSharing from "../../img/people-sharing.jpg";
 
-export const Login = () => {
+export const Registro1 = () => {
   return (
     <div className="text-center mt-5">
       <h1 id="h1-profile">¡Regístrate con nosotros!</h1>
@@ -53,7 +53,7 @@ export const Login = () => {
                 He leído los términos y condiciones.
               </label>
             </div>
-            <Link to="/registro">
+            <Link to="/registro-2">
               <button type="button" id="btn-create" class="btn btn-primary">
                 CREAR PERFIL
               </button>

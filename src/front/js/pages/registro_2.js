@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import "../../styles/registro.css";
+import "../../styles/registro_2.css";
 import { Context } from "../store/appContext";
 
-export const Registro = () => {
+export const Registro2 = () => {
   const { store, actions } = useContext(Context);
-
   return (
     <>
       <div id="container-registro" className="">
@@ -83,7 +82,7 @@ export const Registro = () => {
           </div>
         </div>
         <div id="input-box-2" className="row">
-          <h1 id="h1-registro">Sobre tu talento</h1>
+          <h1 id="h1-registro-below">Sobre tu talento</h1>
           <div
             id="input2-box-1"
             className="col-4 d-flex justify-content-center"

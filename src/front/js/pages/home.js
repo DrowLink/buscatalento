@@ -354,7 +354,7 @@ export const Home = () => {
             <h1>¿Estas listo/a para registrarte?</h1>
           </div>
           <div className="d-flex justify-content-center mt-5">
-            <Link to="/login">
+            <Link to="/registro-1">
               <span className="btn btn-primary btn-lg" href="#" role="button">
                 Vamos!
               </span>
