@@ -46,7 +46,7 @@ export const InicioSesion = () => {
                 Iniciar Sesion
               </button>
               <p id="below-inputs-iniciosesion">¿Aún no tienes cuenta?</p>
-              <Link to="/login">
+              <Link to="/registro-1">
               <a>¡Regístrate aquí!</a> {/* Linkear */}
               </ Link>
             </div>
