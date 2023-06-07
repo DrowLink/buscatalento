@@ -1,17 +1,19 @@
 #input-box-1 {
-  height: 69vh;
+  height: 76vh;
+  background-color: #ededed;
 }
 
 #input-box-2 {
-  height: 90vh;
+  height: 88vh;
+  padding-top: 33px;
 }
 
 #circle-profile-img {
-  margin-top: 69px;
+  margin-top: 31px;
   background: rgb(117, 117, 117);
   border-radius: 50%;
-  width: 375px;
-  height: 375px;
+  width: 355px;
+  height: 355px;
 }
 
 #select-input {
@@ -20,47 +22,50 @@
 
 #input-section-2,
 #input-section-3 {
-  margin-top: 100px;
+  margin-top: 60px;
 }
 
 #h1-registro {
-  margin-top: 50px;
   text-align: center;
 }
 
 #h1-registro-below {
-  margin-top: 25px;
   text-align: center;
 }
 
 #img-talent {
-  margin-top: 69px;
+  margin-top: 33px;
   background: rgb(117, 117, 117);
+  border-radius: 20%;
   width: 375px;
   height: 375px;
 }
 
 #input2-box-2,
 #input2-box-3 {
-  margin-top: 100px;
+  margin-top: 80px;
 }
 
 #add-photos-container {
+  margin-top: 101px;
+  display: flex;
+  justify-content: center;
   width: 400px;
   height: 400px;
 }
 
 #section3-box-talent {
-  background: rgb(117, 117, 117);
-  width: 375px;
-  height: 375px;
+  background: rgb(245, 245, 245);
+  border: 5px dotted #671f7c;
+  width: 910px;
+  height: 142px;
+  border-radius: 2%;
 }
 
 #input-box-3 {
-  display: flex;
-  justify-content: space-around;
-  height: 70vh;
-  margin-left: 3vw;
+  height: 49vh;
+  margin-bottom: 45px;
+  background-color: #ededed;
 }
 
 #confirmation-button-registro {
@@ -68,9 +73,36 @@
 }
 
 #end-section-modal {
-  height: 17vh;
+  height: 26vh;
 }
 
 .progress-bar {
   width: 50%;
+}
+
+#input-img-box {
+  margin-top: 22px;
+}
+
+#h1-box-registro2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#confirmation-button-registro,
+#denial-button-registro {
+  margin-top: 50px;
+  width: 74px;
+}
+
+#trophy-img-modal-registro2 {
+  margin-top: 31px;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 16px;
+}
+
+#text-modal-registro2 {
+  margin-bottom: 16px;
 }

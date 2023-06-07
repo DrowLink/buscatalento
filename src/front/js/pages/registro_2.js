@@ -2,14 +2,17 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/registro_2.css";
 import { Context } from "../store/appContext";
+import trophy from "../../img/trophy.png";
 
 export const Registro2 = () => {
   const { store, actions } = useContext(Context);
   return (
     <>
       <div id="container-registro" className="">
-        <h1 id="h1-registro">Ayudanos a completar tu perfil</h1>
         <div id="input-box-1" className="row">
+          <div id="h1-box-registro2">
+            <h1 id="h1-registro">Ayúdanos a terminar de completar tu perfil</h1>{" "}
+          </div>
           <div
             id="input-section-1"
             className="col-4 d-flex justify-content-center"
@@ -82,26 +85,34 @@ export const Registro2 = () => {
           </div>
         </div>
         <div id="input-box-2" className="row">
-          <h1 id="h1-registro-below">Sobre tu talento</h1>
+          <div id="h1-box-registro2">
+            <h1 id="h1-registro-below">Sobre tu talento</h1>{" "}
+          </div>
           <div
             id="input2-box-1"
             className="col-4 d-flex justify-content-center"
           >
-            <div id="img-talent"></div>
+            <div
+              id="img-talent"
+              className="d-flex justify-content-center align-items-center "
+            >
+              Previsualizacion IMG INPUT
+            </div>
           </div>
           <div id="input2-box-2" className="col">
-            <p>Cual es tu talento?</p>
+            <p>Selecciona una categoria para tu talento:</p>
             <select
               className="form-select mb-3"
               id="select-input"
               aria-label="Default select example"
             >
-              <option selected>Selecciona un talento</option>
-              <option value="1">Ajedrez</option>
-              <option value="2">Karate</option>
-              <option value="3">Programar</option>
+              <option selected>Selecciona una categoría</option>
+              <option value="1">Juegos de Mesa</option>
+              <option value="2">Lenguajes de Programación</option>
+              <option value="3">Deportes</option>
+              <option value="4">Artes marciales</option>
             </select>
-            <p>Desde hace cuanto lo practicas?</p>
+            <p>¿Desde hace cuanto lo practicas?</p>
             <input
               id="lastname-field"
               type="text"
@@ -110,20 +121,33 @@ export const Registro2 = () => {
               aria-label="Username"
               aria-describedby="basic-addon1"
             />
+            <form>
+              <div class="form-group" id="input-img-box">
+                <p>Sube alguna foto alusiva a tu talento: </p>
+                <label for="exampleFormControlFile1"></label>
+                <input
+                  type="file"
+                  className="form-control-file"
+                  id="exampleFormControlFile1"
+                />
+              </div>
+            </form>
           </div>
           <div id="input2-box-3" className="col">
-            <p>Cual es tu talento?</p>
-            <select
+            <p>Descríbenos tu talento:</p>
+            {/* <select
               className="form-select mb-3"
               id="select-input"
               aria-label="Default select example"
             >
               <option selected>Selecciona un talento</option>
               <option value="1">Ajedrez</option>
-              <option value="2">Karate</option>
-              <option value="3">Programar</option>
-            </select>
-            <p>Desde hace cuanto lo practicas?</p>
+              <option value="2">Monopoly</option>
+              <option value="3">Risk</option>
+              <option value="4">Scrabble</option>
+              <option value="5">Ludo</option>
+            </select> */}
+
             <input
               id="lastname-field"
               type="text"
@@ -132,31 +156,45 @@ export const Registro2 = () => {
               aria-label="Username"
               aria-describedby="basic-addon1"
             />
-            <p>Cuentanos mas sobre ti</p>
+            <p>¿Desde hace cuanto lo practicas?</p>
+            <input
+              id="lastname-field"
+              type="text"
+              className="form-control"
+              placeholder=""
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+            />
+            <p>Cuéntanos mas sobre ti:</p>
             <div className="form-floating">
               <textarea
                 className="form-control"
-                placeholder="Leave a comment here"
+                placeholder="Dejanos un comentari"
                 id="floatingTextarea"
               ></textarea>
-              <label for="floatingTextarea">Comments</label>
+              <label for="floatingTextarea"></label>
             </div>
           </div>
         </div>
-        <div id="input-box-3" className="row d-flex justify-content-around">
+        <div id="input-box-3" className="row">
           <div className="col" id="add-photos-container">
-            <div id="section3-box-talent"></div>
+            <div
+              id="section3-box-talent"
+              className="d-flex justify-content-center align-items-center"
+            >
+              DRAG AN DROP IMG INPUT
+            </div>
+          </div>
+          {/* <div className="col" id="add-photos-container">
+            <div id="section3-box-talent" className="d-flex justify-content-center align-items-center">DRAG AN DROP IMG INPUT</div>
           </div>
           <div className="col" id="add-photos-container">
-            <div id="section3-box-talent"></div>
-          </div>
-          <div className="col" id="add-photos-container">
-            <div id="section3-box-talent"></div>
-          </div>
+            <div id="section3-box-talent"className="d-flex justify-content-center align-items-center">DRAG AN DROP IMG INPUT</div>
+          </div> */}
         </div>
       </div>
       <div id="end-section-modal" className="text-center">
-        <p>Tienes algun otro talento?</p>
+        <h3>¿Tienes algún otro talento?</h3>
         <button
           id="confirmation-button-registro"
           type="button"
@@ -164,9 +202,63 @@ export const Registro2 = () => {
         >
           Si
         </button>
-        <button type="denial-button-registro" className="btn btn-danger">
+
+        <button
+          id="denial-button-registro"
+          type="button"
+          className="btn btn-danger"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
           No
         </button>
+
+        {/* MODAL BOX */}
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              {/* <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  Modal title
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                ></button>
+              </div> */}
+              <div class="modal-body">
+                <img id="trophy-img-modal-registro2" src={trophy} />
+                <div id="text-modal-registro2">
+                  <h1>¡Ya está hecho!</h1>
+                  <h6>Ve y comparte tu talento con toda la comunidad 💖</h6>
+                </div>
+              </div>
+              <div class="justify-content-center mb-5">
+                <Link to="/resultados">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    ¡Llévame al buscador!
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* <div class="progress">
             <div className="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
             </div> agregar luego bien acomodado */}
