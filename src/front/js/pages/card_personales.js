@@ -43,7 +43,9 @@ export const CardPersonal = () => {
 
                 <div id="buttons-final-card" className="text-center">
                     <button id="intercambio-button-card" type="button" className="btn btn-success">Intercambio!</button>
+                    <Link to="/resultados">
                     <button id="seguirviendo-button-card" type="button" className="btn btn-primary">Seguir viendo</button>
+                    </ Link>
                 </div>
 
                 </div>

@@ -11,12 +11,18 @@ export const Navbar = () => {
           <img className="logo-img" src={buscatalento_logo} />
           {/* <span className="navbar-brand mb-0 h1">Buscatalento⭐</span> */}
         </Link>
-          <Link to="/demo">
-            <button className="btn btn-primary">
-              Check the Context in action
-            </button>
-          </Link>
-        </div>
+        <Link to="/iniciosesion">
+          <button className="btn btn-primary">Inicia sesion</button>
+        </Link>
+        <Link to="/registro-1">
+          <button className="btn btn-primary">Registrate</button>
+        </Link>
+        <Link to="/demo">
+          <button className="btn btn-primary">
+            Check the Context in action
+          </button>
+        </Link>
+      </div>
     </nav>
   );
 };

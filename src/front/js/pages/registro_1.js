@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../../styles/registro_1.css";
 import PeopleSharing from "../../img/people-sharing.jpg";
+import ScrollToTop from "../component/scrollToTop.js"
 
 export const Registro1 = () => {
   return (
@@ -14,28 +15,28 @@ export const Registro1 = () => {
             <img id="img-profile" src={PeopleSharing} />
           </div>
           <div className="col-7">
-            <p id="p-profile">Username:</p>
+            <p id="p-profile">Nombre de usuario:</p>
             <input
               type="text"
               className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-sm"
             />
-            <p id="p-profile">Email Address:</p>
+            <p id="p-profile">Correo electrónico:</p>
             <input
               type="text"
               className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-sm"
             />
-            <p id="p-profile">Password:</p>
+            <p id="p-profile">Contraseña:</p>
             <input
               type="password"
               className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-sm"
             />
-            <p id="p-profile">Confirm your password:</p>
+            <p id="p-profile">Confirma tu contraseña:</p>
             <input
               type="password"
               className="form-control"
@@ -54,7 +55,12 @@ export const Registro1 = () => {
               </label>
             </div>
             <Link to="/registro-2">
-              <button type="button" id="btn-create" class="btn btn-primary">
+              <button
+                type="button"
+                id="btn-create"
+                class="btn btn-primary"
+                onClick={<ScrollToTop/>}
+              >
                 CREAR PERFIL
               </button>
             </Link>
