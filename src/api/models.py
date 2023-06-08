@@ -9,6 +9,11 @@ class User(db.Model):
     password = db.Column(db.String(80), unique=False, nullable=False)
     user_name = db.Column(db.String(30), unique=True, nullable=False)
 
+    # def __init__(self, email, password, user_name):
+    #     self.email = email
+    #     self.password = password
+    #     self.user_name = user_name
+
 class Perfil(db.Model):
     __tablename__ = 'perfil'
     id = db.Column(db.Integer, primary_key=True)  
@@ -20,6 +25,21 @@ class Perfil(db.Model):
     state = db.Column(db.String(30), nullable= False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     user = db.relationship('User')
+
+    def __init__(self, name, last_name, phone, age, country, state, user_id):
+        self.name = name
+        self.last_name = last_name
+        self.phone = phone
+        self.age = age
+        self.country = country
+        self.state = state
+        self.user_id = user_id
+
+    def serialize(self):
+        return{
+            "name": self.name,
+            "last_name": self.last_name
+        }
 
 class Talent(db.Model):
     __tablename__='talent'
