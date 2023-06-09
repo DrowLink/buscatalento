@@ -9,10 +9,16 @@ class User(db.Model):
     password = db.Column(db.String(80), unique=False, nullable=False)
     user_name = db.Column(db.String(30), unique=True, nullable=False)
 
-    # def __init__(self, email, password, user_name):
-    #     self.email = email
-    #     self.password = password
-    #     self.user_name = user_name
+    def __init__(self, email, password, user_name):
+        self.email = email
+        self.password = password
+        self.user_name = user_name
+
+    def serialize(self):
+        return {
+            "email": self.email,
+            "user_name": self.user_name
+        }
 
 class Perfil(db.Model):
     __tablename__ = 'perfil'
@@ -26,20 +32,20 @@ class Perfil(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     user = db.relationship('User')
 
-    def __init__(self, name, last_name, phone, age, country, state, user_id):
-        self.name = name
-        self.last_name = last_name
-        self.phone = phone
-        self.age = age
-        self.country = country
-        self.state = state
-        self.user_id = user_id
+    # def __init__(self, name, last_name, phone, age, country, state, user_id):
+    #     self.name = name
+    #     self.last_name = last_name
+    #     self.phone = phone
+    #     self.age = age
+    #     self.country = country
+    #     self.state = state
+    #     self.state = user_id
 
-    def serialize(self):
-        return{
-            "name": self.name,
-            "last_name": self.last_name
-        }
+    # def serialize(self):
+    #     return{
+    #         "name": self.name,
+    #         "last_name": self.last_name
+    #     }
 
 class Talent(db.Model):
     __tablename__='talent'
@@ -66,12 +72,12 @@ class Talent_request(db.Model):
     perfil_id = db.Column(db.Integer, db.ForeignKey('perfil.id'), nullable=False)
     perfil = db.relationship('Perfil')
 
-    def __repr__(self):
-        return f'<User {self.email}>'
+    # def __repr__(self):
+    #     return f'<User {self.email}>'
 
-    def serialize(self):
-        return {
-            "id": self.id,
-            "email": self.email,
-            # do not serialize the password, its a security breach
-        }
+    # def serialize(self):
+    #     return {
+    #         "id": self.id,
+    #         "email": self.email,
+    #         # do not serialize the password, its a security breach
+    #     }

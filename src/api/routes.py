@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User
+from api.models import db, User, Perfil
 from api.utils import generate_sitemap, APIException
 
 api = Blueprint('api', __name__)
@@ -17,8 +17,27 @@ def handle_hello():
 
     return jsonify(response_body), 200
 
-@api.route('/perfil', methods=['POST', 'GET'])
-def new_perfil():
+@api.route('/user', methods=['POST', 'GET'])
+def new_user():
+    body = request.json
+    nuevo_usuario = User(body['email'], body['password'], body['user_name'])
+    print(nuevo_usuario)
 
-    print(request.json)
-    return jsonify({ "probando, si se ejecuto": "si se ejecutoo!"}), 200
+    db.session.add(nuevo_usuario)
+    db.session.commit()
+
+    return jsonify(nuevo_usuario.serialize()), 200
+
+# @api.route('/perfil', methods=['POST', 'GET'])
+# def new_perfil():
+#     body= request.json        # lo que viene del request como un diccionario de python
+#     nuevo_perfil= Perfil(body['name'], ['last_name'], ['phone'], ['age'], ['country'], ['state'], ['user_id'])
+
+#     print(nuevo_perfil) #Convertido a objeto de python
+
+#     db.session.add(nuevo_perfil) #Memoria ram de sql
+#     db.session.commit() #inserta en la base de datos de postgre
+
+#     return jsonify(new_perfil.serialize()), 200 
+
+    # return jsonify({ "probando, si se ejecuto": "si se ejecutoo!"}), 200
