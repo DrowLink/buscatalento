@@ -28,16 +28,16 @@ def new_user():
 
     return jsonify(nuevo_usuario.serialize()), 200
 
-# @api.route('/perfil', methods=['POST', 'GET'])
-# def new_perfil():
-#     body= request.json        # lo que viene del request como un diccionario de python
-#     nuevo_perfil= Perfil(body['name'], ['last_name'], ['phone'], ['age'], ['country'], ['state'], ['user_id'])
+@api.route('/perfil', methods=['POST', 'GET'])
+def new_perfil():
+    body= request.json        # lo que viene del request como un diccionario de python
+    nuevo_perfil= Perfil( body['name'], body['last_name'], body['phone'], body['age'], body['country'], body['state'], body['user_id': 1])
 
-#     print(nuevo_perfil) #Convertido a objeto de python
+    print(nuevo_perfil) #Convertido a objeto de python
 
-#     db.session.add(nuevo_perfil) #Memoria ram de sql
-#     db.session.commit() #inserta en la base de datos de postgre
+    db.session.add(nuevo_perfil) #Memoria ram de sql
+    db.session.commit() #inserta en la base de datos de postgre
 
-#     return jsonify(new_perfil.serialize()), 200 
+    return jsonify(nuevo_perfil.serialize()), 200 
 
-    # return jsonify({ "probando, si se ejecuto": "si se ejecutoo!"}), 200
+    # return jsonify({ "probando, si se ejecuto": "si se ejecutoo!"}), 200    

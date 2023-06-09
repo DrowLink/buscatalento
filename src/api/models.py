@@ -30,22 +30,22 @@ class Perfil(db.Model):
     country = db.Column(db.String(30), nullable= False)
     state = db.Column(db.String(30), nullable= False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    user = db.relationship('User')
+    user = db.relationship('User',  backref='perfil')
 
-    # def __init__(self, name, last_name, phone, age, country, state, user_id):
-    #     self.name = name
-    #     self.last_name = last_name
-    #     self.phone = phone
-    #     self.age = age
-    #     self.country = country
-    #     self.state = state
-    #     self.state = user_id
+    def __init__(self, name, last_name, phone, age, country, state, user_id):
+        self.name = name
+        self.last_name = last_name
+        self.phone = phone
+        self.age = age
+        self.country = country
+        self.state = state
+        self.user_id = user_id
 
-    # def serialize(self):
-    #     return{
-    #         "name": self.name,
-    #         "last_name": self.last_name
-    #     }
+    def serialize(self):
+        return{
+            "name": self.name,
+            "last_name": self.last_name
+        }
 
 class Talent(db.Model):
     __tablename__='talent'
