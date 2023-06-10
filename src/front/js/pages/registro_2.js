@@ -62,7 +62,7 @@ export const Registro2 = () => {
             <div id="circle-profile-img">
             {previews2 &&
               previews2.map((pic) => {
-                return <img id="preview-img-registro2" src={pic} />;
+                return <img id="preview-img-registro2-perfil" src={pic} />;
               })}
             </div>
             {/* <h2>Profile Picture</h2> */}

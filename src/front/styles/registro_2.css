@@ -134,3 +134,10 @@
   height: 100%;
 
 }
+
+#preview-img-registro2-perfil {
+  border-radius: 50%;
+  width: 355px;
+  height: 355px;
+
+}
