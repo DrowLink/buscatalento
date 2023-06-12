@@ -31,7 +31,7 @@ def new_user():
 @api.route('/perfil', methods=['POST', 'GET'])
 def new_perfil():
     body= request.json        # lo que viene del request como un diccionario de python
-    nuevo_perfil= Perfil( body['name'], body['last_name'], body['phone'], body['age'], body['country'], body['state'], body['user_id': 1])
+    nuevo_perfil= Perfil( body['name'], body['last_name'], body['phone'], body['age'], body['country'], body['state'], 1)
 
     print(nuevo_perfil) #Convertido a objeto de python
 
