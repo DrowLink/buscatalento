@@ -28,16 +28,18 @@ def new_user():
 
     return jsonify(nuevo_usuario.serialize()), 200
 
-@api.route('/perfil', methods=['POST', 'GET'])
+@api.route('/perfil', methods=['POST'])
 def new_perfil():
-    body= request.json        # lo que viene del request como un diccionario de python
-    nuevo_perfil= Perfil( body['name'], body['last_name'], body['phone'], body['age'], body['country'], body['state'], 1)
+    body = request.json        # lo que viene del request como un diccionario de python
+    user = User.query.get(body['user_id'])
 
-    print(nuevo_perfil) #Convertido a objeto de python
+    if user != None: 
+        nuevo_perfil= Perfil( body['name'], body['last_name'], body['phone'], body['age'], body['country'], body['state'], user)
+        print(nuevo_perfil) #Convertido a objeto de python
+        db.session.add(nuevo_perfil) #Memoria ram de sql
+        db.session.commit() #inserta en la base de datos de postgre
 
-    db.session.add(nuevo_perfil) #Memoria ram de sql
-    db.session.commit() #inserta en la base de datos de postgre
-
-    return jsonify(nuevo_perfil.serialize()), 200 
+        return jsonify(nuevo_perfil.serialize()), 200 
+    return "no existe ese perfil"
 
     # return jsonify({ "probando, si se ejecuto": "si se ejecutoo!"}), 200    

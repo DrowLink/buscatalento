@@ -32,19 +32,20 @@ class Perfil(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     user = db.relationship('User',  backref='perfil')
 
-    def __init__(self, name, last_name, phone, age, country, state, user_id):
+    def __init__(self, name, last_name, phone, age, country, state, user):
         self.name = name
         self.last_name = last_name
         self.phone = phone
         self.age = age
         self.country = country
         self.state = state
-        self.user_id = user_id
+        self.user = user
 
     def serialize(self):
         return{
             "name": self.name,
-            "last_name": self.last_name
+            "last_name": self.last_name,
+            "user_id": self.user_id
         }
 
 class Talent(db.Model):
