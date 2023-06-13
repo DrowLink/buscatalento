@@ -57,7 +57,7 @@ class Talent(db.Model):
     categories_talent = db.Column(db.String(100), nullable=False)
     range_talent = db.Column(db.String(100), nullable=False)
     perfil_id = db.Column(db.Integer, db.ForeignKey('perfil.id'), nullable=False)
-    perfil = db.relationship('Perfil')
+    perfil = db.relationship('Perfil', backref='talent')
 
     def __init__(self, talent_name, practice_time, about_you, categories_talent, range_talent, perfil):
         self.talent_name = talent_name
@@ -104,7 +104,8 @@ class Talent_request(db.Model):
         self.perfil = perfil
 
     def serialize(self):
-        return {"request": self.request,
+        return{
+        "request": self.request,
         "perfil_id": self.perfil_id
         }
 

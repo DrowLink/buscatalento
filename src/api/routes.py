@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Perfil
+from api.models import db, User, Perfil, Talent, Categories, Talent_request
 from api.utils import generate_sitemap, APIException
 
 api = Blueprint('api', __name__)
@@ -34,12 +34,28 @@ def new_perfil():
     user = User.query.get(body['user_id'])
 
     if user != None: 
-        nuevo_perfil= Perfil( body['name'], body['last_name'], body['phone'], body['age'], body['country'], body['state'], user)
+        nuevo_perfil = Perfil( body['name'], body['last_name'], body['phone'], body['age'], body['country'], body['state'], user)
         print(nuevo_perfil) #Convertido a objeto de python
         db.session.add(nuevo_perfil) #Memoria ram de sql
         db.session.commit() #inserta en la base de datos de postgre
 
         return jsonify(nuevo_perfil.serialize()), 200 
     return "no existe ese perfil"
+
+
+
+@api.route('/talent', methods=['POST'])
+def new_talent():
+    body = request.json
+    perfil = Perfil.query.get(body['perfil_id'])
+
+    if perfil != None: #En este caso, deberia crearse un boolean para manejar los proximos talentos a crearse
+        nuevo_talent = Talent( body['talent_name'], body['practice_time'], body['about_you'], body['categories_talent'], body['range_talent'], perfil)
+        print(nuevo_talent)
+        db.session.add(nuevo_talent)
+        db.session.commit()
+
+        return jsonify(nuevo_talent.serialize()), 200
+    return "no existe ese talento"
 
     # return jsonify({ "probando, si se ejecuto": "si se ejecutoo!"}), 200    
