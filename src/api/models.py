@@ -59,6 +59,21 @@ class Talent(db.Model):
     perfil_id = db.Column(db.Integer, db.ForeignKey('perfil.id'), nullable=False)
     perfil = db.relationship('Perfil')
 
+    def __init__(self, talent_name, practice_time, about_you, categories_talent, range_talent, perfil):
+        self.talent_name = talent_name
+        self.practice_time = practice_time
+        self.about_you = about_you
+        self.categories_talent = categories_talent
+        self.range_talent = range_talent
+        self.perfil = perfil
+
+    def serialize(self):
+        return{
+            "talent_name" : self.talent_name,
+            "about_you": self.about_you,
+            "perfil_id": self.perfil_id
+        }
+
 class Categories(db.Model):
     __tablename__='categories'
     id = db.Column(db.Integer, primary_key=True)
@@ -66,12 +81,38 @@ class Categories(db.Model):
     talent_id = db.Column(db.Integer, db.ForeignKey('talent.id'), nullable=False)
     talent = db.relationship('Talent')
 
+    def __init__(self, categorie_name, talent):
+        self.categorie_name = categorie_name
+        self.talent = talent
+
+    def serialize(self):
+        return{
+            "categorie_name": self.categorie_name,
+            "talent_id": self.talent_id
+        }
+
+
 class Talent_request(db.Model):
     __tablename__='talent_request'
     id = db.Column(db.Integer, primary_key=True)
     request = db.Column(db.Boolean, default=True)
     perfil_id = db.Column(db.Integer, db.ForeignKey('perfil.id'), nullable=False)
     perfil = db.relationship('Perfil')
+
+    def __init__(self, request, perfil):
+        self.request = request
+        self.perfil = perfil
+
+    def serialize(self):
+        return {"request": self.request,
+        "perfil_id": self.perfil_id
+        }
+
+
+
+
+
+
 
     # def __repr__(self):
     #     return f'<User {self.email}>'
