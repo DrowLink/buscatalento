@@ -8,6 +8,25 @@ import { Context } from "../store/appContext";
 
 export const InicioSesion = () => {
   const { store, actions } = useContext(Context);
+  const[username, setUsername]= useState("")
+  const[password, setPassword]= useState("")
+  const[shown, setShown] = useState(false)
+
+
+  const handlerUsername = (event) =>{
+    setUsername(event.target.value);
+  }
+
+  const handlerPassword = (event) =>{
+    setPassword(event.target.value)
+  }
+
+  const handlerKeyPress = (event) =>{
+    event.preventDefault()
+    console.log(`username: ${username}, password: ${password}`)
+  }
+
+  const switchShown = () => setShown(!shown);
 
   return (
     <>
@@ -28,24 +47,38 @@ export const InicioSesion = () => {
                 placeholder="Correo electronico"
                 aria-label="Username"
                 aria-describedby="basic-addon1"
+                value={username}
+                onChange={handlerUsername}
               />
               <p>Clave</p>
+              <div id="is-relative">
               <input
                 id="password-field-iniciosesion"
-                type="password"
+                type={shown ? 'text': 'password'}
                 className="form-control"
                 placeholder="*********"
                 aria-label="Username"
                 aria-describedby="basic-addon1"
+                value={password}
+                onChange={handlerPassword}
               />
+              <span id="icon">
+                <i className="fas fa-eye"
+                    onClick={switchShown}></i>
+              </span>
+              </div>
               <button
                 id="iniciosesion-button"
                 type="button"
                 className="btn btn-primary"
+                onClick={handlerKeyPress}
               >
                 Iniciar Sesion
               </button>
-              <p id="below-inputs-iniciosesion">¿Aún no tienes cuenta?</p>
+              <p 
+              id="below-inputs-iniciosesion"
+              >
+                ¿Aún no tienes cuenta?</p>
               <Link to="/registro-1">
               <a>¡Regístrate aquí!</a> {/* Linkear */}
               </ Link>

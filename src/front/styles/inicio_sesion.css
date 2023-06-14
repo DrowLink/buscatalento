@@ -36,3 +36,18 @@
   align-items: end;
   display: flex;
 }
+
+#is-relative{
+  max-width: 420px;
+  position: relative;
+}
+
+#icon{
+  position: absolute;
+  display: block;
+  bottom: 1.5rem;
+  right: 0.8rem;
+  
+  user-select: none;
+  cursor: pointer;
+}
