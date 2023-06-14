@@ -31,6 +31,9 @@ class Perfil(db.Model):
     state = db.Column(db.String(30), nullable= False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     user = db.relationship('User',  backref='perfil')
+    talent_request_solicitante= db.relationship('Talent_request', back_populates='perfil_solicitante')
+    talent_request_receptor= db.relationship('Talent_request', back_populates='perfil_receptor')
+
 
     def __init__(self, name, last_name, phone, age, country, state, user):
         self.name = name
@@ -78,36 +81,36 @@ class Categories(db.Model):
     __tablename__='categories'
     id = db.Column(db.Integer, primary_key=True)
     categorie_name = db.Column(db.String(100), nullable= False)
-    talent_id = db.Column(db.Integer, db.ForeignKey('talent.id'), nullable=False)
-    talent = db.relationship('Talent')
 
     def __init__(self, categorie_name, talent):
         self.categorie_name = categorie_name
-        self.talent = talent
 
     def serialize(self):
         return{
-            "categorie_name": self.categorie_name,
-            "talent_id": self.talent_id
+            "categorie_name": self.categorie_name
         }
 
 
-class Talent_request(db.Model):
-    __tablename__='talent_request'
-    id = db.Column(db.Integer, primary_key=True)
-    request = db.Column(db.Boolean, default=True)
-    perfil_id = db.Column(db.Integer, db.ForeignKey('perfil.id'), nullable=False)
-    perfil = db.relationship('Perfil')
+# class Talent_request(db.Model):
+#     __tablename__='talent_request'
+#     id = db.Column(db.Integer, primary_key=True)
+#     request = db.Column(db.Boolean, default=True)
+#     perfil_solicitante_id = db.Column(db.Integer, db.ForeignKey('perfil.id'), nullable=False)
+#     perfil_solicitante = db.relationship('Perfil', back_populates='talent_request_solicitante')
+#     perfil_receptor_id = db.Column(db.Integer, db.ForeignKey('perfil.id'), nullable=False)
+#     perfil_receptor = db.relationship('Perfil', back_populates='talent_request_receptor')
 
-    def __init__(self, request, perfil):
-        self.request = request
-        self.perfil = perfil
+#     def __init__(self, request, perfil_solicitante, perfil_receptor):
+#         self.request = request
+#         self.perfil_solicitante = perfil_solicitante
+#         self.perfil_receptor = perfil_receptor
 
-    def serialize(self):
-        return{
-        "request": self.request,
-        "perfil_id": self.perfil_id
-        }
+#     def serialize(self):
+#         return{
+#         "request": self.request,
+#         "perfil_solicitante_id": self.perfil_solicitante_id,
+#         "perfil_receptor_id": self.perfil_receptor_id
+#         }
 
 
 
