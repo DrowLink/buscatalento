@@ -5,6 +5,10 @@
   height: 325px;
 }
 
+#description-profile-box {
+  margin-top: 4rem;
+}
+
 #review-card {
   text-align: center;
 }

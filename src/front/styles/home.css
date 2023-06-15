@@ -1,6 +1,11 @@
 /*
     home.css: This website contains selectors only used in home.css
 
+    height: 39vh;
+
+
+
+
     All pages share the styles on index.css but you should create 
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
@@ -34,4 +39,23 @@
 #knowthat{
     height: 80vh;
     width: 90vh;
+}
+
+#texto-carrusel-home {
+color: #B63CDB;
+font-weight: 1000;
+text-shadow: 0 0 3px #000000, 0 0 5px #000000;
+}
+
+#descripcion-carrusel-home {
+    color: #00EFD0;
+    font-weight: 600;
+    text-shadow: 0 0 3px #000000, 0 0 5px #000000;
+}
+
+#descripcion-carrusel-home-slice2 {
+    color: #00ffde;
+    font-weight: 600;
+    text-shadow: 0 0 3px #000000, 0 0 5px #000000;
+    height: 39vh;
 }
