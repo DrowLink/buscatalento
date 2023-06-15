@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Perfil, Talent, Categories, Talent_request
+from api.models import db, User, Perfil, Talent, Categories
 from api.utils import generate_sitemap, APIException
 
 api = Blueprint('api', __name__)
@@ -59,3 +59,13 @@ def new_talent():
     return "no existe ese talento"
 
     # return jsonify({ "probando, si se ejecuto": "si se ejecutoo!"}), 200    
+
+@api.route('/categories', methods=['POST'])
+def new_categories():
+    body = request.json
+    nueva_categoria = Categories(body['categorie_name'])
+    print(nueva_categoria)
+    db.session.add(nueva_categoria)
+    db.session.commit()
+
+    return jsonify(nueva_categoria.serialize()), 200
