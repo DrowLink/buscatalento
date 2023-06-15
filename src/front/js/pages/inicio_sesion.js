@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import iniciosesion from "../../img/inicio-sesion-bg.jpg";
-import buscatalento_logo from "../../img/buscatalento_logo.png";
+import buscatalento_logo_original from "../../img/buscatalento_logo_original.png";
 import "../../styles/inicio_sesion.css";
 
 import { Context } from "../store/appContext";
@@ -36,7 +36,7 @@ export const InicioSesion = () => {
           <div className="col"></div>
           <div className="col-5" id="loginbox">
             <div id="logobox-logologin">
-              <img id="logo-login" src={buscatalento_logo} />
+              <img id="logo-login" src={buscatalento_logo_original} />
             </div>
             <div className="" id="input-login-iniciosesion">
               <p>Correo</p>
@@ -80,7 +80,7 @@ export const InicioSesion = () => {
               >
                 ¿Aún no tienes cuenta?</p>
               <Link to="/registro-1">
-              <a>¡Regístrate aquí!</a> {/* Linkear */}
+              <a>¡Regístrate aquí!</a>
               </ Link>
             </div>
           </div>

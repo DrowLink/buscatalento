@@ -5,20 +5,20 @@ import "../../styles/navbar.css";
 
 export const Navbar = () => {
   return (
-    <nav className="navbar navbar-light bg-light">
+    <nav id="navbar-bg-home" className="navbar navbar">
       <div className="container">
         <Link to="/">
           <img className="logo-img" src={buscatalento_logo} />
           {/* <span className="navbar-brand mb-0 h1">Buscatalento⭐</span> */}
         </Link>
         <Link to="/iniciosesion">
-          <button className="btn btn-primary">Inicia sesion</button>
+          <button className="btn btn-light" id="buttons-navbar-home">Inicia sesion</button>
         </Link>
         <Link to="/registro-1">
-          <button className="btn btn-primary">Registrate</button>
+          <button className="btn btn-light" id="buttons-navbar-home">Registrate</button>
         </Link>
         <Link to="/demo">
-          <button className="btn btn-primary">
+          <button className="btn btn-light" id="buttons-navbar-home">
             Check the Context in action
           </button>
         </Link>

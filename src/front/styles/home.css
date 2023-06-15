@@ -3,13 +3,20 @@
 
     height: 39vh;
 
-
-
-
     All pages share the styles on index.css but you should create 
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
+
+#buttons-navbar-home {
+    border-radius: 50px;
+}
+
+#navbar-bg-home {
+background-color: #8924a3;
+padding-top: 0.35rem;
+padding-bottom: 0.35rem;
+}
 
 #carrusel1{
     height: 650px;
