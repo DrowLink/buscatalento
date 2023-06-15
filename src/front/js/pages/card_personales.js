@@ -20,7 +20,7 @@ export const CardPersonal = () => {
                         <i class="fa-solid fa-star"></i>
                         </div>
                     </div>
-                    <div id="description-profile-box" className="col mt-5">
+                    <div id="description-profile-box" className="col">
                         <h3>Manuel Rosas</h3>
                         <p>24 años</p>
                         <p>Caracas, Venezuela</p>

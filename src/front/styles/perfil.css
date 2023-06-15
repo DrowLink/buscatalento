@@ -1,9 +1,19 @@
+/* body {
+    background-color: rgb(242, 242, 242);
+} */
+
+
 #circle-profile-card-img-perfil {
     background: rgb(117, 117, 117);
     border-radius: 50%;
     width: 325px;
     height: 325px;
   }
+
+#description-profile-box-perfil {
+    margin-top: 4rem;
+    margin-left: 13rem;
+}
   
   #review-card-perfil {
     text-align: center;
