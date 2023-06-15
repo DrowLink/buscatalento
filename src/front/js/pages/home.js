@@ -50,14 +50,14 @@ export const Home = () => {
               alt="..."
             />
             <div className="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
-              <p>
-                Some representative placeholder content for the first slide.
-              </p>
+              <h1 id="texto-carrusel-home">¡Comparte tu talento!</h1>
+              <h5 id="descripcion-carrusel-home">
+              ¿Tienes un talento especial que te encantaría compartir con el mundo? ¡No busques más!
+              </h5>
               <Link to="/categories">
                 <button
                   type="button"
-                  className="btn btn-outline-info d-flex justify-content-start"
+                  className="btn btn-primary d-flex justify-content-start"
                 >
                   Ver mas
                 </button>
@@ -72,14 +72,14 @@ export const Home = () => {
               alt="..."
             />
             <div className="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-              <p>
-                Some representative placeholder content for the second slide.
-              </p>
+              {/* <h2 id="texto-carrusel-home">Second slide label</h2> */}
+              <h2 id="descripcion-carrusel-home-slice2">
+              Nuestra aplicación no solo es un lugar para compartir tu talento, ¡sino también para aprender de otros!
+              </h2>
               <Link to="/categories">
                 <button
                   type="button"
-                  className="btn btn-outline-info d-flex justify-content-start"
+                  className="btn btn-primary d-flex justify-content-start"
                 >
                   Ver mas
                 </button>
@@ -94,14 +94,14 @@ export const Home = () => {
               alt="..."
             />
             <div className="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
-              <p>
-                Some representative placeholder content for the third slide.
-              </p>
+              <h2 id="texto-carrusel-home">¿Qué esperas para comenzar?</h2>
+              <h5 id="descripcion-carrusel-home">
+                ¡Regístrate con nosotros!
+              </h5>
               <Link to="/categories">
                 <button
                   type="button"
-                  className="btn btn-outline-info d-flex justify-content-start"
+                  className="btn btn-primary d-flex justify-content-start"
                 >
                   Ver mas
                 </button>
