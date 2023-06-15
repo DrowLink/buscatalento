@@ -1,10 +1,54 @@
-import React from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/registro_1.css";
 import PeopleSharing from "../../img/people-sharing.jpg";
-import ScrollToTop from "../component/scrollToTop.js"
+import ScrollToTop from "../component/scrollToTop.js";
+import { Context } from "../store/appContext";
 
 export const Registro1 = () => {
+  const { store, actions } = useContext(Context); //Destructuracion
+  console.log(store)
+
+  //useEffect 
+  useEffect ( () => {
+    actions.loadUsers();
+  }, [])
+
+ //useStates de los INPUTS
+  const[username, setUsername] = useState("")
+  const[email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [confirmPassword, setConfirmPassword] = useState("")
+  const [passwordMatch, setPasswordMatch] = useState(true)
+
+  const handlerUsername = (event) => {
+    setUsername(event.target.value);
+  }
+
+  const handlerEmail = (event) => {
+    setEmail(event.target.value)
+  }
+
+  const handlerPassword = (event) => {
+    setPassword(event.target.value)
+  }
+
+  const handlerConfirmPassword = (event) => {
+    setConfirmPassword(event.target.value)
+  }
+
+  const handlerKeyPress = (event) => { //ACA HACE LA LOGICA DE QUE LAS CONTRASEÑAS SEAN IGUALES
+    event.preventDefault()
+    console.log(`username: ${username}, password: ${password}, email: ${email}, confirmPassword: ${confirmPassword}`)
+    if (password === confirmPassword) {
+        console.log("Contraseña válida")
+    }
+    else {
+        setPasswordMatch(false)
+        console.log("Contraseña inválida")
+    }
+  }
+
   return (
     <div className="text-center mt-5">
       <h1 id="h1-profile">¡Regístrate con nosotros!</h1>
@@ -18,6 +62,8 @@ export const Registro1 = () => {
             <p id="p-profile">Nombre de usuario:</p>
             <input
               type="text"
+              value={username}
+              onChange={handlerUsername}
               className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-sm"
@@ -25,6 +71,8 @@ export const Registro1 = () => {
             <p id="p-profile">Correo electrónico:</p>
             <input
               type="text"
+              value={email}
+              onChange={handlerEmail}
               className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-sm"
@@ -32,12 +80,16 @@ export const Registro1 = () => {
             <p id="p-profile">Contraseña:</p>
             <input
               type="password"
+              value={password}
+              onChange={handlerPassword}
               className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-sm"
             />
             <p id="p-profile">Confirma tu contraseña:</p>
             <input
+              value={confirmPassword}
+              onChange={handlerConfirmPassword}
               type="password"
               className="form-control"
               aria-label="Sizing example input"
@@ -59,7 +111,7 @@ export const Registro1 = () => {
                 type="button"
                 id="btn-create"
                 class="btn btn-primary"
-                onClick={<ScrollToTop/>}
+                onClick={handlerKeyPress} //<ScrollToTop/>
               >
                 CREAR PERFIL
               </button>
