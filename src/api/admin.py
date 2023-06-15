@@ -17,9 +17,5 @@ def setup_admin(app):
     # admin.add_view(ModelView(YourModelName, db.session))
     admin.add_view(ModelView(Perfil, db.session))
     admin.add_view(ModelView(Talent, db.session))
-<<<<<<< HEAD
-    admin.add_view(ModelView(Categories, db.session))
-=======
     admin.add_view(ModelView(Categories, db.session))
     # admin.add_view(ModelView(Talent_request, db.session))
->>>>>>> refs/remotes/origin/main
