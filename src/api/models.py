@@ -91,26 +91,28 @@ class Categories(db.Model):
         }
 
 
-# class Talent_request(db.Model):
-#     __tablename__='talent_request'
-#     id = db.Column(db.Integer, primary_key=True)
-#     request = db.Column(db.Boolean, default=True)
-#     perfil_solicitante_id = db.Column(db.Integer, db.ForeignKey('perfil.id'), nullable=False)
-#     perfil_solicitante = db.relationship('Perfil', back_populates='talent_request_solicitante')
-#     perfil_receptor_id = db.Column(db.Integer, db.ForeignKey('perfil.id'), nullable=False)
-#     perfil_receptor = db.relationship('Perfil', back_populates='talent_request_receptor')
+class Talent_request(db.Model):
+    __tablename__='talent_request'
+    id = db.Column(db.Integer, primary_key=True)
+    request = db.Column(db.Boolean, default=True)
 
-#     def __init__(self, request, perfil_solicitante, perfil_receptor):
-#         self.request = request
-#         self.perfil_solicitante = perfil_solicitante
-#         self.perfil_receptor = perfil_receptor
+    perfil_solicitante_id = db.Column(db.Integer, db.ForeignKey('perfil.id'), nullable=False)
+    perfil_solicitante = db.relationship('Perfil', foreign_keys=[perfil_solicitante_id])
 
-#     def serialize(self):
-#         return{
-#         "request": self.request,
-#         "perfil_solicitante_id": self.perfil_solicitante_id,
-#         "perfil_receptor_id": self.perfil_receptor_id
-#         }
+    perfil_receptor_id = db.Column(db.Integer, db.ForeignKey('perfil.id'), nullable=False)
+    perfil_receptor = db.relationship('Perfil', foreign_keys=[perfil_receptor_id])
+
+    def __init__(self, request, perfil_solicitante, perfil_receptor):
+        self.request = request
+        self.perfil_solicitante = perfil_solicitante
+        self.perfil_receptor = perfil_receptor
+
+    def serialize(self):
+        return{
+        "request": self.request,
+        "perfil_solicitante_id": self.perfil_solicitante_id,
+        "perfil_receptor_id": self.perfil_receptor_id
+         }
 
 
 

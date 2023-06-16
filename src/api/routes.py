@@ -19,14 +19,35 @@ def handle_hello():
 
 @api.route('/user', methods=['POST', 'GET'])
 def new_user():
-    body = request.json
-    nuevo_usuario = User(body['email'], body['password'], body['user_name'])
-    print(nuevo_usuario)
+    if request.method== 'GET':
+        response_body= {
+            "message": "Hola, este es el metodo GET"
+        }
+        return jsonify(response_body), 200
+    else:
+        body = request.json
 
-    db.session.add(nuevo_usuario)
-    db.session.commit()
+        if 'email' not in body:
+            return 'Debe ingresar un correo electronico', 400
+        if 'password' not in body:
+            return 'Debe ingresar una contraseña', 400
+        if 'user_name' not in body:
+            return 'Debe ingresar un nombre de usuario', 400
+        
+        nuevo_usuario = User(body['email'], body['password'], body['user_name'])
+        print(nuevo_usuario)
 
-    return jsonify(nuevo_usuario.serialize()), 200
+    try:
+        db.session.add(nuevo_usuario)
+        db.session.commit()
+        return "Se ha creado el usuario con exito! ✅"
+    except Exception as err:
+        return "Ha ocurrido un error! 💥", 500
+    
+    else: 
+        return "Ya existe un usuario con ese email!", 400
+    
+    return "Method not implemented yet!",500
 
 @api.route('/perfil', methods=['POST'])
 def new_perfil():
