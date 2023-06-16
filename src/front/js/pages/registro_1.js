@@ -7,12 +7,11 @@ import { Context } from "../store/appContext";
 
 export const Registro1 = () => {
   const { store, actions } = useContext(Context); //Destructuracion
-  console.log(store)
 
   //useEffect 
-  useEffect ( () => {
-    actions.loadUsers();
-  }, [])
+  // useEffect ( () => {
+  //   actions.loadUsers();
+  // }, [])
 
  //useStates de los INPUTS
   const[username, setUsername] = useState("")
@@ -42,6 +41,11 @@ export const Registro1 = () => {
     event.preventDefault()
     console.log(`username: ${username}, password: ${password}, email: ${email}, confirmPassword: ${confirmPassword}`)
     if (password === confirmPassword) {
+      actions.newUser({
+        "user_name": "",
+        "email": "",
+        "password": ""
+      })
         console.log("Contraseña válida")
     }
     else {

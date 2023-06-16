@@ -5,11 +5,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 
 		actions: {
-			loadUsers: async () => {//FUNCION CREADA
+			newUsers: async (user) => {//FUNCION CREADA
 				try {
 					const resp = await fetch(process.env.BACKEND_URL + "/api/user", {
 						method: "POST", //REVISAR ESTO SI VA ASI
-						body: JSON.stringify(),
+						body: JSON.stringify(user),
 						headers: {
 							'Content-Type': 'application/json'
 						}
