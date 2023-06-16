@@ -5,24 +5,61 @@ import "../../styles/navbar.css";
 
 export const Navbar = () => {
   return (
+    <div>
     <nav id="navbar-bg-home" className="navbar navbar">
-      <div className="container">
         <Link to="/">
-          <img className="logo-img" src={buscatalento_logo} />
+          <img className="logo-img ms-1 p-2" src={buscatalento_logo} />
           {/* <span className="navbar-brand mb-0 h1">Buscatalento⭐</span> */}
         </Link>
+        <div className="">
+          <span className="fs-4 text-white">
+            Home
+          </span>
+        </div>
+        <div className="">
+          <span className="fs-4 text-white">
+            Categories
+          </span>
+        </div>
+        <div className="">
+          <span className="fs-4 text-white">
+            About us
+          </span>
+        </div>
+        <div className="d-flex justify-content-center">
+          <span className="fs-4 text-white">
+            <div className="d-flex justify-content-start">
+            <i className="fa-brands fa-instagram"></i>
+            </div>
+          </span>
+        </div>
+        <div className="d-flex justify-content-center">
+          <span className="fs-4 text-white">
+            <div className="d-flex justify-content-end">
+            <i className="fa-brands fa-twitter"></i>
+            </div>
+          </span>
+        </div>
+        <div className="d-flex justify-content-center">
+          <span className="fs-4 text-white">
+            <div className="d-flex justify-content-end">
+            <i className="fa-brands fa-github"></i>
+            </div>
+          </span>
+        </div>
+        <div className="d-flex justify-content-end">
+        <div className="m-3 p-1">
         <Link to="/iniciosesion">
-          <button className="btn btn-light" id="buttons-navbar-home">Inicia sesion</button>
+          <button className="btn btn-outline-light" id="buttons-navbar-home">Inicia sesion</button>
         </Link>
+        </div>
+        <div className="m-3 p-1">
         <Link to="/registro-1">
           <button className="btn btn-light" id="buttons-navbar-home">Registrate</button>
         </Link>
-        <Link to="/demo">
-          <button className="btn btn-light" id="buttons-navbar-home">
-            Check the Context in action
-          </button>
-        </Link>
-      </div>
+        </div>
+        </div>
     </nav>
+    </div>
   );
 };

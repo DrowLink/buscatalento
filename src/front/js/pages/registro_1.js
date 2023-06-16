@@ -90,7 +90,7 @@ export const Registro1 = () => {
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-sm"
             />
-            <span id="icon">
+            <span id="iconregistro">
               <i className="fas fa-eye"
                 onClick={switchShown}>
               </i>
