@@ -20,6 +20,7 @@ export const Registro1 = () => {
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
   const [passwordMatch, setPasswordMatch] = useState(true)
+  const[shown, setShown] = useState(false)
 
   const handlerUsername = (event) => {
     setUsername(event.target.value);
@@ -48,6 +49,8 @@ export const Registro1 = () => {
         console.log("Contraseña inválida")
     }
   }
+
+  const switchShown = () => setShown(!shown);
 
   return (
     <div className="text-center mt-5">
@@ -78,14 +81,21 @@ export const Registro1 = () => {
               aria-describedby="inputGroup-sizing-sm"
             />
             <p id="p-profile">Contraseña:</p>
+            <div id="is-relative">
             <input
-              type="password"
+              type={shown ? 'text': 'password'}
               value={password}
               onChange={handlerPassword}
               className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-sm"
             />
+            <span id="icon">
+              <i className="fas fa-eye"
+                onClick={switchShown}>
+              </i>
+            </span>
+            </div>
             <p id="p-profile">Confirma tu contraseña:</p>
             <input
               value={confirmPassword}
