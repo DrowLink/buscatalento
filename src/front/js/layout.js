@@ -16,6 +16,7 @@ import { Resultados } from "./pages/resultados";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { CardPersonal } from "./pages/card_personales";
+import { FormTalent } from "./component/formTalent";
 
 //create your first component
 const Layout = () => {

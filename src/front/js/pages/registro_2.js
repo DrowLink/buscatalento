@@ -3,12 +3,19 @@ import { Link } from "react-router-dom";
 import "../../styles/registro_2.css";
 import { Context } from "../store/appContext";
 import trophy from "../../img/trophy.png";
+import { FormTalent } from "../component/formTalent";
 
 export const Registro2 = () => {
   const [files, setFiles] = useState();
   const [previews, setPreviews] = useState();
   const [files2, setFiles2] = useState();
   const [previews2, setPreviews2] = useState();
+  const [datosPerfil, setDatosPerfil]= useState("")
+
+
+  const handleDatosPerfil= (event) =>{
+    setDatosPerfil(event.target.value);
+  }
 
   //rendering previews
   useEffect(() => {
@@ -48,6 +55,11 @@ export const Registro2 = () => {
    };
  }, [files2]);
 
+ const handlerKeyPress = (event) =>{
+  event.preventDefault()
+  console.log(datosPerfil)
+ }
+
   return (
     <>
       <div id="container-registro" className="">
@@ -76,6 +88,8 @@ export const Registro2 = () => {
               placeholder="Nombre"
               aria-label="Username"
               aria-describedby="basic-addon1"
+              value={datosPerfil}
+              onChange={handleDatosPerfil}
             />
             <p>Telefono</p>
             <input
@@ -85,12 +99,16 @@ export const Registro2 = () => {
               placeholder="Numero"
               aria-label="Username"
               aria-describedby="basic-addon1"
+              value={datosPerfil}
+              onChange={handleDatosPerfil}
             />
             <p>Estado</p>
             <select
               className="form-select"
               id="select-input"
               aria-label="Default select example"
+              value={datosPerfil}
+              onChange={handleDatosPerfil}
             >
               <option selected>Selecciona un estado</option>
               <option value="1">Miranda</option>
@@ -117,6 +135,8 @@ export const Registro2 = () => {
               placeholder="Apellido"
               aria-label="Username"
               aria-describedby="basic-addon1"
+              value={datosPerfil}
+              onChange={handleDatosPerfil}
             />
             <p>Edad</p>
             <input
@@ -126,12 +146,16 @@ export const Registro2 = () => {
               placeholder="Edad"
               aria-label="Username"
               aria-describedby="basic-addon1"
+              value={datosPerfil}
+              onChange={handleDatosPerfil}
             />
             <p>País</p>
             <select
               className="form-select"
               id="select-input"
               aria-label="Default select example"
+              value={datosPerfil}
+              onChange={handleDatosPerfil}
             >
               <option selected>Selecciona un país</option>
               <option value="1">Venezuela</option>
@@ -144,347 +168,15 @@ export const Registro2 = () => {
          
 
         </div>
-        <div id="h1-box-registro2">
-            <h1 id="h1-registro-below">Sobre tu talento</h1>{" "}
-          </div>
-        <div id="input-box-2" className="row">
-          
-          <div
-            id="input2-box-1"
-            className="col-4 d-flex justify-content-center"
-          >
-            <div
-              id="img-talent"
-              className="d-flex justify-content-center align-items-center "
-            >
-              {previews &&
-              previews.map((pic) => {
-                return <img id="preview-img-registro2" src={pic} />; //PREVIEW SECCION 1 PERFIL
-              })}
-            </div>
-          </div>
-          <div id="input2-box-2" className="col">
-            <p>Selecciona una categoria para tu talento:</p>
-            <select
-              className="form-select mb-3"
-              id="select-input"
-              aria-label="Default select example"
-            >
-              <option selected>Selecciona una categoría</option>
-              <option value="1">Juegos de Mesa</option>
-              <option value="2">Lenguajes de Programación</option>
-              <option value="3">Deportes</option>
-              <option value="4">Artes marciales</option>
-            </select>
-            <p>¿Desde hace cuanto lo practicas?</p>
-            <input
-              id="lastname-field"
-              type="text"
-              className="form-control"
-              placeholder=""
-              aria-label="Username"
-              aria-describedby="basic-addon1"
-            />
-            <form>
-              <div class="form-group" id="input-img-box">
-                <p>Sube alguna foto alusiva a tu talento: </p>
-                
-                {/* 
-                <label for="exampleFormControlFile1"></label>
-                <input
-                  type="file"
-                  accept="image/jpg, image/jpeg, image/png"
-                  multiple
-                  onChange={(e) => {
-                    if (e.target.files && e.target.files.length > 0) {
-                      setFiles(e.target.files);
-                    }
-                  }}
-                /> */}
-                 
-                  <input type="file" class="form-control" id="inputGroupFile02" onChange={(e) => {
-                    if (e.target.files && e.target.files.length > 0) {
-                      setFiles(e.target.files);
-                    }
-                  }}/>
-                
-              </div>
-            </form>
-          </div>
-          <div id="input2-box-3" className="col">
-            <p>Descríbenos tu talento:</p>
-            {/* <select
-              className="form-select mb-3"
-              id="select-input"
-              aria-label="Default select example"
-            >
-              <option selected>Selecciona un talento</option>
-              <option value="1">Ajedrez</option>
-              <option value="2">Monopoly</option>
-              <option value="3">Risk</option>
-              <option value="4">Scrabble</option>
-              <option value="5">Ludo</option>
-            </select> */}
-
-            <input
-              id="lastname-field"
-              type="text"
-              className="form-control"
-              placeholder=""
-              aria-label="Username"
-              aria-describedby="basic-addon1"
-            />
-            <p>¿Desde hace cuanto lo practicas?</p>
-            <input
-              id="lastname-field"
-              type="text"
-              className="form-control"
-              placeholder=""
-              aria-label="Username"
-              aria-describedby="basic-addon1"
-            />
-            <p>Cuéntanos mas sobre ti:</p>
-            <div className="form-floating">
-              <textarea
-                className="form-control"
-                placeholder="Dejanos un comentari"
-                id="floatingTextarea"
-              ></textarea>
-              <label for="floatingTextarea"></label>
-            </div>
-          </div>
-        </div>
-
+          <FormTalent/>
 
           {/* VERSION REPETIDA TALENTO BOX */}
 
 
-        <div id="input-box-2-1" className="row">
-          
-          <div
-            id="input2-box-1"
-            className="col-4 d-flex justify-content-center"
-          >
-            <div
-              id="img-talent"
-              className="d-flex justify-content-center align-items-center "
-            >
-              {previews &&
-              previews.map((pic) => {
-                return <img id="preview-img-registro2" src={pic} />; //PREVIEW SECCION 1 PERFIL
-              })}
-            </div>
-          </div>
-          <div id="input2-box-2" className="col">
-            <p>Selecciona una categoria para tu talento:</p>
-            <select
-              className="form-select mb-3"
-              id="select-input"
-              aria-label="Default select example"
-            >
-              <option selected>Selecciona una categoría</option>
-              <option value="1">Juegos de Mesa</option>
-              <option value="2">Lenguajes de Programación</option>
-              <option value="3">Deportes</option>
-              <option value="4">Artes marciales</option>
-            </select>
-            <p>¿Desde hace cuanto lo practicas?</p>
-            <input
-              id="lastname-field"
-              type="text"
-              className="form-control"
-              placeholder=""
-              aria-label="Username"
-              aria-describedby="basic-addon1"
-            />
-            <form>
-              <div class="form-group" id="input-img-box">
-                <p>Sube alguna foto alusiva a tu talento: </p>
-                
-                {/* 
-                <label for="exampleFormControlFile1"></label>
-                <input
-                  type="file"
-                  accept="image/jpg, image/jpeg, image/png"
-                  multiple
-                  onChange={(e) => {
-                    if (e.target.files && e.target.files.length > 0) {
-                      setFiles(e.target.files);
-                    }
-                  }}
-                /> */}
-                 
-                  <input type="file" class="form-control" id="inputGroupFile02" onChange={(e) => {
-                    if (e.target.files && e.target.files.length > 0) {
-                      setFiles(e.target.files);
-                    }
-                  }}/>
-                
-              </div>
-            </form>
-          </div>
-          <div id="input2-box-3" className="col">
-            <p>Descríbenos tu talento:</p>
-            {/* <select
-              className="form-select mb-3"
-              id="select-input"
-              aria-label="Default select example"
-            >
-              <option selected>Selecciona un talento</option>
-              <option value="1">Ajedrez</option>
-              <option value="2">Monopoly</option>
-              <option value="3">Risk</option>
-              <option value="4">Scrabble</option>
-              <option value="5">Ludo</option>
-            </select> */}
-
-            <input
-              id="lastname-field"
-              type="text"
-              className="form-control"
-              placeholder=""
-              aria-label="Username"
-              aria-describedby="basic-addon1"
-            />
-            <p>¿Desde hace cuanto lo practicas?</p>
-            <input
-              id="lastname-field"
-              type="text"
-              className="form-control"
-              placeholder=""
-              aria-label="Username"
-              aria-describedby="basic-addon1"
-            />
-            <p>Cuéntanos mas sobre ti:</p>
-            <div className="form-floating">
-              <textarea
-                className="form-control"
-                placeholder="Dejanos un comentari"
-                id="floatingTextarea"
-              ></textarea>
-              <label for="floatingTextarea"></label>
-            </div>
-          </div>
-        </div>
-
+            <FormTalent/>
 
  {/* VERSION REPETIDA TALENTO BOX POR SEGUNDA VEZ */}
-
-
- <div id="input-box-2" className="row">
-          
-          <div
-            id="input2-box-1"
-            className="col-4 d-flex justify-content-center"
-          >
-            <div
-              id="img-talent"
-              className="d-flex justify-content-center align-items-center "
-            >
-              {previews &&
-              previews.map((pic) => {
-                return <img id="preview-img-registro2" src={pic} />; //PREVIEW SECCION 1 PERFIL
-              })}
-            </div>
-          </div>
-          <div id="input2-box-2" className="col">
-            <p>Selecciona una categoria para tu talento:</p>
-            <select
-              className="form-select mb-3"
-              id="select-input"
-              aria-label="Default select example"
-            >
-              <option selected>Selecciona una categoría</option>
-              <option value="1">Juegos de Mesa</option>
-              <option value="2">Lenguajes de Programación</option>
-              <option value="3">Deportes</option>
-              <option value="4">Artes marciales</option>
-            </select>
-            <p>¿Desde hace cuanto lo practicas?</p>
-            <input
-              id="lastname-field"
-              type="text"
-              className="form-control"
-              placeholder=""
-              aria-label="Username"
-              aria-describedby="basic-addon1"
-            />
-            <form>
-              <div class="form-group" id="input-img-box">
-                <p>Sube alguna foto alusiva a tu talento: </p>
-                
-                {/* 
-                <label for="exampleFormControlFile1"></label>
-                <input
-                  type="file"
-                  accept="image/jpg, image/jpeg, image/png"
-                  multiple
-                  onChange={(e) => {
-                    if (e.target.files && e.target.files.length > 0) {
-                      setFiles(e.target.files);
-                    }
-                  }}
-                /> */}
-                 
-                  <input type="file" class="form-control" id="inputGroupFile02" onChange={(e) => {
-                    if (e.target.files && e.target.files.length > 0) {
-                      setFiles(e.target.files);
-                    }
-                  }}/>
-                
-              </div>
-            </form>
-          </div>
-          <div id="input2-box-3" className="col">
-            <p>Descríbenos tu talento:</p>
-            {/* <select
-              className="form-select mb-3"
-              id="select-input"
-              aria-label="Default select example"
-            >
-              <option selected>Selecciona un talento</option>
-              <option value="1">Ajedrez</option>
-              <option value="2">Monopoly</option>
-              <option value="3">Risk</option>
-              <option value="4">Scrabble</option>
-              <option value="5">Ludo</option>
-            </select> */}
-
-            <input
-              id="lastname-field"
-              type="text"
-              className="form-control"
-              placeholder=""
-              aria-label="Username"
-              aria-describedby="basic-addon1"
-            />
-            <p>¿Desde hace cuanto lo practicas?</p>
-            <input
-              id="lastname-field"
-              type="text"
-              className="form-control"
-              placeholder=""
-              aria-label="Username"
-              aria-describedby="basic-addon1"
-            />
-            <p>Cuéntanos mas sobre ti:</p>
-            <div className="form-floating">
-              <textarea
-                className="form-control"
-                placeholder="Dejanos un comentari"
-                id="floatingTextarea"
-              ></textarea>
-              <label for="floatingTextarea"></label>
-            </div>
-          </div>
-        </div>
-
-
-
-
-
-
-
+            <FormTalent/>
 
 
 
