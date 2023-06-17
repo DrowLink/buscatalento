@@ -1,12 +1,19 @@
 import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import "../../styles/registro_2.css";
+import trophy from "../../img/trophy.png";
 
 export const FormTalent=() =>{
     const [files, setFiles] = useState();
     const [previews, setPreviews] = useState();
     const [files2, setFiles2] = useState();
     const [previews2, setPreviews2] = useState();
+    const [mostrarForm, setMostrarForm]= useState(false);
+
+    const handleClick =() =>{
+            setMostrarForm(true)
+    }
+    
 
       //rendering previews
   useEffect(() => {
@@ -49,7 +56,7 @@ export const FormTalent=() =>{
 
     return(
         <>
-                    <div id="h1-box-registro2">
+        <div id="h1-box-registro2">
             <h1 id="h1-registro-below">Sobre tu talento</h1>{" "}
           </div>
         <div id="input-box-2" className="row">
@@ -158,7 +165,83 @@ export const FormTalent=() =>{
               <label for="floatingTextarea"></label>
             </div>
           </div>
+         </div>  
+         <div id="end-section-modal" className="text-center">
+        <h3>¿Tienes algún otro talento?</h3>
+
+        <div>
+          <button
+            id="confirmation-button-registro"
+            type="button"
+            className="btn btn-success"
+            onClick={handleClick}
+          >
+            Si
+          </button>
+
+          <button
+            id="denial-button-registro"
+            type="button"
+            className="btn btn-danger"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            No
+          </button>
         </div>
+
+        <div>
+                {/* FUNCION PARA RENDERIZAR OTRO FORM */}
+        {/* {mostrarForm && <FormTalent/>} */}
+
+        </div>
+
+        {/* MODAL BOX */}
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              {/* <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  Modal title
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                ></button>
+              </div> */}
+              <div class="modal-body">
+                <img id="trophy-img-modal-registro2" src={trophy} />
+                <div id="text-modal-registro2">
+                  <h1>¡Ya está hecho!</h1>
+                  <h6>Ve y comparte tu talento con toda la comunidad 💖</h6>
+                </div>
+              </div>
+              <div class="justify-content-center mb-5">
+                <Link to="/resultados">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    ¡Llévame al buscador!
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>      
         </>
     )
 }
