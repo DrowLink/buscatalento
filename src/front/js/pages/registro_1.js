@@ -13,7 +13,7 @@ export const Registro1 = () => {
   //   actions.loadUsers();
   // }, [])
 
- //useStates de los INPUTS
+  //useStates de los INPUTS
   const[username, setUsername] = useState("")
   const[email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -39,14 +39,15 @@ export const Registro1 = () => {
 
   const handlerKeyPress = (event) => { //ACA HACE LA LOGICA DE QUE LAS CONTRASEÑAS SEAN IGUALES
     event.preventDefault()
-    console.log(`username: ${username}, password: ${password}, email: ${email}, confirmPassword: ${confirmPassword}`)
+    // console.log(`username: ${username}, password: ${password}, email: ${email}, confirmPassword: ${confirmPassword}`)
     if (password === confirmPassword) {
-      actions.newUser({
-        "user_name": "",
-        "email": "",
-        "password": ""
+      actions.newUsers({
+        "user_name": username,
+        "email": email,
+        "password": password
       })
         console.log("Contraseña válida")
+
     }
     else {
         setPasswordMatch(false)
@@ -54,7 +55,7 @@ export const Registro1 = () => {
     }
   }
 
-  const switchShown = () => setShown(!shown);
+  const switchShown = () => setShown(!shown); //mostrar contrasena
 
   return (
     <div className="text-center mt-5">
@@ -109,7 +110,7 @@ export const Registro1 = () => {
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-sm"
             />
-            <div class="form-check">
+            <div className="form-check">
               <input
                 className="form-check-input"
                 type="checkbox"
@@ -124,7 +125,7 @@ export const Registro1 = () => {
               <button
                 type="button"
                 id="btn-create"
-                class="btn btn-primary"
+                className="btn btn-primary"
                 onClick={handlerKeyPress} //<ScrollToTop/>
               >
                 CREAR PERFIL

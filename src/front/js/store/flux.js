@@ -5,7 +5,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 
 		actions: {
-			newUsers: async (user) => {//FUNCION CREADA
+			newUsers: async (user) => {
 				try {
 					const resp = await fetch(process.env.BACKEND_URL + "/api/user", {
 						method: "POST", //REVISAR ESTO SI VA ASI

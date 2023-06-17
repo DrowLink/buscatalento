@@ -20,7 +20,7 @@ def handle_hello():
 @api.route('/user', methods=['POST', 'GET'])
 def new_user():
     if request.method== 'GET':
-        response_body= {
+        response_body = {
             "message": "Hola, este es el metodo GET"
         }
         return jsonify(response_body), 200
@@ -28,11 +28,11 @@ def new_user():
         body = request.json
 
         if 'email' not in body:
-            return 'Debe ingresar un correo electronico', 400
+            return jsonify({"message": 'Debe ingresar un correo electronico'}), 400
         if 'password' not in body:
-            return 'Debe ingresar una contraseña', 400
+            return jsonify({"message": 'Debe ingresar una contraseña'}), 400
         if 'user_name' not in body:
-            return 'Debe ingresar un nombre de usuario', 400
+            return jsonify({"message": 'Debe ingresar un nombre de usuario'}), 400
         
         nuevo_usuario = User(body['email'], body['password'], body['user_name'])
         print(nuevo_usuario)
@@ -40,14 +40,14 @@ def new_user():
     try:
         db.session.add(nuevo_usuario)
         db.session.commit()
-        return "Se ha creado el usuario con exito! ✅"
+        return jsonify({"message": "Se ha creado el usuario con exito! ✅"})
     except Exception as err:
-        return "Ha ocurrido un error! 💥", 500
+        return jsonify({"message": "Ha ocurrido un error! 💥"}), 500
     
     else: 
-        return "Ya existe un usuario con ese email!", 400
-    
-    return "Method not implemented yet!",500
+        return jsonify({"message": "Ya existe un usuario con ese email!" }), 400
+        
+    return  jsonify({"message":"Method not implemented yet!" }), 500
 
 @api.route('/perfil', methods=['POST'])
 def new_perfil():
@@ -61,7 +61,7 @@ def new_perfil():
         db.session.commit() #inserta en la base de datos de postgre
 
         return jsonify(nuevo_perfil.serialize()), 200 
-    return "no existe ese perfil"
+    return jsonify({"message": "no existe ese perfil"})
 
 
 
@@ -77,7 +77,8 @@ def new_talent():
         db.session.commit()
 
         return jsonify(nuevo_talent.serialize()), 200
-    return "no existe ese talento"
+        
+    return jsonify({"message": "no existe ese talento"})
 
     # return jsonify({ "probando, si se ejecuto": "si se ejecutoo!"}), 200    
 
