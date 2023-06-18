@@ -6,6 +6,16 @@ import trophy from "../../img/trophy.png";
 import { FormTalent } from "../component/formTalent";
 
 export const Registro2 = () => {
+
+  //creacion de variables de la tabla PERFIL
+  const [name, setName] = useState("")
+  const [lastname, setLastname] = useState("")
+  const [phone, setPhone] = useState("")
+  const [country, setCountry] = useState("")
+  const [profileImgLink, setProfileImgLink] = useState("") //LINK FOTO DE PERFIL
+
+
+  //logica
   const [files, setFiles] = useState();
   const [previews, setPreviews] = useState();
   const [files2, setFiles2] = useState();
@@ -13,7 +23,23 @@ export const Registro2 = () => {
   const [datosPerfil, setDatosPerfil]= useState("")
 
 
-  const handleDatosPerfil= (event) =>{
+  //LISTENERS CREADOS
+  const handlerName = (event) => {
+    setName(event.target.value)
+  }
+  const handlerLastname = (event) => {
+    setLastname(event.target.value)
+  }
+  const handlerPhone = (event) => {
+    setPhone(event.target.value)
+  }
+  const handlerCountry = (event) => {
+    setCountry(event.target.value)
+  }
+  const handlerProfileImgLink = (event) => {
+    setCountry(event.target.value)
+  }
+  const handleDatosPerfil = (event) =>{
     setDatosPerfil(event.target.value);
   }
 
@@ -88,7 +114,7 @@ export const Registro2 = () => {
               placeholder="Nombre"
               aria-label="Username"
               aria-describedby="basic-addon1"
-              value={datosPerfil}
+              value=""
               onChange={handleDatosPerfil}
             />
             <p>Telefono</p>
@@ -99,7 +125,7 @@ export const Registro2 = () => {
               placeholder="Numero"
               aria-label="Username"
               aria-describedby="basic-addon1"
-              value={datosPerfil}
+              value=""
               onChange={handleDatosPerfil}
             />
             <p>Estado</p>
@@ -107,7 +133,7 @@ export const Registro2 = () => {
               className="form-select"
               id="select-input"
               aria-label="Default select example"
-              value={datosPerfil}
+              value=""
               onChange={handleDatosPerfil}
             >
               <option selected>Selecciona un estado</option>
@@ -135,7 +161,7 @@ export const Registro2 = () => {
               placeholder="Apellido"
               aria-label="Username"
               aria-describedby="basic-addon1"
-              value={datosPerfil}
+              value=""
               onChange={handleDatosPerfil}
             />
             <p>Edad</p>
@@ -146,7 +172,7 @@ export const Registro2 = () => {
               placeholder="Edad"
               aria-label="Username"
               aria-describedby="basic-addon1"
-              value={datosPerfil}
+              value=""
               onChange={handleDatosPerfil}
             />
             <p>País</p>
@@ -154,7 +180,7 @@ export const Registro2 = () => {
               className="form-select"
               id="select-input"
               aria-label="Default select example"
-              value={datosPerfil}
+              value=""
               onChange={handleDatosPerfil}
             >
               <option selected>Selecciona un país</option>
