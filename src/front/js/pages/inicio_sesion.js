@@ -8,22 +8,30 @@ import { Context } from "../store/appContext";
 
 export const InicioSesion = () => {
   const { store, actions } = useContext(Context);
-  const[username, setUsername]= useState("")
-  const[password, setPassword]= useState("")
+
   const[shown, setShown] = useState(false)
+  const {email, setEmail } = useState("") //useState Login
+  const[password, setPassword]= useState("") //useState Login
 
-
-  const handlerUsername = (event) =>{
-    setUsername(event.target.value);
-  }
-
-  const handlerPassword = (event) =>{
-    setPassword(event.target.value)
-  }
-
-  const handlerKeyPress = (event) =>{
-    event.preventDefault()
-    console.log(`username: ${username}, password: ${password}`)
+  const handleClick = () => { //fetching login here
+    const opts = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        "email": email,
+        "password": password
+      })
+    }
+      fetch("https://3001-4geeksacade-buscatalent-eidpwzmnuq3.ws-us100.gitpod.io/api/token", opts)
+      .then(resp => {
+        if(resp.status === 200) return resp.json();
+        else alert("The has been some error");
+      })
+      .catch(error => {
+        console.log("there was an errorr!!!!!!", error);
+      })
   }
 
   const switchShown = () => setShown(!shown);
@@ -31,7 +39,7 @@ export const InicioSesion = () => {
   return (
     <>
       <div className="container-iniciosesion">
-        <img src={iniciosesion} class="img-fluid" id="iniciosesion-bg" />
+        <img src={iniciosesion} className="img-fluid" id="iniciosesion-bg" />
         <div className="row login-box">
           <div className="col"></div>
           <div className="col-5" id="loginbox">
@@ -45,10 +53,12 @@ export const InicioSesion = () => {
                 type="text"
                 className="form-control"
                 placeholder="Correo electronico"
-                aria-label="Username"
+                aria-label="Email"
                 aria-describedby="basic-addon1"
-                value={username}
-                onChange={handlerUsername}
+                value={email}
+                onChange={(event) => {
+                  setEmail(event.target.value)  //login controlledComponents email
+                }}
               />
               <p>Clave</p>
               <div id="is-relative">
@@ -56,11 +66,13 @@ export const InicioSesion = () => {
                 id="password-field-iniciosesion"
                 type={shown ? 'text': 'password'}
                 className="form-control"
-                placeholder="*********"
+                placeholder="Contraseña"
                 aria-label="Username"
                 aria-describedby="basic-addon1"
                 value={password}
-                onChange={handlerPassword}
+                onChange={(event) => {
+                  setPassword(event.target.value)  //login controlledComponents pass
+                }}
               />
               <span id="icon">
                 <i className="fas fa-eye"
@@ -71,7 +83,7 @@ export const InicioSesion = () => {
                 id="iniciosesion-button"
                 type="button"
                 className="btn btn-primary"
-                onClick={handlerKeyPress}
+                onClick={handleClick}
               >
                 Iniciar Sesion
               </button>
