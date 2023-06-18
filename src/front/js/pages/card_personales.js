@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "../../styles/card_personales.css"
 import { Context } from "../store/appContext";
 
+
 export const CardPersonal = () => {
 	const { store, actions } = useContext(Context);
 

@@ -11,10 +11,8 @@ export const FormTalent=() =>{
     const [mostrarForm, setMostrarForm]= useState(false);
 
     const handleClick =() =>{
-            setMostrarForm(true)
+            setMostrarForm(true);
     }
-    
-
       //rendering previews
   useEffect(() => {
     if (!files) return;
@@ -56,7 +54,7 @@ export const FormTalent=() =>{
 
     return(
         <>
-        <div id="h1-box-registro2">
+            <div id="h1-box-registro2">
             <h1 id="h1-registro-below">Sobre tu talento</h1>{" "}
           </div>
         <div id="input-box-2" className="row">
