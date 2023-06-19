@@ -2,11 +2,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			user: {},
+			perfil: {},
 			token: localStorage.getItem("token") || null
 		},
 
 		actions: {
-			newUsers: async (user) => {
+			newUsers: async (user) => { //registro-1
 				try {
 					const resp = await fetch(process.env.BACKEND_URL + "/api/user", {
 						method: "POST", //REVISAR ESTO SI VA ASI
@@ -21,12 +22,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					console.log(data)
 					// return data;
+
 				}
 				catch (err) {
 					console.log(err)
 				}
 			},
-
+			newPerfil: async (perfil) => { //registro-2
+			try {
+				const resp = await fetch(process.env.BACKEND_URL + "/api/perfil", {
+					method: "POST",
+					body: JSON.stringify(perfil),
+					headers: {
+						'Content-Type': 'application/json'
+					}
+				})
+				const data = await resp.json()
+				setStore({
+					perfil: data.results
+				})
+				console.log(data);
+			}
+			catch (err) {
+				console.log(err)
+			}
+			},
 			login: async (email, password) => {
 				const opts = {
 					method: "POST",
@@ -54,6 +74,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				catch (err) {
 					console.log(err)
 				}
+			},
+			logout: () => {
+				localStorage.removeItem("token")
+				console.log("Loging out")
+				setStore({ token: null })
 			}
 
 

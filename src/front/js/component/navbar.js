@@ -60,7 +60,7 @@ export const Navbar = () => {
         </Link>
         </div>
         <div className="m-3 p-1">
-          { store.token != null ? (<button className="btn btn-light" id="buttons-navbar-home">Log out</button>) : (<Link to="/registro-1">
+          { store.token != null ? (<button onClick={ () => { actions.logout() }} className="btn btn-light" id="buttons-navbar-home">Log out</button>) : (<Link to="/registro-1">
             <button className="btn btn-light" id="buttons-navbar-home">Registrate</button>
           </Link>) }
         {/* <Link to="/registro-1">

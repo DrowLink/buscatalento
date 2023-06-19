@@ -27,19 +27,22 @@ class Perfil(db.Model):
     last_name = db.Column(db.String(30), nullable= False)
     phone = db.Column(db.String(30), nullable= False)
     age = db.Column(db.String(30), nullable= False)
+    url_profile_pic = db.Column(db.String(128), nullable= False)
     country = db.Column(db.String(30), nullable= False)
     state = db.Column(db.String(30), nullable= False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     user = db.relationship('User',  backref='perfil')
+    
     # talent_request_solicitante= db.relationship('Talent_request', back_populates='perfil_solicitante')
     # talent_request_receptor= db.relationship('Talent_request', back_populates='perfil_receptor')
 
 
-    def __init__(self, name, last_name, phone, age, country, state, user_id):
+    def __init__(self, name, last_name, phone, age, country, state, url_profile_pic, user_id):
         self.name = name
         self.last_name = last_name
         self.phone = phone
         self.age = age
+        self.url_profile_pic = url_profile_pic
         self.country = country
         self.state = state
         self.user_id = user_id

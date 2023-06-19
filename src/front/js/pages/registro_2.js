@@ -10,6 +10,7 @@ export const Registro2 = () => {
   //creacion de variables de la tabla PERFIL
   const [name, setName] = useState("")
   const [lastname, setLastname] = useState("")
+  const [estado, setEstado] = useState("")
   const [phone, setPhone] = useState("")
   const [country, setCountry] = useState("")
   const [profileImgLink, setProfileImgLink] = useState("") //LINK FOTO DE PERFIL
@@ -114,7 +115,7 @@ export const Registro2 = () => {
               placeholder="Nombre"
               aria-label="Username"
               aria-describedby="basic-addon1"
-              value=""
+              value={name}
               onChange={handleDatosPerfil}
             />
             <p>Telefono</p>
@@ -125,7 +126,7 @@ export const Registro2 = () => {
               placeholder="Numero"
               aria-label="Username"
               aria-describedby="basic-addon1"
-              value=""
+              value={lastname}
               onChange={handleDatosPerfil}
             />
             <p>Estado</p>
@@ -133,7 +134,7 @@ export const Registro2 = () => {
               className="form-select"
               id="select-input"
               aria-label="Default select example"
-              value=""
+              value={estado}
               onChange={handleDatosPerfil}
             >
               <option selected>Selecciona un estado</option>
