@@ -22,7 +22,7 @@
   height: 355px;
 }
 
-#select-input {
+#input-input, #select-input {
   margin-bottom: 1rem;
   width: 22vw;
 }
@@ -31,6 +31,13 @@
 #input-section-3 {
   margin-top: -99px;
 }
+
+#boton-submit-registro2 {
+  margin-left: 200px;
+    border-radius: 52px;
+    margin-top: 38px;
+}
+
 
 #h1-registro {
   text-align: center;

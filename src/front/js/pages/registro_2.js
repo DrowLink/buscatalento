@@ -12,6 +12,7 @@ export const Registro2 = () => {
   const [lastname, setLastname] = useState("")
   const [estado, setEstado] = useState("")
   const [phone, setPhone] = useState("")
+  const [age, setAge] = useState("")
   const [country, setCountry] = useState("")
   const [profileImgLink, setProfileImgLink] = useState("") //LINK FOTO DE PERFIL
 
@@ -126,32 +127,25 @@ export const Registro2 = () => {
               placeholder="Numero"
               aria-label="Username"
               aria-describedby="basic-addon1"
-              value={lastname}
+              value={phone}
               onChange={handleDatosPerfil}
             />
             <p>Estado</p>
-            <select
-              className="form-select"
-              id="select-input"
-              aria-label="Default select example"
+            <input
+              className="form-control"
+              id="input-input"
+              aria-label="Default input example"
+              placeholder="Estado"
               value={estado}
               onChange={handleDatosPerfil}
-            >
-              <option selected>Selecciona un estado</option>
-              <option value="1">Miranda</option>
-              <option value="2">Aragua</option>
-              <option value="3">Carabobo</option>
-              <option value="4">Nueva Esparta</option>
-            </select>
 
+            />
             <p>Sube una foto para tu perfil:</p>
-
             <input type="file" class="form-control mt-2" id="inputGroupFile03" onChange={(e) => {
                     if (e.target.files && e.target.files.length > 0) {
                       setFiles2(e.target.files);
                     }
                   }}/>
-
           </div>
           <div id="input-section-3" className="col">
             <p>Apellido</p>
@@ -162,7 +156,7 @@ export const Registro2 = () => {
               placeholder="Apellido"
               aria-label="Username"
               aria-describedby="basic-addon1"
-              value=""
+              value={lastname}
               onChange={handleDatosPerfil}
             />
             <p>Edad</p>
@@ -173,7 +167,7 @@ export const Registro2 = () => {
               placeholder="Edad"
               aria-label="Username"
               aria-describedby="basic-addon1"
-              value=""
+              value={age}
               onChange={handleDatosPerfil}
             />
             <p>País</p>
@@ -181,29 +175,25 @@ export const Registro2 = () => {
               className="form-select"
               id="select-input"
               aria-label="Default select example"
-              value=""
+              value={country}
               onChange={handleDatosPerfil}
             >
               <option selected>Selecciona un país</option>
-              <option value="1">Venezuela</option>
-              <option value="2">Estados Unidos</option>
-              <option value="3">Colombia</option>
+              <option value="">Venezuela</option>
+              <option value="">Estados Unidos</option>
+              <option value="">Colombia</option>
             </select>
 
+            <button id="boton-submit-registro2" className="btn btn-success">Mandar Cambios</button>
           </div>
-
-         
-
         </div>
           <FormTalent/>
 
-          {/* VERSION REPETIDA TALENTO BOX */}
 
 
-            <FormTalent/>
 
  {/* VERSION REPETIDA TALENTO BOX POR SEGUNDA VEZ */}
-            <FormTalent/>
+
 
 
 
