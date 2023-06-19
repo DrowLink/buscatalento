@@ -21,9 +21,11 @@ api = Blueprint('api', __name__)
 def create_token():
     email = request.json.get("email", None)
     password = request.json.get("password", None)
-    if email != "test" or password != "test":
-        return jsonify({"msg": "Bad email or password"}), 401
-
+    if email is None or password is None:
+        return jsonify({"msg": "Necesitas un email o password X"}), 401
+    user = User.query.filter_by(email = email, password = password).first()
+    if user is None:
+        return jsonify({"msg": "Credenciales invalidas"}), 404
     access_token = create_access_token(identity=email) #here token is created
     return jsonify(access_token=access_token)
  
@@ -62,12 +64,13 @@ def new_user():
     return  jsonify({"message":"Method not implemented yet!" }), 500
 
 @api.route('/perfil', methods=['POST'])
+# @jwt_required()
 def new_perfil():
     body = request.json        # lo que viene del request como un diccionario de python
     user = User.query.get(body['user_id'])
 
     if user != None: 
-        nuevo_perfil = Perfil( body['name'], body['last_name'], body['phone'], body['age'], body['country'], body['state'], user)
+        nuevo_perfil = Perfil( body['name'], body['last_name'], body['phone'], body['age'], body['country'], body['state'], body['user_id'])
         print(nuevo_perfil) #Convertido a objeto de python
         db.session.add(nuevo_perfil) #Memoria ram de sql
         db.session.commit() #inserta en la base de datos de postgre

@@ -10,30 +10,15 @@ export const InicioSesion = () => {
   const { store, actions } = useContext(Context);
 
   const[shown, setShown] = useState(false)
-  const {email, setEmail } = useState("") //useState Login
+  const [email, setEmail] = useState("") //useState Login
   const[password, setPassword]= useState("") //useState Login
 
   const handleClick = () => { //fetching login here
-    const opts = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        "email": email,
-        "password": password
-      })
+    actions.login(email, password)
     }
-      fetch("https://3001-4geeksacade-buscatalent-eidpwzmnuq3.ws-us100.gitpod.io/api/token", opts)
-      .then(resp => {
-        if(resp.status === 200) return resp.json();
-        else alert("The has been some error");
-      })
-      .catch(error => {
-        console.log("there was an errorr!!!!!!", error);
-      })
-  }
 
+    //
+    
   const switchShown = () => setShown(!shown);
 
   return (
@@ -53,7 +38,7 @@ export const InicioSesion = () => {
                 type="text"
                 className="form-control"
                 placeholder="Correo electronico"
-                aria-label="Email"
+                aria-label="Username"
                 aria-describedby="basic-addon1"
                 value={email}
                 onChange={(event) => {
@@ -94,16 +79,18 @@ export const InicioSesion = () => {
               <Link to="/registro-1">
               <a>¡Regístrate aquí!</a>
               </ Link>
+              <p 
+              id="below-inputs-iniciosesion"
+              >
+                ¿Olvidaste tu contraseña?</p>
+              <Link to="/olvidecontraseña">
+              <a>¡Haz click aquí!</a>
+              </ Link>
             </div>
           </div>
           <div className="col"></div>
         </div>
       </div>
-      {/* <div className="text-center">
-            <Link to="/">
-                <button className="btn btn-primary">Back home</button>
-            </Link>
-        </div> */}
     </>
   );
 };

@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useContext }from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
 
 export const Otronavbar = ()=>{
+
+  const { actions, store } = useContext(Context) //accede al flux
+
+
     return(
         <>
             <nav className="navbar navbar-light bg-light fixed-top">

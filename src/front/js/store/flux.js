@@ -1,7 +1,8 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			user: {}
+			user: {},
+			token: localStorage.getItem("token") || null
 		},
 
 		actions: {
@@ -24,7 +25,38 @@ const getState = ({ getStore, getActions, setStore }) => {
 				catch (err) {
 					console.log(err)
 				}
+			},
+
+			login: async (email, password) => {
+				const opts = {
+					method: "POST",
+					headers: {
+					  "Content-Type": "application/json"
+					},
+					body: JSON.stringify({
+					  "email": email,
+					  "password": password
+					})
+				  }
+				try {
+					const response = await fetch(`${process.env.BACKEND_URL}/api/token`, opts)
+					if (!response.ok) {
+						alert("There has been some error");
+						return false //no se repita
+					}
+					const data = await response.json();
+					setStore({
+						token: data.access_token //Aca guarda la data del token en el store
+					})
+					localStorage.setItem("token", data.access_token)
+					// console.log(data.access_token)
+				}
+				catch (err) {
+					console.log(err)
+				}
 			}
+
+			
 		}
 
 		

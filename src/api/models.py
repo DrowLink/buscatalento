@@ -35,14 +35,14 @@ class Perfil(db.Model):
     # talent_request_receptor= db.relationship('Talent_request', back_populates='perfil_receptor')
 
 
-    def __init__(self, name, last_name, phone, age, country, state, user):
+    def __init__(self, name, last_name, phone, age, country, state, user_id):
         self.name = name
         self.last_name = last_name
         self.phone = phone
         self.age = age
         self.country = country
         self.state = state
-        self.user = user
+        self.user_id = user_id
 
     def serialize(self):
         return{
@@ -94,7 +94,7 @@ class Categories(db.Model):
 class Talent_request(db.Model):
     __tablename__='talent_request'
     id = db.Column(db.Integer, primary_key=True)
-    request = db.Column(db.Boolean, default=True)
+    request = db.Column(db.Boolean, default=False)
 
     perfil_solicitante_id = db.Column(db.Integer, db.ForeignKey('perfil.id'), nullable=False)
     perfil_solicitante = db.relationship('Perfil', foreign_keys=[perfil_solicitante_id])

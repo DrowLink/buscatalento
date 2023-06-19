@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import buscatalento_logo from "../../img/buscatalento_logo.png";
 import "../../styles/navbar.css";
+import { Context } from "../store/appContext";
 
 export const Navbar = () => {
+
+  const { actions, store } = useContext(Context) //accede al flux
+
+
+
   return (
     <div>
     <nav id="navbar-bg-home" className="navbar navbar">
@@ -54,9 +60,12 @@ export const Navbar = () => {
         </Link>
         </div>
         <div className="m-3 p-1">
-        <Link to="/registro-1">
+          { store.token != null ? (<button className="btn btn-light" id="buttons-navbar-home">Log out</button>) : (<Link to="/registro-1">
+            <button className="btn btn-light" id="buttons-navbar-home">Registrate</button>
+          </Link>) }
+        {/* <Link to="/registro-1">
           <button className="btn btn-light" id="buttons-navbar-home">Registrate</button>
-        </Link>
+        </Link> */}
         </div>
         </div>
     </nav>
