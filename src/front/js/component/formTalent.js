@@ -8,10 +8,9 @@ export const FormTalent=() =>{
     const [previews, setPreviews] = useState();
     const [files2, setFiles2] = useState();
     const [previews2, setPreviews2] = useState();
-    const [mostrarForm, setMostrarForm]= useState(false);
 
     const handleClick =() =>{
-            setMostrarForm(true);
+            return console.log("1111") // CONECTAR LOGICA 
     }
       //rendering previews
   useEffect(() => {
@@ -165,19 +164,19 @@ export const FormTalent=() =>{
           </div>
          </div>  
          <div id="end-section-modal" className="text-center">
-        <h3>¿Tienes algún otro talento?</h3>
+        <h3>¿Listo para empezar?</h3>
 
         <div>
           <button
             id="confirmation-button-registro"
             type="button"
-            className="btn btn-success"
+            className="btn btn"
             onClick={handleClick}
           >
-            Si
+           Continuar
           </button>
 
-          <button
+          {/* <button
             id="denial-button-registro"
             type="button"
             className="btn btn-danger"
@@ -185,7 +184,7 @@ export const FormTalent=() =>{
             data-bs-target="#exampleModal"
           >
             No
-          </button>
+          </button> */}
         </div>
 
         <div>

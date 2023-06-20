@@ -27,19 +27,17 @@ class Perfil(db.Model):
     last_name = db.Column(db.String(30), nullable= False)
     phone = db.Column(db.String(30), nullable= False)
     age = db.Column(db.String(30), nullable= False)
-    url_profile_pic = db.Column(db.String(128), nullable= False)
     country = db.Column(db.String(30), nullable= False)
     state = db.Column(db.String(30), nullable= False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     user = db.relationship('User',  backref='perfil')
     image_url = db.Column(db.String(400), nullable=False)
 
-    def __init__(self, name, last_name, phone, age, country, state, url_profile_pic, user_id):
+    def __init__(self, name, last_name, phone, age, country, state,  user_id, image_url):
         self.name = name
         self.last_name = last_name
         self.phone = phone
         self.age = age
-        self.url_profile_pic = url_profile_pic
         self.country = country
         self.state = state
         self.user_id = user_id
@@ -63,9 +61,9 @@ class Talent(db.Model):
     range_talent = db.Column(db.String(100), nullable=False)
     perfil_id = db.Column(db.Integer, db.ForeignKey('perfil.id'), nullable=False)
     perfil = db.relationship('Perfil', backref='talent')
-    imagetalent_url= db.Column(db.String(400), nullable=False)
+    imagetalent_url = db.Column(db.String(400), nullable=False)
 
-    def __init__(self, talent_name, practice_time, about_you, categories_talent, range_talent, perfil):
+    def __init__(self, talent_name, practice_time, about_you, categories_talent, range_talent, perfil, imagetalent_url):
         self.talent_name = talent_name
         self.practice_time = practice_time
         self.about_you = about_you

@@ -118,10 +118,12 @@
   justify-content: center;
 }
 
-#confirmation-button-registro,
-#denial-button-registro {
+#confirmation-button-registro {
+  border-radius: 50px;
+  color: white;
+  background-color: #8924a3;
   margin-top: 50px;
-  width: 74px;
+  width: 103px;
 }
 
 #trophy-img-modal-registro2 {
