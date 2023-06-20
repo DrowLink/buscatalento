@@ -6,7 +6,7 @@ import { CategoriesSelect } from "../component/threecategories";
 export const Categories = () => {
     return(
         <div>
-            <div className="container-fluid bg-secondary bg-opacity-25 m-0">
+            <div className="container-fluid bg-white bg-opacity-25 m-0">
     		    <div className="container py-4">
                     <div className="row">
                         <div className="col-md-12 d-flex justify-content-around">
