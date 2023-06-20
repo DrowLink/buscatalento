@@ -17,21 +17,27 @@ export const Navbar = () => {
           <img className="logo-img ms-1 p-2" src={buscatalento_logo} />
           {/* <span className="navbar-brand mb-0 h1">Buscatalento⭐</span> */}
         </Link>
+        <Link to="/">
         <div className="">
           <span className="fs-4 text-white">
             Home
           </span>
         </div>
-        <div className="">
+        </Link>
+        <Link to="/categories">
+        {store.token != null ? <div className="">
           <span className="fs-4 text-white">
             Categories
           </span>
-        </div>
-        <div className="">
-          <span className="fs-4 text-white">
-            About us
-          </span>
-        </div>
+        </div> : "" }
+        </Link>
+        <Link to="/aboutus" >
+          <div className="">
+            <span className="fs-4 text-white">
+              About us
+            </span>
+          </div>
+        </Link>
         <div className="d-flex justify-content-center">
           <span className="fs-4 text-white">
             <div className="d-flex justify-content-start">
@@ -55,13 +61,13 @@ export const Navbar = () => {
         </div>
         <div className="d-flex justify-content-end">
         <div className="m-3 p-1">
-        {store.token != null ? "" : <Link to="/iniciosesion">
+        {store.token != null ? <Link to="/perfil"><button className="btn btn-outline-light" id="buttons-navbar-home">Mi Perfil</button></Link> : <Link to="/iniciosesion">
           <button className="btn btn-outline-light" id="buttons-navbar-home">Inicia sesion</button>
         </Link>}
         
         </div>
         <div className="m-3 p-1">
-          { store.token != null ? (<button onClick={ () => { actions.logout() }} className="btn btn-light" id="buttons-navbar-home">Log out</button>) : (<Link to="/registro-1">
+          { store.token != null ? (<Link to="/"><button onClick={ () => { actions.logout() }} className="btn btn-light" id="buttons-navbar-home">Log out</button></Link>) : (<Link to="/registro-1">
             <button className="btn btn-light" id="buttons-navbar-home">Registrate</button>
           </Link>) }
         {/* <Link to="/registro-1">

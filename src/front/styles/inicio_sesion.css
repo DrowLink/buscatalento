@@ -6,6 +6,11 @@
   opacity: 0.9;
 }
 
+#iniciosesion-button {
+  border: 0;
+ background-color:  #8924a3;
+}
+
 #iniciosesion-bg {
   position: absolute;
   width: 100vw;

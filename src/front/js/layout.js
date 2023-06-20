@@ -16,7 +16,7 @@ import { Resultados } from "./pages/resultados";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { CardPersonal } from "./pages/card_personales";
-import { FormTalent } from "./component/formTalent";
+import { AboutUs } from "./pages/aboutUs";
 
 //create your first component
 const Layout = () => {
@@ -39,6 +39,7 @@ const Layout = () => {
             <Route element={<CardPersonal />} path="/cardpersonal" />
             <Route element={<InicioSesion />} path="/iniciosesion" />
             <Route element={<Perfil />} path="/perfil" />
+            <Route element={<AboutUs />} path="/aboutus" />
             <Route element={<Resultados />} path="/resultados" />
             <Route element={<Registro1 />} path="/registro-1" />
             <Route element={<Registro2 />} path="/registro-2" />

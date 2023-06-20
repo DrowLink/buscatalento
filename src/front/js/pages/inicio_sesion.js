@@ -64,6 +64,7 @@ export const InicioSesion = () => {
                     onClick={switchShown}></i>
               </span>
               </div>
+              <Link to="/">
               <button
                 id="iniciosesion-button"
                 type="button"
@@ -72,6 +73,7 @@ export const InicioSesion = () => {
               >
                 Iniciar Sesion
               </button>
+              </Link>
               <p 
               id="below-inputs-iniciosesion"
               >
