@@ -97,13 +97,29 @@ def new_talent():
 
     # return jsonify({ "probando, si se ejecuto": "si se ejecutoo!"}), 200    
 
-@api.route('/categories', methods=['POST'])
-def new_categories():
-    body = request.json
-    nueva_categoria = Categories(body['categorie_name'])
-    print(nueva_categoria)
-    db.session.add(nueva_categoria)
+@api.route('/categories', methods=['GET'])
+def obtener_categorias():
+    categorias = Categories.query.all()
+
+    db.session.add(categorias)
     db.session.commit()
 
-    return jsonify(nueva_categoria.serialize()), 200
+    return jsonify(categorias)
 
+
+@api.route('/categories/seleccionar', methods=['POST'])
+def select_categories():
+    body = request.json
+    categoria_seleccionada = Categories(body['categorie_name'])
+    print(categoria_seleccionada)
+    db.session.add(categoria_seleccionada)
+    db.session.commit()
+
+    return jsonify(categoria_seleccionada.serialize()), 200
+
+def obtener_todas_las_categorias():
+    return Categories.query.all
+
+def actualizar_categorias_seleccionadas():
+    for categories_id in categoria_seleccionada:
+        categories = Categories.query.get(categories_id)
