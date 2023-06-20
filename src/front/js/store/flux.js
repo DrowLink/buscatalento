@@ -123,6 +123,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch (error) {
 					console.log(error)
 				}
+			},
+			guardarcategoria: async (categoria)=>{
+				try {
+
+					const bodyfetch = {categorie_name: categoria }
+
+					const resp = await fetch (process.env.BACKEND_URL + "/api/categories/seleccionar", {
+						method: "POST",
+						body: JSON.stringify(bodyfetch),
+						headers: {
+							'Content-Type': 'application/json'
+						}
+					})
+					const data = await resp.json()
+					console.log(data);
+					
+				} catch (error) {
+					
+				}
 			}
 		}
 	};
