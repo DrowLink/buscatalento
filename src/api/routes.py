@@ -70,7 +70,7 @@ def new_perfil():
     user = User.query.get(body['user_id'])
 
     if user != None: 
-        nuevo_perfil = Perfil( body['name'], body['last_name'], body['phone'], body['age'], body['country'], body['state'], body['user_id'])
+        nuevo_perfil = Perfil( body['name'], body['last_name'], body['phone'], body['age'], body['country'], body['state'], body['user_id'], body['image_url'])
         print(nuevo_perfil) #Convertido a objeto de python
         db.session.add(nuevo_perfil) #Memoria ram de sql
         db.session.commit() #inserta en la base de datos de postgre
@@ -86,7 +86,7 @@ def new_talent():
     perfil = Perfil.query.get(body['perfil_id'])
 
     if perfil != None: #En este caso, deberia crearse un boolean para manejar los proximos talentos a crearse
-        nuevo_talent = Talent( body['talent_name'], body['practice_time'], body['about_you'], body['categories_talent'], body['range_talent'], perfil)
+        nuevo_talent = Talent( body['talent_name'], body['practice_time'], body['about_you'], body['categories_talent'], body['range_talent'], body['imagetalent_url'], perfil)
         print(nuevo_talent)
         db.session.add(nuevo_talent)
         db.session.commit()

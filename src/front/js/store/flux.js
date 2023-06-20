@@ -79,9 +79,52 @@ const getState = ({ getStore, getActions, setStore }) => {
 				localStorage.removeItem("token")
 				console.log("Loging out")
 				setStore({ token: null })
+			},
+			newimage: async (perfil) =>{
+
+				try {
+
+					const apiUrl = `https://api.cloudinary.com/v1_1/datq8v8mk/image/upload`
+
+					const formMultimedia = new FormData()
+
+					formMultimedia.append("upload_preset", "v9oseeuk")
+					formMultimedia.append("file", perfil.photo)
+
+					const respMediaBucket = await fetch(apiUrl, {
+						method: "POST",
+						body: formMultimedia
+					})
+
+					const dataCloudinary = await respMediaBucket.json()
+
+					console.log(dataCloudinary)
+
+					const resp = await fetch(process.env.BACKEND_URL + "/api/perfil",{
+						method: "POST",
+						mode: "cors",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify({
+							"name": perfil.name,
+							"last_name": perfil.last_name,
+							"phone": perfil.phone,
+							"age": perfil.age,
+							"country": perfil.country,
+							"state": perfil.state,
+							"user_id": user.state,
+							"image_url": dataCloudinary.url
+						})
+					})
+					const data = await resp.json();
+					
+					console.log(data)
+					
+				} catch (error) {
+					console.log(error)
+				}
 			}
-
-
 		}
 	};
 };

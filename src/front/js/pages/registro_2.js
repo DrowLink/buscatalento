@@ -141,11 +141,22 @@ export const Registro2 = () => {
 
             />
             <p>Sube una foto para tu perfil:</p>
-            <input type="file" class="form-control mt-2" id="inputGroupFile03" onChange={(e) => {
-                    if (e.target.files && e.target.files.length > 0) {
-                      setFiles2(e.target.files);
+            <input type="file" 
+                    className="form-control mt-2" 
+                    id="inputGroupFile03" 
+                    accept="image/*"
+                    onChange={(e) => {
+                        
+
                     }
-                  }}/>
+                      
+                    //     {
+                    //   if (e.target.files && e.target.files.length > 0) {
+                    //     setFiles2(e.target.files);
+                    //   }
+                    // }
+                    
+                  }/>
           </div>
           <div id="input-section-3" className="col">
             <p>Apellido</p>

@@ -32,10 +32,7 @@ class Perfil(db.Model):
     state = db.Column(db.String(30), nullable= False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     user = db.relationship('User',  backref='perfil')
-    
-    # talent_request_solicitante= db.relationship('Talent_request', back_populates='perfil_solicitante')
-    # talent_request_receptor= db.relationship('Talent_request', back_populates='perfil_receptor')
-
+    image_url = db.Column(db.String(400), nullable=False)
 
     def __init__(self, name, last_name, phone, age, country, state, url_profile_pic, user_id):
         self.name = name
@@ -46,12 +43,14 @@ class Perfil(db.Model):
         self.country = country
         self.state = state
         self.user_id = user_id
+        self.image_url = image_url
 
     def serialize(self):
         return{
             "name": self.name,
             "last_name": self.last_name,
-            "user_id": self.user_id
+            "user_id": self.user_id,
+            "image_url": self.image_url
         }
 
 class Talent(db.Model):
@@ -64,6 +63,7 @@ class Talent(db.Model):
     range_talent = db.Column(db.String(100), nullable=False)
     perfil_id = db.Column(db.Integer, db.ForeignKey('perfil.id'), nullable=False)
     perfil = db.relationship('Perfil', backref='talent')
+    imagetalent_url= db.Column(db.String(400), nullable=False)
 
     def __init__(self, talent_name, practice_time, about_you, categories_talent, range_talent, perfil):
         self.talent_name = talent_name
@@ -72,12 +72,14 @@ class Talent(db.Model):
         self.categories_talent = categories_talent
         self.range_talent = range_talent
         self.perfil = perfil
+        self.imagetalent_url = imagetalent_url
 
     def serialize(self):
         return{
             "talent_name" : self.talent_name,
             "about_you": self.about_you,
-            "perfil_id": self.perfil_id
+            "perfil_id": self.perfil_id,
+            "imagetalent_url": self.imagetalent_url
         }
 
 class Categories(db.Model):

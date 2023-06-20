@@ -89,7 +89,7 @@ export const Registro1 = () => {
             <div id="is-relative">
             <input
               type={shown ? 'text': 'password'}
-              value=""
+              value={password}
               onChange={handlerPassword}
               className="form-control"
               aria-label="Sizing example input"
