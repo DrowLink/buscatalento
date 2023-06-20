@@ -102,7 +102,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 					const resp = await fetch(process.env.BACKEND_URL + "/api/perfil",{
 						method: "POST",
-						mode: "cors",
 						headers: {
 							"Content-Type": "application/json",
 						},

@@ -4,25 +4,31 @@ import "../../styles/categories.css"
 
 export const CategoriesSelect = () =>{
 
-    const [isSelected, setIsSelected]= useState(false);
+    const [selectedImages, setSelectedImages]= useState([]);
 
-    const toggleSelection = () =>{
-        setIsSelected(!isSelected)
-    }
+    const toggleSelection = (imageId) =>{
+        if (selectedImages.includes(imageId)) {
+            setSelectedImages(selectedImages.filter((id) => id !== imageId));
+          } else {
+            setSelectedImages([...selectedImages, imageId]);
+          }
+        };
 
-    const imageClass = isSelected ? 'selected' : '';
-
+    const isImageSelected = (imageId) => {
+        return selectedImages.includes(imageId);
+      };
+    
     return(
         <>
             <div className="row d-flex justify-content-around mt-5">
-                <div className="col-md-4 d-flex justify-content-center" onClick={toggleSelection}>
-                    <img src="https://wellaggio.com/wp-content/uploads/2015/09/la-importancia-de-las-imagenes-en-el-dise%C3%B1o-web1.jpg" id="categories" className="rounded-circle" alt="..."  value={imageClass}/>
+                <div className="col-md-4 d-flex justify-content-center">
+                    <img src="https://wellaggio.com/wp-content/uploads/2015/09/la-importancia-de-las-imagenes-en-el-dise%C3%B1o-web1.jpg" id="categories" className={`rounded-circle ${isImageSelected(1) ? 'selected img-thumbnail' : 'img-thumbnail'}`} alt="..." onClick={() => toggleSelection(1)}/>
                 </div>
-                <div className="col-md-4 d-flex justify-content-center" onClick={toggleSelection}>
-                    <img src="https://wellaggio.com/wp-content/uploads/2015/09/la-importancia-de-las-imagenes-en-el-dise%C3%B1o-web1.jpg" id="categories" className="rounded-circle" alt="..."  value={imageClass}/>
+                <div className="col-md-4 d-flex justify-content-center">
+                    <img src="https://wellaggio.com/wp-content/uploads/2015/09/la-importancia-de-las-imagenes-en-el-dise%C3%B1o-web1.jpg" id="categories" className={`rounded-circle ${isImageSelected(2) ? 'selected img-thumbnail' : 'img-thumbnail'}`} alt="..." onClick={() => toggleSelection(2)}/>
                 </div>
-                <div className="col-md-4 d-flex justify-content-center" onClick={toggleSelection}>
-                    <img src="https://wellaggio.com/wp-content/uploads/2015/09/la-importancia-de-las-imagenes-en-el-dise%C3%B1o-web1.jpg" id="categories" className="rounded-circle" alt="..."  value={imageClass}/>
+                <div className="col-md-4 d-flex justify-content-center">
+                    <img src="https://wellaggio.com/wp-content/uploads/2015/09/la-importancia-de-las-imagenes-en-el-dise%C3%B1o-web1.jpg" id="categories" className={`rounded-circle ${isImageSelected(3) ? 'selected img-thumbnail' : 'img-thumbnail'}`} alt="..." onClick={() => toggleSelection(3)}/>
                 </div>  
             </div>
         

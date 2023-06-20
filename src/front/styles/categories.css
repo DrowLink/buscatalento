@@ -3,3 +3,8 @@
     width: 35vh;
     box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.5)
 }
+
+.selected {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border: 2px solid blue;
+  }
