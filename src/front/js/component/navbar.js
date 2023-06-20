@@ -55,9 +55,10 @@ export const Navbar = () => {
         </div>
         <div className="d-flex justify-content-end">
         <div className="m-3 p-1">
-        <Link to="/iniciosesion">
+        {store.token != null ? "" : <Link to="/iniciosesion">
           <button className="btn btn-outline-light" id="buttons-navbar-home">Inicia sesion</button>
-        </Link>
+        </Link>}
+        
         </div>
         <div className="m-3 p-1">
           { store.token != null ? (<button onClick={ () => { actions.logout() }} className="btn btn-light" id="buttons-navbar-home">Log out</button>) : (<Link to="/registro-1">
