@@ -16,6 +16,13 @@ export const Registro2 = () => {
   const [country, setCountry] = useState("");
   const [profileImgLink, setProfileImgLink] = useState(""); //LINK FOTO DE PERFIL
 
+  //creacion variables tabla TALENTO
+  const [categoryTalent, setCategoryTalent] = useState("") //Categoria del talento
+  const [talentName, setTalentName] = useState("") //Describe tu talento
+  const [dateSinceTalent, setDateSinceTalent] = useState("") // DESDE CUANDO LO PRACTICAS
+  const [experienceTalent, setExperienceTalent] = useState("") //QUE TAN EXPERIMENTADO TE IDENTIFICAS
+  const [imagenTalent, setImagenTalent] = useState("") //IMAGEN TALENTO
+  const [moreAboutTalent, setMoreAboutTalent] = useState("") //Cuentanos mas sobre tu talento
 
   //logica
   const [modalShown, setModalShown] = useState(false);
@@ -25,7 +32,34 @@ export const Registro2 = () => {
   const [previews2, setPreviews2] = useState();
 
 
-  //LISTENERS CREADOS
+  const imagenPreview = (e) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setFiles(e.target.files);
+    }
+  }
+
+  //LISTENERS CREADOS  TALENTO TABLA
+  const handlerCategoryTalent = (event) => {
+    setCategoryTalent(event.target.value);
+  };
+  const handlerTalentName = (event) => {
+    setTalentName(event.target.value);
+  };
+  const handlerDateSinceTalent = (event) => {
+    setDateSinceTalent(event.target.value);
+  };
+  const handlerImagenTalent = (event) => {
+    setImagenTalent(event.target.value);
+  };
+  const handlerExperienceTalent = (event) => {
+    setExperienceTalent(event.target.value);
+  };
+  const handlerMoreAboutTalent = (event) => {
+    setMoreAboutTalent(event.target.value);
+  };
+
+
+  //LISTENERS CREADOS PERFIL
   const handlerName = (event) => {
     setName(event.target.value);
   };
@@ -204,8 +238,6 @@ export const Registro2 = () => {
               <option value="">Estados Unidos</option>
               <option value="">Colombia</option>
             </select>
-
-            <button id="boton-submit-registro2" className="btn btn-success">Mandar Cambios</button>
           </div>
         </div>
         <div id="h1-box-registro2">
@@ -233,6 +265,8 @@ export const Registro2 = () => {
               className="form-select mb-3"
               id="select-input"
               aria-label="Default select example"
+              value={categoryTalent}
+              onChange={handlerCategoryTalent}
             >
               <option selected>Selecciona una categoría</option>
               <option value="1">Juegos de Mesa</option>
@@ -247,70 +281,46 @@ export const Registro2 = () => {
               className="form-control"
               placeholder=""
               aria-label="Username"
+              value={dateSinceTalent}
+              onChange={handlerDateSinceTalent}
               aria-describedby="basic-addon1"
             />
             <form>
               <div className="form-group" id="input-img-box">
-                <p>Sube alguna foto alusiva a tu talento: </p>
-                
-                {/* 
-                <label for="exampleFormControlFile1"></label>
-                <input
-                  type="file"
-                  accept="image/jpg, image/jpeg, image/png"
-                  multiple
-                  onChange={(e) => {
-                    if (e.target.files && e.target.files.length > 0) {
-                      setFiles(e.target.files);
-                    }
-                  }}
-                /> */}
-                 
-                  <input type="file" className="form-control" id="inputGroupFile02" onChange={(e) => {
-                    if (e.target.files && e.target.files.length > 0) {
-                      setFiles(e.target.files);
-                    }
-                  }}/>
-                
+                <p>Sube alguna foto alusiva a tu talento: </p>                 
+                  <input type="file" className="form-control" id="inputGroupFile02" value={imagenTalent} onChange={imagenPreview && handlerImagenTalent }/>
               </div>
             </form>
           </div>
           <div id="input2-box-3" className="col">
             <p>Descríbenos tu talento:</p>
-            {/* <select
-              className="form-select mb-3"
-              id="select-input"
-              aria-label="Default select example"
-            >
-              <option selected>Selecciona un talento</option>
-              <option value="1">Ajedrez</option>
-              <option value="2">Monopoly</option>
-              <option value="3">Risk</option>
-              <option value="4">Scrabble</option>
-              <option value="5">Ludo</option>
-            </select> */}
-
+            <input
+              id="lastname-field"
+              type="text"
+              className="form-control"
+              placeholder=""
+              value={talentName}
+              onChange={handlerTalentName}
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+            />
+            <p>¿Qué tan experimentado te identificas?</p>
             <input
               id="lastname-field"
               type="text"
               className="form-control"
               placeholder=""
               aria-label="Username"
+              value={experienceTalent}
+              onChange={handlerExperienceTalent}
               aria-describedby="basic-addon1"
             />
-            <p>¿Desde hace cuanto lo practicas?</p>
-            <input
-              id="lastname-field"
-              type="text"
-              className="form-control"
-              placeholder=""
-              aria-label="Username"
-              aria-describedby="basic-addon1"
-            />
-            <p>Cuéntanos mas sobre ti:</p>
+            <p>Cuéntanos mas sobre tu talento:</p>
             <div className="form-floating">
               <textarea
                 className="form-control"
+                value={moreAboutTalent}
+                onChange={handlerMoreAboutTalent}
                 placeholder="Dejanos un comentari"
                 id="floatingTextarea"
               ></textarea>
@@ -331,7 +341,7 @@ export const Registro2 = () => {
            Continuar
           </button>
         </div>
-        
+
           {/* MODAL BOX */}
           {
             modalShown != false ? <div
