@@ -18,6 +18,17 @@ export const Categories = () => {
                     <CategoriesSelect/>
                     <CategoriesSelect/>
 			    </div>
+                <div className="d-flex justify-content-center">
+                    <Link to="/resultados">
+                    <button
+                    id="confirmation-button-registro"
+                    type="button"
+                    className="btn btn"
+                     >
+                    Continuar
+                    </button>
+                    </Link>
+                </div>
 		    </div>
         </div>
     )
