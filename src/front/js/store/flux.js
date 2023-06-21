@@ -3,6 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			user: {},
 			perfil: {},
+			categorias: [],
 			token: localStorage.getItem("token") || null
 		},
 
@@ -139,6 +140,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const data = await resp.json()
 					console.log(data);
 					
+				} catch (error) {
+					
+				}
+			},
+			retornarcategoria: async (categoriaSeleccionada)=>{
+				try {
+
+					const bodyfetch = {categoria : categoriaSeleccionada}
+					
+					const resp = await fetch (process.env.BACKEND_URL + "api.categories",{
+						method: "GET",
+						body: JSON.stringify(bodyfetch),
+						headers: {
+							'Content-Type': 'application/json'
+						}
+					})
+					const data = await resp.json()
+					console.log(data)
+
 				} catch (error) {
 					
 				}

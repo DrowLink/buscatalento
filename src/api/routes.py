@@ -104,22 +104,17 @@ def obtener_categorias():
     db.session.add(categorias)
     db.session.commit()
 
-    return jsonify(categorias)
+    return jsonify([categoria.serialize() for categoria in categorias])
 
 
 @api.route('/categories/seleccionar', methods=['POST'])
 def select_categories():
     body = request.json
-    categoria_seleccionada = Categories(body['categorie_name'])
+    perfil = User.query.get(body['perfil_id'])
+
+    categoria_seleccionada = Categories(body['categorie_name'], perfil.id)
     print(categoria_seleccionada)
     db.session.add(categoria_seleccionada)
     db.session.commit()
 
     return jsonify(categoria_seleccionada.serialize()), 200
-
-def obtener_todas_las_categorias():
-    return Categories.query.all
-
-def actualizar_categorias_seleccionadas():
-    for categories_id in categoria_seleccionada:
-        categories = Categories.query.get(categories_id)
