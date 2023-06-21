@@ -171,6 +171,8 @@ export const FormTalent=() =>{
             id="confirmation-button-registro"
             type="button"
             className="btn btn"
+            data-bs-toggle="modal" 
+            data-bs-target="#exampleModal"
             onClick={handleClick}
           >
            Continuar
@@ -195,14 +197,14 @@ export const FormTalent=() =>{
 
         {/* MODAL BOX */}
         <div
-          class="modal fade"
+          className="modal fade"
           id="exampleModal"
           tabindex="-1"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
         >
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
               {/* <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">
                   Modal title
@@ -216,14 +218,14 @@ export const FormTalent=() =>{
                   data-bs-target="#exampleModal"
                 ></button>
               </div> */}
-              <div class="modal-body">
+              <div className="modal-body">
                 <img id="trophy-img-modal-registro2" src={trophy} />
                 <div id="text-modal-registro2">
                   <h1>¡Ya está hecho!</h1>
                   <h6>Ve y comparte tu talento con toda la comunidad 💖</h6>
                 </div>
               </div>
-              <div class="justify-content-center mb-5">
+              <div className="justify-content-center mb-5">
                 <Link to="/resultados">
                   <button
                     type="button"
