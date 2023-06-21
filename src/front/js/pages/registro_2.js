@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import "../../styles/registro_2.css";
 import { Context } from "../store/appContext";
 import trophy from "../../img/trophy.png";
-import { FormTalent } from "../component/formTalent";
+import ScrollToTop from "../component/scrollToTop"
 
 export const Registro2 = () => {
+  const {actions, store} = useContext(Context)
 
   //creacion de variables de la tabla PERFIL
   const [name, setName] = useState("");
@@ -16,16 +17,10 @@ export const Registro2 = () => {
   const [country, setCountry] = useState("");
   const [profileImgLink, setProfileImgLink] = useState(""); //LINK FOTO DE PERFIL
 
-  //creacion variables tabla TALENTO
-  const [categoryTalent, setCategoryTalent] = useState("") //Categoria del talento
-  const [talentName, setTalentName] = useState("") //Describe tu talento
-  const [dateSinceTalent, setDateSinceTalent] = useState("") // DESDE CUANDO LO PRACTICAS
-  const [experienceTalent, setExperienceTalent] = useState("") //QUE TAN EXPERIMENTADO TE IDENTIFICAS
-  const [imagenTalent, setImagenTalent] = useState("") //IMAGEN TALENTO
-  const [moreAboutTalent, setMoreAboutTalent] = useState("") //Cuentanos mas sobre tu talento
+
 
   //logica
-  const [modalShown, setModalShown] = useState(false);
+  const [modalShown, setModalShown] = useState(true);
   const [files, setFiles] = useState();
   const [previews, setPreviews] = useState();
   const [files2, setFiles2] = useState();
@@ -37,26 +32,6 @@ export const Registro2 = () => {
       setFiles(e.target.files);
     }
   }
-
-  //LISTENERS CREADOS  TALENTO TABLA
-  const handlerCategoryTalent = (event) => {
-    setCategoryTalent(event.target.value);
-  };
-  const handlerTalentName = (event) => {
-    setTalentName(event.target.value);
-  };
-  const handlerDateSinceTalent = (event) => {
-    setDateSinceTalent(event.target.value);
-  };
-  const handlerImagenTalent = (event) => {
-    setImagenTalent(event.target.value);
-  };
-  const handlerExperienceTalent = (event) => {
-    setExperienceTalent(event.target.value);
-  };
-  const handlerMoreAboutTalent = (event) => {
-    setMoreAboutTalent(event.target.value);
-  };
 
 
   //LISTENERS CREADOS PERFIL
@@ -85,15 +60,23 @@ export const Registro2 = () => {
   //ENVIAR INFO
   const handleClickPerfil = () => {
     if (
-      name &&
-      lastname &&
-      phone &&
-      age &&
-      state &&
-      country &&
-      profileImgLink
-    ) { alert("bien") //hacer fetch con actions
-        setModalShown(true)
+      name.trim() != "" &&
+      lastname.trim() != "" &&
+      phone.trim() != "" &&
+      age.trim() != "" &&
+      state.trim() != "" &&
+      country.trim() != "" &&
+      profileImgLink.trim() != ""
+    ) { 
+         actions.newPerfil({
+          name: name,
+          last_name: lastname,
+          phone: phone,
+          age: age,
+          country: country,
+          state: state,
+          image_url: profileImgLink
+         })
     } else {
       alert("Faltan datos por rellenar");
     }
@@ -469,113 +452,25 @@ export const Registro2 = () => {
               <option value="ZM">Zambia</option>
               <option value="ZW">Zimbabue</option>
             </select>
+            <button className="confirmation-button-registro" onClick={handleClickPerfil}>Guardar Datos</button>
           </div>
         </div>
-        <div id="h1-box-registro2">
-            <h1 id="h1-registro-below">Sobre tu talento</h1>{" "}
-          </div>
-        <div id="input-box-2" className="row">
-          
-          <div
-            id="input2-box-1"
-            className="col-4 d-flex justify-content-center"
-          >
-            <div
-              id="img-talent"
-              className="d-flex justify-content-center align-items-center "
-            >
-              {previews &&
-              previews.map((pic) => {
-                return <img id="preview-img-registro2" src={pic} />; //PREVIEW SECCION 1 PERFIL
-              })}
-            </div>
-          </div>
-          <div id="input2-box-2" className="col">
-            <p>Selecciona una categoria para tu talento:</p>
-            <select
-              className="form-select mb-3"
-              id="select-input"
-              aria-label="Default select example"
-              value={categoryTalent}
-              onChange={handlerCategoryTalent}
-            >
-              <option selected>Selecciona una categoría</option>
-              <option value="1">Juegos de Mesa</option>
-              <option value="2">Lenguajes de Programación</option>
-              <option value="3">Deportes</option>
-              <option value="4">Artes marciales</option>
-            </select>
-            <p>¿Desde hace cuanto lo practicas?</p>
-            <input
-              id="lastname-field"
-              type="text"
-              className="form-control"
-              placeholder=""
-              aria-label="Username"
-              value={dateSinceTalent}
-              onChange={handlerDateSinceTalent}
-              aria-describedby="basic-addon1"
-            />
-            <form>
-              <div className="form-group" id="input-img-box">
-                <p>Sube alguna foto alusiva a tu talento: </p>                 
-                  <input type="file" className="form-control" id="inputGroupFile02" value={imagenTalent} onChange={imagenPreview && handlerImagenTalent }/>
-              </div>
-            </form>
-          </div>
-          <div id="input2-box-3" className="col">
-            <p>Descríbenos tu talento:</p>
-            <input
-              id="lastname-field"
-              type="text"
-              className="form-control"
-              placeholder=""
-              value={talentName}
-              onChange={handlerTalentName}
-              aria-label="Username"
-              aria-describedby="basic-addon1"
-            />
-            <p>¿Qué tan experimentado te identificas?</p>
-            <input
-              id="lastname-field"
-              type="text"
-              className="form-control"
-              placeholder=""
-              aria-label="Username"
-              value={experienceTalent}
-              onChange={handlerExperienceTalent}
-              aria-describedby="basic-addon1"
-            />
-            <p>Cuéntanos mas sobre tu talento:</p>
-            <div className="form-floating">
-              <textarea
-                className="form-control"
-                value={moreAboutTalent}
-                onChange={handlerMoreAboutTalent}
-                placeholder="Dejanos un comentari"
-                id="floatingTextarea"
-              ></textarea>
-              <label for="floatingTextarea"></label>
-            </div>
-          </div>
-         </div>  
-         <div id="end-section-modal" className="text-center">
-        <h3>¿Listo para empezar?</h3>
+      </div>
+    </>
+  );
+};
 
-        <div>
-          <button
-            id="confirmation-button-registro"
-            type="button"
-            className="btn btn"
-            onClick={handleClickPerfil}
-          >
-           Continuar
-          </button>
-        </div>
 
-          {/* MODAL BOX */}
-          {
-            modalShown != false ? <div
+
+
+
+
+
+
+
+
+
+{/* <div
             class="modal fade"
             id="exampleModal"
             tabindex="-1"
@@ -605,41 +500,4 @@ export const Registro2 = () => {
                 </div>
               </div>
             </div>
-          </div> : "" 
-          }
-        
-        
-      </div> 
-
-
-
-
- {/* VERSION REPETIDA TALENTO BOX POR SEGUNDA VEZ */}
-
-
-
-
-        {/* <div id="input-box-3" className="row">
-          <div className="col" id="add-photos-container">
-            <div
-              id="section3-box-talent"
-              className="d-flex justify-content-center align-items-center"
-            >
-              DRAG AN DROP IMG INPUT
-            </div>
-          </div>
-          {/* <div className="col" id="add-photos-container">
-            <div id="section3-box-talent" className="d-flex justify-content-center align-items-center">DRAG AN DROP IMG INPUT</div>
-          </div>
-          <div className="col" id="add-photos-container">
-            <div id="section3-box-talent"className="d-flex justify-content-center align-items-center">DRAG AN DROP IMG INPUT</div>
-          </div> */}
-        {/* </div> */}
-
-        {/* <div class="progress">
-            <div className="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-            </div> agregar luego bien acomodado */}
-      </div>
-    </>
-  );
-};
+          </div>) */}

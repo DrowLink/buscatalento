@@ -63,13 +63,13 @@ class Talent(db.Model):
     perfil = db.relationship('Perfil', backref='talent')
     imagetalent_url = db.Column(db.String(400), nullable=False)
 
-    def __init__(self, talent_name, practice_time, about_you, categories_talent, range_talent, perfil, imagetalent_url):
+    def __init__(self, talent_name, practice_time, about_you, categories_talent, range_talent, perfil_id, imagetalent_url):
         self.talent_name = talent_name
         self.practice_time = practice_time
         self.about_you = about_you
         self.categories_talent = categories_talent
         self.range_talent = range_talent
-        self.perfil = perfil
+        self.perfil_id = perfil_id
         self.imagetalent_url = imagetalent_url
 
     def serialize(self):
