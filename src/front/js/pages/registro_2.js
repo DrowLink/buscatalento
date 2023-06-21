@@ -23,7 +23,6 @@ export const Registro2 = () => {
   const [previews, setPreviews] = useState();
   const [files2, setFiles2] = useState();
   const [previews2, setPreviews2] = useState();
-  const [datosPerfil, setDatosPerfil]= useState("")
 
 
   //LISTENERS CREADOS
@@ -49,11 +48,8 @@ export const Registro2 = () => {
     setProfileImgLink(event.target.value);
   };
 
-  const switchModal = (event) => {
-    setModalShown(true)
-  };
-
-  const handleClick = () => {
+  //ENVIAR INFO
+  const handleClickPerfil = () => {
     if (
       name &&
       lastname &&
@@ -62,7 +58,8 @@ export const Registro2 = () => {
       state &&
       country &&
       profileImgLink
-    ) { alert("bien"); //hacer fetch con actions
+    ) { alert("bien") //hacer fetch con actions
+        setModalShown(true)
     } else {
       alert("Faltan datos por rellenar");
     }
@@ -329,74 +326,49 @@ export const Registro2 = () => {
             id="confirmation-button-registro"
             type="button"
             className="btn btn"
-            onClick={handleClick}
+            onClick={handleClickPerfil}
           >
            Continuar
           </button>
-
-          {/* <button
-            id="denial-button-registro"
-            type="button"
-            className="btn btn-danger"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
+        </div>
+        
+          {/* MODAL BOX */}
+          {
+            modalShown != false ? <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
           >
-            No
-          </button> */}
-        </div>
-
-        <div>
-                {/* FUNCION PARA RENDERIZAR OTRO FORM */}
-        {/* {mostrarForm && <FormTalent/>} */}
-
-        </div>
-
-        {/* MODAL BOX */}
-        <div
-          class="modal fade"
-          id="exampleModal"
-          tabindex="-1"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              {/* <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">
-                  Modal title
-                </h5>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                  data-bs-toggle="modal"
-                  data-bs-target="#exampleModal"
-                ></button>
-              </div> */}
-              <div class="modal-body">
-                <img id="trophy-img-modal-registro2" src={trophy} />
-                <div id="text-modal-registro2">
-                  <h1>¡Ya está hecho!</h1>
-                  <h6>Ve y comparte tu talento con toda la comunidad 💖</h6>
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <img id="trophy-img-modal-registro2" src={trophy} />
+                  <div id="text-modal-registro2">
+                    <h1>¡Ya está hecho!</h1>
+                    <h6>Ve y comparte tu talento con toda la comunidad 💖</h6>
+                  </div>
+                </div>
+                <div class="justify-content-center mb-5">
+                  <Link to="/resultados">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      ¡Llévame al buscador!
+                    </button>
+                  </Link>
                 </div>
               </div>
-              <div class="justify-content-center mb-5">
-                <Link to="/resultados">
-                  <button
-                    type="button"
-                    class="btn btn-primary"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  >
-                    ¡Llévame al buscador!
-                  </button>
-                </Link>
-              </div>
             </div>
-          </div>
-        </div>
-        </div> 
+          </div> : "" 
+          }
+        
+        
+      </div> 
 
 
 
