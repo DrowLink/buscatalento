@@ -26,7 +26,7 @@ def create_token():
     user = User.query.filter_by(email = email, password = password).first()
     if user is None:
         return jsonify({"msg": "Credenciales invalidas"}), 404
-    access_token = create_access_token(identity=email) #here token is created
+    access_token = create_access_token(identity=user.id) #here token is created
     return jsonify(access_token=access_token)
  
 
@@ -64,14 +64,14 @@ def new_user():
     return  jsonify({"message":"Method not implemented yet!" }), 500
 
 @api.route('/perfil', methods=['POST'])
-# @jwt_required()
+@jwt_required()
 def new_perfil():
     body = request.json        # lo que viene del request como un diccionario de python
-    user = User.query.get(body['user_id'])
-
+    user = User.query.filter_by(id = get_jwt_identity()).one_or_none()
+    print(user.id)
     if user != None: 
-        nuevo_perfil = Perfil( body['name'], body['last_name'], body['phone'], body['age'], body['country'], body['state'], body['user_id'], body['image_url'])
-        print(nuevo_perfil) #Convertido a objeto de python
+        nuevo_perfil = Perfil( body['name'], body['last_name'], body['phone'], body['age'], body['country'], body['state'], user.id, body['image_url'])
+        # print(nuevo_perfil) Convertido a objeto de python
         db.session.add(nuevo_perfil) #Memoria ram de sql
         db.session.commit() #inserta en la base de datos de postgre
 
@@ -81,12 +81,13 @@ def new_perfil():
 
 
 @api.route('/talent', methods=['POST'])
+@jwt_required()
 def new_talent():
     body = request.json
-    perfil = Perfil.query.get(body['perfil_id'])
+    perfil = Perfil.query.filter_by(user_id = get_jwt_identity()).first()
 
-    if perfil != None: #En este caso, deberia crearse un boolean para manejar los proximos talentos a crearse
-        nuevo_talent = Talent( body['talent_name'], body['practice_time'], body['about_you'], body['categories_talent'], body['range_talent'], body['imagetalent_url'], perfil)
+    if perfil != None: 
+        nuevo_talent = Talent( body['talent_name'], body['practice_time'], body['about_you'], body['categories_talent'], body['range_talent'], perfil.id, body['imagetalent_url'])
         print(nuevo_talent)
         db.session.add(nuevo_talent)
         db.session.commit()

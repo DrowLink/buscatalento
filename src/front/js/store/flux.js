@@ -17,37 +17,62 @@ const getState = ({ getStore, getActions, setStore }) => {
 							'Content-Type': 'application/json'
 						}
 					})
-					const data = await resp.json()
-					setStore({
-						user: data.results
-					})
-					console.log(data)
-					// return data;
-
+					if (resp.ok) {
+						const data = await resp.json()
+						setStore({
+							user: data.results
+						})
+						console.log(data)
+						return true
+						// return data;
+					}
+					else {
+						return false;
+					}
 				}
 				catch (err) {
 					console.log(err)
 				}
 			},
 			newPerfil: async (perfil) => { //registro-2
+				let store = getStore() //Trayendo info del store aca para pedirla abajo
 			try {
-				const resp = await fetch(process.env.BACKEND_URL + "/api/perfil", {
-					method: "POST",
-					body: JSON.stringify(perfil),
-					headers: {
-						'Content-Type': 'application/json'
-					}
-				})
-				const data = await resp.json()
-				setStore({
-					perfil: data.results
-				})
-				console.log(data);
+				console.log(perfil)
+				 const resp = await fetch(process.env.BACKEND_URL + "/api/perfil", {
+				 	method: "POST",
+				 	body: JSON.stringify(perfil),
+				 	headers: {
+						'Authorization': `Bearer ${store.token}`,
+				 		'Content-Type': 'application/json'
+				 	}
+				 })
+				 const data = await resp.json()
+				 setStore({
+				 	perfil: data.results
+				 })
+				 console.log(data);
 			}
 			catch (err) {
 				console.log(err)
 			}
 			},
+			 newTalento: async (talent) => { //registro-2
+				let store = getStore() //Trayendo info del store aca para pedirla abajo
+			try {
+					console.log(talent)
+					const resp = await fetch(process.env.BACKEND_URL + "/api/talent", {
+						method: "POST",
+						body: JSON.stringify(talent),
+						headers: {
+						   'Authorization': `Bearer ${store.token}`,
+							'Content-Type': 'application/json'
+						}
+					})
+				}
+			catch (err) {
+				console.log(err)
+				}
+			 },
 			login: async (email, password) => {
 				const opts = {
 					method: "POST",

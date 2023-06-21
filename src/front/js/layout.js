@@ -7,6 +7,7 @@ import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import { Registro2 } from "./pages/registro_2";
+import Registro3 from "./pages/registro_3";
 import { Categories } from "./pages/categories";
 import { Perfil } from "./pages/perfil";
 import { InicioSesion } from "./pages/inicio_sesion";
@@ -43,6 +44,7 @@ const Layout = () => {
             <Route element={<Resultados />} path="/resultados" />
             <Route element={<Registro1 />} path="/registro-1" />
             <Route element={<Registro2 />} path="/registro-2" />
+            <Route element={<Registro3 />} path="/registro-3" />
             <Route element={<Single />} path="/single/:theid" />
             <Route element={<h1>Not found!</h1>} />
           </Routes>

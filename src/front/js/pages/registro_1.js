@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../../styles/registro_1.css";
 import PeopleSharing from "../../img/people-sharing.jpg";
 import ScrollToTop from "../component/scrollToTop.js";
@@ -7,10 +7,11 @@ import { Context } from "../store/appContext";
 
 export const Registro1 = () => {
   const { store, actions } = useContext(Context); //Destructuracion
+  const navigate = useNavigate(); //Linkeo
 
   //useEffect 
   // useEffect ( () => {
-  //   actions.loadUsers();
+  //   actions.loadUsers(); 
   // }, [])
 
   //useStates de los INPUTS
@@ -37,16 +38,21 @@ export const Registro1 = () => {
     setConfirmPassword(event.target.value)
   }
 
-  const handlerKeyPress = (event) => { //ACA HACE LA LOGICA DE QUE LAS CONTRASEÑAS SEAN IGUALES
+  const handlerKeyPress = async (event) => { //ACA HACE LA LOGICA DE QUE LAS CONTRASEÑAS SEAN IGUALES
     event.preventDefault()
     // console.log(`username: ${username}, password: ${password}, email: ${email}, confirmPassword: ${confirmPassword}`)
-    if (password === confirmPassword) {
-      actions.newUsers({
+    if (password === confirmPassword && username.trim() != "" && email.trim() != "" && password.trim() != "") {
+      let resp = await actions.newUsers({
         "user_name": username,
         "email": email,
         "password": password
       })
-        console.log("Contraseña válida")
+      if (resp) {
+        navigate("/registro-2")
+      }
+      else {
+        alert("Credenciales inválidas") 
+      }
 
     }
     else {
@@ -126,7 +132,7 @@ export const Registro1 = () => {
                 type="button"
                 id="btn-create"
                 className="btn btn-primary"
-                onClick={handlerKeyPress} //<ScrollToTop/>
+                onClick={handlerKeyPress}
               >
                 CREAR PERFIL
               </button>
