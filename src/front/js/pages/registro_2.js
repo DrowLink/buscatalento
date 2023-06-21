@@ -8,16 +8,17 @@ import { FormTalent } from "../component/formTalent";
 export const Registro2 = () => {
 
   //creacion de variables de la tabla PERFIL
-  const [name, setName] = useState("")
-  const [lastname, setLastname] = useState("")
-  const [estado, setEstado] = useState("")
-  const [phone, setPhone] = useState("")
-  const [age, setAge] = useState("")
-  const [country, setCountry] = useState("")
-  const [profileImgLink, setProfileImgLink] = useState("") //LINK FOTO DE PERFIL
+  const [name, setName] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [state, setState] = useState("");
+  const [phone, setPhone] = useState("");
+  const [age, setAge] = useState("");
+  const [country, setCountry] = useState("");
+  const [profileImgLink, setProfileImgLink] = useState(""); //LINK FOTO DE PERFIL
 
 
   //logica
+  const [modalShown, setModalShown] = useState(false);
   const [files, setFiles] = useState();
   const [previews, setPreviews] = useState();
   const [files2, setFiles2] = useState();
@@ -27,23 +28,30 @@ export const Registro2 = () => {
 
   //LISTENERS CREADOS
   const handlerName = (event) => {
-    setName(event.target.value)
-  }
+    setName(event.target.value);
+  };
   const handlerLastname = (event) => {
-    setLastname(event.target.value)
-  }
+    setLastname(event.target.value);
+  };
   const handlerPhone = (event) => {
-    setPhone(event.target.value)
-  }
+    setPhone(event.target.value);
+  };
   const handlerCountry = (event) => {
-    setCountry(event.target.value)
-  }
+    setCountry(event.target.value);
+  };
+  const handlerState = (event) => {
+    setState(event.target.value);
+  };
+  const handlerAge = (event) => {
+    setAge(event.target.value);
+  };
   const handlerProfileImgLink = (event) => {
-    setCountry(event.target.value)
-  }
-  const handleDatosPerfil = (event) =>{
-    setDatosPerfil(event.target.value);
-  }
+    setProfileImgLink(event.target.value);
+  };
+
+  const switchModal = (event) => {
+    setModalShown(true)
+  };
 
   //rendering previews
   useEffect(() => {
@@ -117,7 +125,7 @@ export const Registro2 = () => {
               aria-label="Username"
               aria-describedby="basic-addon1"
               value={name}
-              onChange={handleDatosPerfil}
+              onChange={handlerName}
             />
             <p>Telefono</p>
             <input
@@ -128,7 +136,7 @@ export const Registro2 = () => {
               aria-label="Username"
               aria-describedby="basic-addon1"
               value={phone}
-              onChange={handleDatosPerfil}
+              onChange={handlerPhone}
             />
             <p>Estado</p>
             <input
@@ -136,8 +144,8 @@ export const Registro2 = () => {
               id="input-input"
               aria-label="Default input example"
               placeholder="Estado"
-              value={estado}
-              onChange={handleDatosPerfil}
+              value={state}
+              onChange={handlerState}
 
             />
             <p>Sube una foto para tu perfil:</p>
@@ -145,18 +153,8 @@ export const Registro2 = () => {
                     className="form-control mt-2" 
                     id="inputGroupFile03" 
                     accept="image/*"
-                    onChange={(e) => {
-                        
-
-                    }
-                      
-                    //     {
-                    //   if (e.target.files && e.target.files.length > 0) {
-                    //     setFiles2(e.target.files);
-                    //   }
-                    // }
-                    
-                  }/>
+                    value={profileImgLink}
+                    onChange={handlerProfileImgLink}/>
           </div>
           <div id="input-section-3" className="col">
             <p>Apellido</p>
@@ -168,7 +166,7 @@ export const Registro2 = () => {
               aria-label="Username"
               aria-describedby="basic-addon1"
               value={lastname}
-              onChange={handleDatosPerfil}
+              onChange={handlerLastname}
             />
             <p>Edad</p>
             <input
@@ -179,7 +177,7 @@ export const Registro2 = () => {
               aria-label="Username"
               aria-describedby="basic-addon1"
               value={age}
-              onChange={handleDatosPerfil}
+              onChange={handlerAge}
             />
             <p>País</p>
             <select
@@ -187,7 +185,7 @@ export const Registro2 = () => {
               id="select-input"
               aria-label="Default select example"
               value={country}
-              onChange={handleDatosPerfil}
+              onChange={handlerCountry}
             >
               <option selected>Selecciona un país</option>
               <option value="">Venezuela</option>
