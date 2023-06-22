@@ -22,6 +22,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({
 							user: data.results
 						})
+						localStorage.setItem("token", data.token)
 						console.log(data)
 						return true
 						// return data;
@@ -36,25 +37,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			newPerfil: async (perfil) => { //registro-2
 				let store = getStore() //Trayendo info del store aca para pedirla abajo
-			try {
-				console.log(perfil)
-				 const resp = await fetch(process.env.BACKEND_URL + "/api/perfil", {
-				 	method: "POST",
-				 	body: JSON.stringify(perfil),
-				 	headers: {
-						'Authorization': `Bearer ${store.token}`,
-				 		'Content-Type': 'application/json'
-				 	}
-				 })
-				 const data = await resp.json()
-				 setStore({
-				 	perfil: data.results
-				 })
-				 console.log(data);
-			}
-			catch (err) {
-				console.log(err)
-			}
+				try {
+					console.log(perfil)
+					const resp = await fetch(process.env.BACKEND_URL + "/api/perfil", {
+						method: "POST",
+						body: JSON.stringify(perfil),
+						headers: {
+							//'Authorization': `Bearer ${store.token}`,
+							'Content-Type': 'application/json'
+						}
+					})
+					const data = await resp.json()
+					setStore({
+						perfil: data.results
+					})
+					//localStorage.setItem("token", data.token)
+					console.log(data);
+				}
+				catch (err) {
+					console.log(err)
+				}
 			},
 			 newTalento: async (talent) => { //registro-2
 				let store = getStore() //Trayendo info del store aca para pedirla abajo
@@ -108,6 +110,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			newimage: async (perfil) =>{
 
+				let store = getStore()
+
 				try {
 
 					const apiUrl = `https://api.cloudinary.com/v1_1/datq8v8mk/image/upload`
@@ -130,6 +134,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						method: "POST",
 						headers: {
 							"Content-Type": "application/json",
+							'Authorization': `Bearer ${store.token}`
 						},
 						body: JSON.stringify({
 							"name": perfil.name,
@@ -138,13 +143,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 							"age": perfil.age,
 							"country": perfil.country,
 							"state": perfil.state,
-							"user_id": user.state,
+							//"user_id": user.state,
 							"image_url": dataCloudinary.url
 						})
 					})
-					const data = await resp.json();
-					
-					console.log(data)
 					
 				} catch (error) {
 					console.log(error)

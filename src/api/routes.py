@@ -51,15 +51,15 @@ def new_user():
         nuevo_usuario = User(body['email'], body['password'], body['user_name'])
         print(nuevo_usuario)
 
-    try:
-        db.session.add(nuevo_usuario)
-        db.session.commit()
-        return jsonify({"message": "Se ha creado el usuario con exito! ✅"})
-    except Exception as err:
-        return jsonify({"message": "Ha ocurrido un error! 💥"}), 500
+        try:
+            db.session.add(nuevo_usuario)
+            db.session.commit()
+            return jsonify({"message": nuevo_usuario.serialize(), "token": create_access_token(identity=nuevo_usuario.id)})
+        except Exception as err:
+            return jsonify({"message": "Ha ocurrido un error! 💥"}), 500
     
-    else: 
-        return jsonify({"message": "Ya existe un usuario con ese email!" }), 400
+        # else: 
+        #     return jsonify({"message": "Ya existe un usuario con ese email!" }), 400
         
     return  jsonify({"message":"Method not implemented yet!" }), 500
 
