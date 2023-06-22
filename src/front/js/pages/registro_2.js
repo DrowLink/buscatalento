@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../../styles/registro_2.css";
 import { Context } from "../store/appContext";
 import trophy from "../../img/trophy.png";
@@ -7,6 +7,7 @@ import ScrollToTop from "../component/scrollToTop"
 
 export const Registro2 = () => {
   const {actions, store} = useContext(Context)
+  const navigate = useNavigate();
 
   //creacion de variables de la tabla PERFIL
   const [name, setName] = useState("");
@@ -20,14 +21,13 @@ export const Registro2 = () => {
 
 
   //logica
-  const [modalShown, setModalShown] = useState(true);
   const [files, setFiles] = useState();
   const [previews, setPreviews] = useState();
   const [files2, setFiles2] = useState();
   const [previews2, setPreviews2] = useState();
 
 
-  const imagenPreview = (e) => {
+  const imagenPreview = (e) => { //preview foto de perfil cuando la subes
     if (e.target.files && e.target.files.length > 0) {
       setFiles(e.target.files);
     }
@@ -68,7 +68,7 @@ export const Registro2 = () => {
       country.trim() != "" //&&
       //profileImgLink.trim() != ""
     ) { 
-         actions.newimage({
+         let resp = actions.newimage({
           name: name,
           last_name: lastname,
           phone: phone,
@@ -77,12 +77,15 @@ export const Registro2 = () => {
           state: state,
           photo: profileImgLink
          })
+         if (resp.ok) {
+          navigate("/registro-3")
+         }
     } else {
       alert("Faltan datos por rellenar");
     }
   };
 
-  //rendering previews
+  //rendering previews FOTO PERFIL
   useEffect(() => {
     if (!files) return;
 
@@ -93,7 +96,7 @@ export const Registro2 = () => {
     const objectUrls = tmp;
     setPreviews(objectUrls);
 
-    //free memory
+    //free memory PREVIEW FOTO PERFIL
     for (let i=0; i < objectUrls.length; i++) {
       return () => {
         URL.revokeObjectURL(objectUrls[i]);
@@ -101,24 +104,6 @@ export const Registro2 = () => {
     };
   }, [files]);
 
-  
- useEffect(() => { //state2
-   if (!files2) return;
-
-   let tmp = [];
-   for (let i=0 ; i < files2.length; i++) {
-     tmp.push(URL.createObjectURL(files2[i]));
-   }
-   const objectUrls = tmp;
-   setPreviews2(objectUrls);
-
-   //free memory
-   for (let i=0; i < objectUrls.length; i++) {
-     return () => {
-       URL.revokeObjectURL(objectUrls[i]);
-     };
-   };
- }, [files2]);
 
  const handlerKeyPress = (event) =>{
   event.preventDefault()
@@ -137,12 +122,11 @@ export const Registro2 = () => {
             className="col-4 d-flex justify-content-center"
           >
             <div id="circle-profile-img">
-            {previews2 &&
-              previews2.map((pic) => {
+            {previews &&
+              previews.map((pic) => {
                 return <img id="preview-img-registro2-perfil" src={pic} />;
               })}
             </div>
-            {/* <h2>Profile Picture</h2> */}
           </div>
           <div id="input-section-2" className="col">
             <p>Nombre</p>

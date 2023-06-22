@@ -6,7 +6,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			categorias: [],
 			token: localStorage.getItem("token") || null
 		},
-
 		actions: {
 			newUsers: async (user) => { //registro-1
 				try {
@@ -58,7 +57,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(err)
 				}
 			},
-			 newTalento: async (talent) => { //registro-2
+			 newTalento: async (talent) => { //registro-3
 				let store = getStore() //Trayendo info del store aca para pedirla abajo
 			try {
 					console.log(talent)

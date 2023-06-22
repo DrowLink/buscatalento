@@ -6,7 +6,7 @@ import ScrollToTop from "../component/scrollToTop.js";
 import { Context } from "../store/appContext";
 
 export const Registro1 = () => {
-  const { store, actions } = useContext(Context); //Destructuracion
+  const { store, actions } = useContext(Context);
   const navigate = useNavigate(); //Linkeo
 
   //useEffect 
@@ -47,13 +47,12 @@ export const Registro1 = () => {
         "email": email,
         "password": password
       })
-      if (resp.ok) {
+      if (resp.ok) { 
         navigate("/registro-2")
       }
       else {
         alert("Credenciales inválidas") 
       }
-
     }
     else {
         setPasswordMatch(false)

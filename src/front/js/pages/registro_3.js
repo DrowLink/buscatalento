@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../../styles/registro_2.css";
 import { Context } from "../store/appContext";
 
 const Registro3 = () => {
     const {actions, store} = useContext(Context)
+    const navigate = useNavigate();
       //creacion variables tabla TALENTO
   const [categoryTalent, setCategoryTalent] = useState("") //Categoria del talento
   const [talentName, setTalentName] = useState("") //Describe tu talento
@@ -14,11 +15,10 @@ const Registro3 = () => {
   const [moreAboutTalent, setMoreAboutTalent] = useState("") //Cuentanos mas sobre tu talento
 
   //logica
-  const [modalShown, setModalShown] = useState(true);
-  const [files, setFiles] = useState();
-  const [previews, setPreviews] = useState();
-  const [files2, setFiles2] = useState();
-  const [previews2, setPreviews2] = useState();
+  // const [modalShown, setModalShown] = useState(true);
+  // ESTOS STATES SON DE PREVIEW DE LA IMAGEN
+  // const [files2, setFiles2] = useState();
+  // const [previews2, setPreviews2] = useState();
 
     //LISTENERS CREADOS  TALENTO TABLA
     const handlerCategoryTalent = (event) => {
@@ -50,6 +50,7 @@ const Registro3 = () => {
                 range_talent: experienceTalent,
                 imagetalent_url: imagenTalent
             })
+              navigate("/resultados")
         }
         else {
             alert("Faltan datos por rellenar");
@@ -71,10 +72,10 @@ const Registro3 = () => {
               id="img-talent"
               className="d-flex justify-content-center align-items-center "
             >
-              {previews &&
-              previews.map((pic) => {
-                return <img id="preview-img-registro2" src={pic} />; //PREVIEW SECCION 1 PERFIL
-              })}
+              {/* {previews2 &&
+              previews2.map((pic) => {
+                return <img id="preview-img-registro2" src={pic} />; //PREVIEW
+              })}  ACA ES LOGICA DE PREVIEW DE LA IMAGEN SUBIDA AL INPUT*/}
             </div>
           </div>
           <div id="input2-box-2" className="col">
@@ -161,7 +162,7 @@ const Registro3 = () => {
         </div>
 
 
-          {
+          {/* {
             modalShown != false ? (<div class="modal" tabindex="-1">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -179,7 +180,7 @@ const Registro3 = () => {
               </div>
             </div>
           </div>) : "" 
-          } 
+          }  */}
       </div>
         </>
     )
