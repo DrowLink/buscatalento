@@ -12,6 +12,9 @@ export const CardPersonal = (props) => {
         store, actions
     }= useContext(Context)
 
+    useEffect(()=>{
+        actions.retornarcategoria()
+    }, [])
 
 
 
@@ -22,7 +25,14 @@ export const CardPersonal = (props) => {
                     <div id="profile-img-cardbox-resultados"></div>
                 </div>
             <div id="text-cardbox-resultados" className="col">
-                <h3>Manuel Rosas</h3>
+                {
+                    store.categorias.map((categoria) =>
+                    <span>
+                    Categoria: {props.item.categoria}
+                    </span>
+                    )
+                }
+                <h3> Jose Rosas </h3>
                 <p>24 años</p>
                 <p>Jugador Amateur de ajedrez</p>
                 <p>Caracas, Venezuela</p>
