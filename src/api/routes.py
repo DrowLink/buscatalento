@@ -27,7 +27,7 @@ def create_token():
     if user is None:
         return jsonify({"msg": "Credenciales invalidas"}), 404
     access_token = create_access_token(identity=user.id) #here token is created
-    return jsonify(access_token=access_token)
+    return jsonify({"access_token": access_token, "user": user.serialize()})
  
 
 #app routes
@@ -77,6 +77,17 @@ def new_perfil():
 
         return jsonify(nuevo_perfil.serialize()), 200 
     return jsonify({"message": "no existe ese perfil"})
+
+
+
+#GET PERFIL 
+@api.route('/perfil/<int:id>', methods=['GET'])
+def get_perfil(id):
+    perfil =  Perfil.query.filter_by(user_id=id).one_or_none()
+    if perfil is not None:
+        return jsonify(perfil.serialize()), 200
+    else:
+        return jsonify({"message": "user not found"}), 404   
 
 
 

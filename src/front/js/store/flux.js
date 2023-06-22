@@ -1,12 +1,24 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			user: {},
+			user: localStorage.getItem("user") || {},
 			perfil: {},
 			categorias: [],
 			token: localStorage.getItem("token") || null
 		},
 		actions: {
+			getProfileById: async (user_id) => {
+				try {
+					const resp = await fetch(`/perfil/${user_id}`)
+					const data = await resp.json()
+					getStore({
+						perfil: data
+					})
+				}
+				catch (err) {
+					console.log(err)
+				}
+			},
 			newUsers: async (user) => { //registro-1
 				try {
 					const resp = await fetch(process.env.BACKEND_URL + "/api/user", {
@@ -50,6 +62,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					setStore({
 						perfil: data.results
 					})
+					localStorage.setItem("user", JSON.stringify(data.user))
 					//localStorage.setItem("token", data.token)
 					console.log(data);
 				}
@@ -93,9 +106,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 					const data = await response.json();
 					setStore({
-						token: data.access_token //Aca guarda la data del token en el store
+						token: data.access_token, //Aca guarda la data del token en el store
+						user: data.user
 					})
 					localStorage.setItem("token", data.access_token)
+					localStorage.setItem("user", JSON.stringify(data.user))
 					// console.log(data.access_token)
 				}
 				catch (err) {
@@ -104,6 +119,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			logout: () => {
 				localStorage.removeItem("token")
+				localStorage.removeItem("user")
+
 				// console.log("Loging out")
 				setStore({ token: null })
 			},

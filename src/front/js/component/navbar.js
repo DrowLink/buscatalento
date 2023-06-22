@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import buscatalento_logo from "../../img/buscatalento_logo.png";
 import "../../styles/navbar.css";
 import { Context } from "../store/appContext";
@@ -7,7 +7,7 @@ import { Context } from "../store/appContext";
 export const Navbar = () => {
 
   const { actions, store } = useContext(Context) //accede al flux
-
+  let { userId } = useParams();
 
 
   return (
@@ -61,7 +61,7 @@ export const Navbar = () => {
         </div>
         <div className="d-flex justify-content-end">
         <div className="m-3 p-1">
-        {store.token != null ? <Link to="/perfil"><button className="btn btn-outline-light" id="buttons-navbar-home">Mi Perfil</button></Link> : <Link to="/iniciosesion">
+        {store.token != null ? <Link to={`/perfil/`+store.user?.user_id}><button className="btn btn-outline-light" id="buttons-navbar-home">Mi Perfil</button></Link> : <Link to="/iniciosesion">
           <button className="btn btn-outline-light" id="buttons-navbar-home">Inicia sesion</button>
         </Link>}
         

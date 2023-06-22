@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useParams } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 import { BackendURL } from "./component/backendURL";
 
@@ -39,7 +39,7 @@ const Layout = () => {
             <Route element={<Categories />} path="/categories" />
             <Route element={<CardPersonal />} path="/cardpersonal" />
             <Route element={<InicioSesion />} path="/iniciosesion" />
-            <Route element={<Perfil />} path="/perfil" />
+            <Route element={<Perfil />} path="/perfil/:userId"/>
             <Route element={<AboutUs />} path="/aboutus" />
             <Route element={<Resultados />} path="/resultados" />
             <Route element={<Registro1 />} path="/registro-1" />

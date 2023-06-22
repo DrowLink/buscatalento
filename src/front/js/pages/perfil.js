@@ -1,10 +1,17 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "../../styles/perfil.css"
 import { Context } from "../store/appContext";
 
 export const Perfil = () => {
 	const { store, actions } = useContext(Context);
+    let { userId } = useParams();
+
+
+
+    useEffect (() => {
+        actions.getProfileById(userId)
+    }, [])
 
 	return (
 		<div className="container">
