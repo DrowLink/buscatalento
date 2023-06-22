@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import toast, { Toaster } from 'react-hot-toast';
 import { Link } from "react-router-dom";
 import "../../styles/card_personales.css"
 import { Context } from "../store/appContext";
@@ -7,8 +8,23 @@ import { Context } from "../store/appContext";
 export const CardPersonal = () => {
 	const { store, actions } = useContext(Context);
 
+    const intercambioHecho = () => {
+        return toast.success('¡Tu solicitud ha sido enviada! ⭐', {
+            style: {
+              border: '1px solid #713200',
+              padding: '16px',
+              color: '#8924a3',
+            },
+            iconTheme: {
+              primary: '#8924a3',
+              secondary: '#ffffff',
+            },
+          })
+    }
+
 	return (
 		<div className="container">
+            <div><Toaster/></div>
             <div id="profile-box" className="card">
                 <div className="card-body">
 
@@ -44,9 +60,9 @@ export const CardPersonal = () => {
                 </div>
 
                 <div id="buttons-final-card" className="text-center">
-                    <button id="intercambio-button-card" type="button" className="btn">Intercambio!</button>
+                    <button id="intercambio-button-card" onClick={intercambioHecho} type="button" className="btn btn">Intercambiar<i className="fas fa-chalkboard-teacher"></i></button>
                     <Link to="/resultados">
-                    <button id="seguirviendo-button-card" type="button" className="btn">Seguir viendo</button>
+                    <button id="seguirviendo-button-card" type="button" className="btn btn">Seguir viendo <i className="fas fa-sync-alt"></i></button>
                     </ Link>
                 </div>
                 </div>

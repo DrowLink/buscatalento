@@ -47,12 +47,15 @@
   margin-top: 50px;
   width: 150px;
   height: 70px;
+  background-color: #8924a3;
+  color: #ffff;
 }
+
 #seguirviendo-button-card {
   margin-top: 50px;
   width: 150px;
   height: 70px;
-  color: aquamarine;
+  background-color: aquamarine;
 }
 
 .card-body{
