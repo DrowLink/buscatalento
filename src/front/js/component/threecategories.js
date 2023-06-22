@@ -196,7 +196,7 @@ export const CategoriesSelect = () =>{
                         <img 
                         src="https://wellaggio.com/wp-content/uploads/2015/09/la-importancia-de-las-imagenes-en-el-dise%C3%B1o-web1.jpg" 
                         id="categories" 
-                        className={`rounded-circle ${isImageSelected(3) ? 'selected img-thumbnail' : 'img-thumbnail'}`} 
+                        className={`rounded-circle ${isImageSelected(12) ? 'selected img-thumbnail' : 'img-thumbnail'}`} 
                         alt="..." 
                         onClick={() => {
                             toggleSelection(12)

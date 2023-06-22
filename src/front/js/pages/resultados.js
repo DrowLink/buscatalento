@@ -22,9 +22,6 @@ export const Resultados = () => {
         store.categorias.length > 0 &&
         store.categorias.map((categoriaSeleccionada) => <CardPersonal item={categoriaSeleccionada} key={categoriaSeleccionada.id} />)
       }
-      <CardPersonal/>
-      <CardPersonal/>
-      <CardPersonal/>
     </>
 
     
