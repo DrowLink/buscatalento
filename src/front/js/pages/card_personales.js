@@ -9,49 +9,48 @@ export const CardPersonal = () => {
 
 	return (
 		<div className="container">
-            <div id="profile-box" className="">
+            <div id="profile-box" className="card">
+                <div className="card-body">
+
+                
                 <div id="section-1-card" className="row">
                     <div id="photo-profile-box" className="col-4">
                         <div id="circle-profile-card-img" className="m-4"></div>
                         <div id="review-card">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
+                        <i className="fa-solid fa-star fa-2x"></i>
+                        <i className="fa-solid fa-star fa-2x"></i>
+                        <i className="fa-solid fa-star fa-2x"></i>
+                        <i className="fa-solid fa-star fa-2x"></i>
+                        <i className="fa-solid fa-star fa-2x"></i>
                         </div>
                     </div>
                     <div id="description-profile-box" className="col">
-                        <h3>Manuel Rosas</h3>
-                        <p>24 años</p>
-                        <p>Caracas, Venezuela</p>
-                        <p>Jugador Amateur de Ajedrez</p>
-                        <p>5 años de practica</p>
-                        <p>Persona entusiasta con ganas de aprender y de enseñar</p>
+                        <h1>Jose Rosas</h1>
+                        <br/>
+                        <h4>24 años</h4>
+                        <h4>Caracas, Venezuela</h4>
+                        <h4>Jugador Amateur de Ajedrez</h4>
+                        <h4>5 años de practica</h4>
+                        <h4>Persona entusiasta con ganas de aprender y de enseñar</h4>
                     </div>
                 </div>
-                <div id="section-photos-card" className="row">
-                    <div className="col" id="add-photos-container-card">
+                <div className="row d-flex justify-content-around" id="section-photos-card">
+                    <div className="col-md-2" id="add-photos-container-card">
                         <div id="section3-box-talent-card"></div>
                     </div>
-                    <div className="col" id="add-photos-container-card">
-                        <div id="section3-box-talent-card"></div>
-                    </div>
-                    <div className="col" id="add-photos-container-card">
+                    <div className="col-md-2" id="add-photos-container-card">
                         <div id="section3-box-talent-card"></div>
                     </div>
                 </div>
 
                 <div id="buttons-final-card" className="text-center">
-                    <button id="intercambio-button-card" type="button" className="btn btn-success">Intercambio!</button>
+                    <button id="intercambio-button-card" type="button" className="btn">Intercambio!</button>
                     <Link to="/resultados">
-                    <button id="seguirviendo-button-card" type="button" className="btn btn-primary">Seguir viendo</button>
+                    <button id="seguirviendo-button-card" type="button" className="btn">Seguir viendo</button>
                     </ Link>
                 </div>
-
                 </div>
-
-
+                </div>
             </div>  
 		
 	);

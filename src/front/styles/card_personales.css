@@ -11,6 +11,7 @@
 
 #review-card {
   text-align: center;
+  margin-left: 30px;
 }
 
 #photo-profile-box {
@@ -26,8 +27,8 @@
 
 #section3-box-talent-card {
   background: rgb(117, 117, 117);
-  width: 375px;
-  height: 375px;
+  width: 300px;
+  height: 300px;
 }
 
 #section-photos-card {
@@ -42,7 +43,18 @@
   margin-right: 4vw;
 }
 
-#intercambio-button-card,
+#intercambio-button-card{
+  margin-top: 50px;
+  width: 150px;
+  height: 70px;
+}
 #seguirviendo-button-card {
-  margin-top: 103px;
+  margin-top: 50px;
+  width: 150px;
+  height: 70px;
+  color: aquamarine;
+}
+
+.card-body{
+  width: auto;
 }

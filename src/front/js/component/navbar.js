@@ -17,21 +17,21 @@ export const Navbar = () => {
           <img className="logo-img ms-1 p-2" src={buscatalento_logo} />
           {/* <span className="navbar-brand mb-0 h1">Buscatalento⭐</span> */}
         </Link>
-        <Link to="/">
+        <Link to="/" id="navlink">
         <div className="">
           <span className="fs-4 text-white">
             Home
           </span>
         </div>
         </Link>
-        <Link to="/categories">
+        <Link to="/categories" id="navlink">
         {store.token != null ? <div className="">
           <span className="fs-4 text-white">
             Categories
           </span>
         </div> : "" }
         </Link>
-        <Link to="/aboutus" >
+        <Link to="/aboutus" id="navlink">
           <div className="">
             <span className="fs-4 text-white">
               About us

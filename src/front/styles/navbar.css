@@ -2,3 +2,7 @@
     width: 17vw;
     height: auto;
 }
+
+#navlink{
+    text-decoration: none;
+}
