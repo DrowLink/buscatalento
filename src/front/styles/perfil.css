@@ -2,6 +2,42 @@
     background-color: rgb(242, 242, 242);
 } */
 
+#inputperfil-1 {
+  font-size: 37px;
+  max-width: 260px;
+  height: 45px;
+  margin-bottom: 1rem;
+  border: 0px;
+}
+
+#talentotitulo-perfil {
+  margin-top: 40px;
+  font-size: 50px;
+  text-align: center;
+}
+
+#perfiltitulo-perfil {
+  margin-top: 50px;
+    font-size: 50px;
+    text-align: start;
+}
+
+#text-area-perfil {
+  width: 500px;
+  font-size: 18px;
+  height: 45px;
+  margin-bottom: 1rem;
+  border: 0px;
+}
+
+#inputperfil-5 {
+  font-size: 19px;
+  max-width: 463px;
+  height: 25px;
+  margin-bottom: 1rem;
+  border: 0px;
+}
+
 
 #circle-profile-card-img-perfil {
     background: rgb(117, 117, 117);
@@ -13,6 +49,8 @@
 #description-profile-box-perfil {
     margin-top: 4rem;
     margin-left: 13rem;
+    display: flex;
+    flex-direction: column;
 }
   
   #review-card-perfil {
@@ -28,6 +66,15 @@
   #add-photos-container-card-perfil {
     width: 400px;
     height: 400px;
+  }
+
+  #description-photos-container-card-perfil {
+    margin-left: 50px;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   
   #section3-box-talent-card-perfil {
