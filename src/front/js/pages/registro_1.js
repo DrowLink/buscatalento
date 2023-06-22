@@ -47,7 +47,7 @@ export const Registro1 = () => {
         "email": email,
         "password": password
       })
-      if (resp) {
+      if (resp.ok) {
         navigate("/registro-2")
       }
       else {
@@ -127,7 +127,6 @@ export const Registro1 = () => {
                 He leído los términos y condiciones.
               </label>
             </div>
-            <Link to="/registro-2">
               <button
                 type="button"
                 id="btn-create"
@@ -136,7 +135,6 @@ export const Registro1 = () => {
               >
                 CREAR PERFIL
               </button>
-            </Link>
           </div>
         </div>
       </div>

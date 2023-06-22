@@ -54,7 +54,7 @@ export const Registro2 = () => {
     setAge(event.target.value);
   };
   const handlerProfileImgLink = (event) => {
-    setProfileImgLink(event.target.value);
+    setProfileImgLink(event.target.files[0]);
   };
 
   //ENVIAR INFO
@@ -65,17 +65,17 @@ export const Registro2 = () => {
       phone.trim() != "" &&
       age.trim() != "" &&
       state.trim() != "" &&
-      country.trim() != "" &&
-      profileImgLink.trim() != ""
+      country.trim() != "" //&&
+      //profileImgLink.trim() != ""
     ) { 
-         actions.newPerfil({
+         actions.newimage({
           name: name,
           last_name: lastname,
           phone: phone,
           age: age,
           country: country,
           state: state,
-          image_url: profileImgLink
+          photo: profileImgLink
          })
     } else {
       alert("Faltan datos por rellenar");
@@ -182,7 +182,6 @@ export const Registro2 = () => {
                     className="form-control mt-2" 
                     id="inputGroupFile03" 
                     accept="image/*"
-                    value={profileImgLink}
                     onChange={handlerProfileImgLink}/>
           </div>
           <div id="input-section-3" className="col">
