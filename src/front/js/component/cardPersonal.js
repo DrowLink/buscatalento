@@ -1,11 +1,19 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import { Link } from "react-router-dom";
 import "../../styles/resultados.css";
+import { Context } from "../store/appContext";
 
 
 //ESTE COMP. SE RENDERIZA EN /RESULTADOS
 
-export const CardPersonal = () => {
+export const CardPersonal = (props) => {
+
+    const {
+        store, actions
+    }= useContext(Context)
+
+
+
 
     return (
         <div id="container-resultados" className="container">
@@ -18,19 +26,19 @@ export const CardPersonal = () => {
                 <p>24 años</p>
                 <p>Jugador Amateur de ajedrez</p>
                 <p>Caracas, Venezuela</p>
-                <div class="d-flex justify-content-between">
+                <div className="d-flex justify-content-between">
                 <div>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
+                    <i className="fa-solid fa-star"></i>
+                    <i className="fa-solid fa-star"></i>
+                    <i className="fa-solid fa-star"></i>
+                    <i className="fa-solid fa-star"></i>
+                    <i className="fa-solid fa-star"></i>
                 </div>
                     <Link to="/cardpersonal">
                         <button
                             type="button"
                             id="vermas-btn-cardbox-resultados"
-                            class="btn btn-primary"
+                            className="btn btn-primary"
                         >
                             Ver mas
                         </button>

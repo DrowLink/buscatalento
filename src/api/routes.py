@@ -111,9 +111,9 @@ def obtener_categorias():
 @api.route('/categories/seleccionar', methods=['POST'])
 def select_categories():
     body = request.json
-    perfil = User.query.get(body['perfil_id'])
+    # perfil = User.query.get(body['perfil_id'])
 
-    categoria_seleccionada = Categories(body['categorie_name'], perfil.id)
+    categoria_seleccionada = Categories(body['categorie_name'])
     print(categoria_seleccionada)
     db.session.add(categoria_seleccionada)
     db.session.commit()

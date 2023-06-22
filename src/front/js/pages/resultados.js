@@ -11,9 +11,17 @@ export const Resultados = () => {
     store, actions 
   } = useContext(Context);
 
+  useEffect(()=>{
+    actions.retornarcategoria()
+  }, [])
+
   return (
     <>
       <CardPersonal/>
+      {
+        store.categorias.length > 0 &&
+        store.categorias.map((categoriaSeleccionada) => <CardPersonal item={categoriaSeleccionada} key={categoriaSeleccionada.id} />)
+      }
       <CardPersonal/>
       <CardPersonal/>
       <CardPersonal/>

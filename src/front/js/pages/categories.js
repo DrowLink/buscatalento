@@ -14,9 +14,6 @@ export const Categories = () => {
                         </div>
                     </div>
                     <CategoriesSelect/>
-                    <CategoriesSelect/>
-                    <CategoriesSelect/>
-                    <CategoriesSelect/>
 			    </div>
                 <div className="d-flex justify-content-center">
                     <Link to="/resultados">

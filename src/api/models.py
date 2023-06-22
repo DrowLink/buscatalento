@@ -84,17 +84,17 @@ class Categories(db.Model):
     __tablename__='categories'
     id = db.Column(db.Integer, primary_key=True)
     categorie_name = db.Column(db.String(100), nullable= False)
-    perfil_categorias_id = db.Column(db.Integer, db.ForeignKey('perfil.id'), nullable= False)
-    perfil_categorias = db.relationship('Perfil', foreign_keys=[perfil_categorias_id])
+    # user_categorias_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable= False)
+    # user_categorias = db.relationship('User', foreign_keys=[user_categorias_id])
 
-    def __init__(self, categorie_name, perfil_categorias_id):
+    def __init__(self, categorie_name):
         self.categorie_name = categorie_name
-        self.perfil_categorias_id = perfil_categorias_id
+        # self.user_categorias_id = user_categorias_id
 
     def serialize(self):
         return{
             "categorie_name": self.categorie_name,
-            'perfil_categorias_id': self.perfil_categorias_id
+            # 'user_categorias_id': self.user_categorias_id
         }
 
 

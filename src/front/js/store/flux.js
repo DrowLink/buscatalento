@@ -175,7 +175,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 					const bodyfetch = {categoria : categoriaSeleccionada}
 					
-					const resp = await fetch (process.env.BACKEND_URL + "api.categories",{
+					const resp = await fetch (process.env.BACKEND_URL + "api/categories",{
 						method: "GET",
 						body: JSON.stringify(bodyfetch),
 						headers: {
