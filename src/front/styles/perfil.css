@@ -10,8 +10,26 @@
   border: 0px;
 }
 
+#circulo-perfil-boton-div {
+  display: flex;
+  justify-content: end;
+}
+
+#circulo-boton-perfil {
+  color: #ffff;
+  width: 60px;
+  height: 60px;
+  background: #8924a3; 
+  border-radius: 70px;
+  transition: background-color 1s;
+}
+
+#circulo-boton-perfil:hover {
+  background-color: #cf3af5;
+}
+
 #talentotitulo-perfil {
-  margin-top: 40px;
+  margin-top: 62px;
   font-size: 50px;
   text-align: center;
 }
@@ -71,7 +89,7 @@
   #description-photos-container-card-perfil {
     margin-left: 50px;
     width: 400px;
-    height: 400px;
+    height: 310px;
     display: flex;
     flex-direction: column;
     justify-content: center;

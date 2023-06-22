@@ -20,6 +20,9 @@ export const Perfil = () => {
                         <div id="inputperfil-2" className="form-group">
                             <textarea id="text-area-perfil" value="Persona entusiasta con ganas de aprender y de enseñar" rows="2"></textarea>
                         </div>
+                        <div id="circulo-perfil-boton-div" className="">
+                        <button id="circulo-boton-perfil" ><i className="fa-solid fa-pen-to-square"></i></button>
+                        </div>
                     </div>
 					<div id="photo-profile-box-perfil" className="col-4">
                         <div id="circle-profile-card-img-perfil" className="m-4"></div>
