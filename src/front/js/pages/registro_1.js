@@ -4,6 +4,8 @@ import "../../styles/registro_1.css";
 import PeopleSharing from "../../img/people-sharing.jpg";
 import ScrollToTop from "../component/scrollToTop.js";
 import { Context } from "../store/appContext";
+import toast, { Toaster } from 'react-hot-toast';
+
 
 export const Registro1 = () => {
   const { store, actions } = useContext(Context);
@@ -47,16 +49,22 @@ export const Registro1 = () => {
         "email": email,
         "password": password
       })
-      if (resp.ok) { 
         navigate("/registro-2")
-      }
-      else {
-        alert("Credenciales inválidas") 
-      }
     }
     else {
         setPasswordMatch(false)
-        console.log("Contraseña inválida")
+         console.log("Contraseña inválida")
+         toast.error("Contraseña y confirmar contraseña no son iguales.", {
+           style: {
+             border: '1px solid #713200',
+             padding: '16px',
+             color: '#8924a3',
+           },
+           iconTheme: {
+             primary: '#8924a3',
+             secondary: '#ffffff',
+           },
+         })
     }
   }
 
@@ -64,6 +72,7 @@ export const Registro1 = () => {
 
   return (
     <div className="text-center mt-5">
+      <div><Toaster position="bottom-center" reverseOrder={false}/></div>
       <h1 id="h1-profile">¡Regístrate con nosotros!</h1>
       <h2 id="h2-profile">Por favor llena los siguientes datos:</h2>
       <div className="container-fluid">
@@ -115,6 +124,7 @@ export const Registro1 = () => {
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-sm"
             />
+
             <div className="form-check">
               <input
                 className="form-check-input"

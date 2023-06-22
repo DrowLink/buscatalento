@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../../styles/registro_2.css";
 import { Context } from "../store/appContext";
+import toast, { Toaster } from 'react-hot-toast';
 
 const Registro3 = () => {
     const {actions, store} = useContext(Context)
@@ -13,6 +14,7 @@ const Registro3 = () => {
   const [experienceTalent, setExperienceTalent] = useState("") //QUE TAN EXPERIMENTADO TE IDENTIFICAS
   const [imagenTalent, setImagenTalent] = useState("") //IMAGEN TALENTO
   const [moreAboutTalent, setMoreAboutTalent] = useState("") //Cuentanos mas sobre tu talento
+
 
   //logica
   // const [modalShown, setModalShown] = useState(true);
@@ -50,16 +52,27 @@ const Registro3 = () => {
                 range_talent: experienceTalent,
                 imagetalent_url: imagenTalent
             })
-              navigate("/resultados")
+              navigate("/categories")
         }
         else {
-            alert("Faltan datos por rellenar");
+          toast.error("Faltan datos por rellenar", {
+            style: {
+              border: '1px solid #713200',
+              padding: '16px',
+              color: '#8924a3',
+            },
+            iconTheme: {
+              primary: '#8924a3',
+              secondary: '#ffffff',
+            },
+          })
         }
       }
 
     return (
         <>
         <div id="talento" className="h1-box-registro2">
+        <div><Toaster position="bottom-center" reverseOrder={false}/></div>
             <h1 className="h1-registro-below">Sobre tu talento</h1>{" "}
           </div>
         <div id="input-box-2" className="row">

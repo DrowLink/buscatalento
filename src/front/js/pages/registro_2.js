@@ -4,6 +4,7 @@ import "../../styles/registro_2.css";
 import { Context } from "../store/appContext";
 import trophy from "../../img/trophy.png";
 import ScrollToTop from "../component/scrollToTop"
+import toast, { Toaster } from 'react-hot-toast';
 
 export const Registro2 = () => {
   const {actions, store} = useContext(Context)
@@ -17,6 +18,7 @@ export const Registro2 = () => {
   const [age, setAge] = useState("");
   const [country, setCountry] = useState("");
   const [profileImgLink, setProfileImgLink] = useState(""); //LINK FOTO DE PERFIL
+
 
 
 
@@ -77,11 +79,20 @@ export const Registro2 = () => {
           state: state,
           photo: profileImgLink
          })
-         if (resp.ok) {
           navigate("/registro-3")
-         }
-    } else {
-      alert("Faltan datos por rellenar");
+    } 
+    else {
+      toast.error("Faltan datos por rellenar", {
+        style: {
+          border: '1px solid #713200',
+          padding: '16px',
+          color: '#8924a3',
+        },
+        iconTheme: {
+          primary: '#8924a3',
+          secondary: '#ffffff',
+        },
+      })
     }
   };
 
@@ -113,6 +124,7 @@ export const Registro2 = () => {
   return (
     <>
       <div id="container-registro" className="">
+      <div><Toaster position="bottom-center" reverseOrder={false}/></div>
         <div id="input-box-1" className="row">
           <div id="h1-box-registro2-1">
             <h1 id="h1-registro">Ayúdanos a terminar de completar tu perfil</h1>{" "}
