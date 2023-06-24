@@ -55,19 +55,18 @@ export const Navbar = () => {
         <div className="d-flex justify-content-center">
           <span className="fs-4 text-white">
             <div className="d-flex justify-content-end">
-            <i className="fa-brands fa-github"></i>
+            <i className="fa-brands fa-github" href="https://github.com/4GeeksAcademy/buscatalento"></i>
             </div>
           </span>
         </div>
         <div className="d-flex justify-content-end">
         <div className="m-3 p-1">
-        {store.token != null ? <Link to={`/perfil/`+store.user?.user_id}><button className="btn btn-outline-light" id="buttons-navbar-home">Mi Perfil</button></Link> : <Link to="/iniciosesion">
+        {store.token != null ? <Link to={`/perfil/`+store.user.user_id}><button className="btn btn-outline-light" id="buttons-navbar-home">Mi Perfil</button></Link> : <Link to="/iniciosesion">
           <button className="btn btn-outline-light" id="buttons-navbar-home">Inicia sesion</button>
         </Link>}
-        
         </div>
         <div className="m-3 p-1">
-          { store.token != null ? (<Link to="/"><button onClick={ () => { actions.logout() }} className="btn btn-light" id="buttons-navbar-home">Log out</button></Link>) : (<Link to="/registro-1">
+          { store.token != null ? (<Link to="/iniciosesion"><button onClick={ () => { actions.logout() }} className="btn btn-light" id="buttons-navbar-home">Log out</button></Link>) : (<Link to="/registro-1">
             <button className="btn btn-light" id="buttons-navbar-home">Registrate</button>
           </Link>) }
         {/* <Link to="/registro-1">

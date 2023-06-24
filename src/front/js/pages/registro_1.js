@@ -119,7 +119,7 @@ export const Registro1 = () => {
             <input
               value={confirmPassword}
               onChange={handlerConfirmPassword}
-              type="password"
+              type={shown ? 'text': 'password'}
               className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-sm"

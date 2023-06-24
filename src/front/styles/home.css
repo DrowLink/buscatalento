@@ -8,6 +8,10 @@
     on that page only (the ones not reused in other pages).
 */
 
+* {
+    font-family: 'Kanit', sans-serif;
+}
+
 #buttons-navbar-home {
     border-radius: 50px;
 }
