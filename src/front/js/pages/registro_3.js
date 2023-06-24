@@ -101,10 +101,17 @@ const Registro3 = () => {
               onChange={handlerCategoryTalent}
             >
               <option selected>Selecciona una categoría</option>
-              <option value="1">Juegos de Mesa</option>
-              <option value="2">Lenguajes de Programación</option>
-              <option value="3">Deportes</option>
-              <option value="4">Artes marciales</option>
+              <option value="1">Deportes</option>
+              <option value="2">Tecnologia</option>
+              <option value="3">Música</option>
+              <option value="4">Arte</option>
+              <option value="5">Fotografia</option>
+              <option value="6">Gastronomia</option>
+              <option value="7">Diseño</option>
+              <option value="8">Danza</option>
+              <option value="9">Idiomas</option>
+              <option value="10">Oratoria</option>
+              <option value="11">Desarrollo Personal</option>
             </select>
             <p>¿Desde hace cuanto lo practicas?</p>
             <input
@@ -112,11 +119,12 @@ const Registro3 = () => {
               type="text"
               className="form-control"
               placeholder=""
-              aria-label="Username"
+              aria-label="Default select example"
               value={dateSinceTalent}
               onChange={handlerDateSinceTalent}
-              aria-describedby="basic-addon1"
-            />
+              aria-describedby="basic-addon1"               
+            >
+            </input>
             <form>
               <div className="form-group" id="input-img-box">
                 <p>Sube alguna foto alusiva a tu talento: </p>                 
@@ -137,16 +145,21 @@ const Registro3 = () => {
               aria-describedby="basic-addon1"
             />
             <p>¿Qué tan experimentado te identificas?</p>
-            <input
-              id="lastname-field"
-              type="text"
-              className="form-control"
+            <select
+              id="select-input"
+              className="form-select mb-3"
               placeholder=""
               aria-label="Username"
               value={experienceTalent}
               onChange={handlerExperienceTalent}
-              aria-describedby="basic-addon1"
-            />
+              aria-describedby="basic-addon1"          
+            >
+             <option selected>Selecciona un rango</option>
+              <option value="1">Novato</option>
+              <option value="2">Experto</option>
+              <option value="3">Profesional</option>
+              <option value="4">Amateur</option>
+            </select>
             <p>Cuéntanos mas sobre tu talento:</p>
             <div className="form-floating">
               <textarea

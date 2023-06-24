@@ -34,4 +34,10 @@
 
 #vermas-btn-cardbox-resultados {
   /* width: 22%; */
+  background-color: #8924a3;
+}
+
+#iconperfil{
+  height: 30vh;
+  width: 14vw;
 }
