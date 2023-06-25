@@ -5,6 +5,9 @@ import carrusel1 from "../../img/carrusel1.jpg";
 import carrusel2 from "../../img/carrusel2.jpg";
 import carrusel3 from "../../img/carrusel3.jpg";
 import karateteacher from "../../img/karateteacher.jpg";
+import testimonio1 from "../../img/testimonio1.jpg"
+import testimonio2 from "../../img/testimonio2.jpg"
+import testimonio3 from "../../img/testimonio3.jpg"
 import "../../styles/home.css";
 import { Link } from "react-router-dom";
 
@@ -51,13 +54,14 @@ export const Home = () => {
             />
             <div className="carousel-caption d-none d-md-block">
               <h1 id="texto-carrusel-home">¡Comparte tu talento!</h1>
-              <h5 id="descripcion-carrusel-home">
+              <h6 id="descripcion-carrusel-home">
               ¿Tienes un talento especial que te encantaría compartir con el mundo? ¡No busques más!
-              </h5>
-              <Link to="/categories">
+              </h6>
+              <Link to="/categories" id="linkvermas">
                 <button
                   type="button"
-                  className="btn btn-primary d-flex justify-content-start"
+                  className="btn btn d-flex justify-content-start"
+                  id="vermasbutton"
                 >
                   Ver mas
                 </button>
@@ -73,13 +77,17 @@ export const Home = () => {
             />
             <div className="carousel-caption d-none d-md-block">
               {/* <h2 id="texto-carrusel-home">Second slide label</h2> */}
-              <h2 id="descripcion-carrusel-home-slice2">
-              Nuestra aplicación no solo es un lugar para compartir tu talento, ¡sino también para aprender de otros!
-              </h2>
-              <Link to="/categories">
+              <h5 id="descripcion-carrusel-home2">
+              ¡Da el primer paso hoy!
+              </h5>
+              <h1 id="descripcion-carrusel-home-slice2">
+              No solo es un lugar seguro para compartir tu talento, ¡sino también para aprender de otros!
+              </h1>
+              <Link to="/categories" id="linkvermas">
                 <button
                   type="button"
-                  className="btn btn-primary d-flex justify-content-start"
+                  className="btn btn d-flex justify-content-start"
+                  id="vermasbutton"
                 >
                   Ver mas
                 </button>
@@ -94,14 +102,15 @@ export const Home = () => {
               alt="..."
             />
             <div className="carousel-caption d-none d-md-block">
-              <h2 id="texto-carrusel-home">¿Qué esperas para comenzar?</h2>
+              <h2 id="texto-carrusel-home3">¿Qué esperas para comenzar?</h2>
               <h5 id="descripcion-carrusel-home">
                 ¡Regístrate con nosotros!
               </h5>
-              <Link to="/categories">
+              <Link to="/categories" id="linkvermas">
                 <button
                   type="button"
-                  className="btn btn-primary d-flex justify-content-start"
+                  className="btn btn d-flex justify-content-start"
+                  id="vermasbutton"
                 >
                   Ver mas
                 </button>
@@ -155,39 +164,18 @@ export const Home = () => {
               </div>
               <div className="row d-flex justify-content-between">
                 <div className="col-md-4 mt-2 p-1">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
-                    deleniti quis, autem harum corrupti numquam veniam eligendi
-                    eos pariatur laudantium? Ex molestiae quia dolores ut illum.
-                    Neque voluptatibus non adipisci. Lorem ipsum dolor sit amet
-                    consectetur adipisicing elit. Ipsum obcaecati fugit dicta
-                    ipsam eaque quaerat quas, tempore perferendis aut nulla! Vel
-                    soluta cupiditate quam praesentium qui voluptatem sequi
-                    natus voluptate.
+                  <p id="talentomasbuscado">
+                  La música puede manifestarse de diferentes maneras. Algunas personas tienen una habilidad innata para tocar instrumentos musicales, como el piano, la guitarra, la batería o el violín. Otros destacan en el canto, utilizando su voz como instrumento principal. Además, hay quienes poseen destreza para componer melodías y escribir letras, creando canciones originales.
                   </p>
                 </div>
                 <div className="col-md-4 mt-2 p-1">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
-                    deleniti quis, autem harum corrupti numquam veniam eligendi
-                    eos pariatur laudantium? Ex molestiae quia dolores ut illum.
-                    Neque voluptatibus non adipisci. Lorem ipsum dolor sit amet
-                    consectetur adipisicing elit. Ipsum obcaecati fugit dicta
-                    ipsam eaque quaerat quas, tempore perferendis aut nulla! Vel
-                    soluta cupiditate quam praesentium qui voluptatem sequi
-                    natus voluptate.
+                  <p id="talentomasbuscado">
+                  La fotografía requiere habilidades técnicas y creativas para lograr composiciones visualmente atractivas y significativas. Los talentosos fotógrafos tienen la capacidad de seleccionar y enmarcar sujetos interesantes, manejar la iluminación de manera efectiva, elegir la configuración adecuada de la cámara y capturar instantes precisos.
                   </p>
                 </div>
                 <div className="col-md-4 mt-2 p-1">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
-                    deleniti quis, autem harum corrupti numquam veniam eligendi
-                    eos pariatur laudantium? Ex molestiae quia dolores ut illum.
-                    Neque voluptatibus non adipisci. Lorem ipsum dolor sit amet
-                    consectetur adipisicing elit. Ipsum obcaecati fugit dicta
-                    ipsam eaque quaerat quas, tempore perferendis aut nulla! Vel
-                    soluta cupiditate quam praesentium qui voluptatem sequi
-                    natus voluptate.
+                  <p id="talentomasbuscado">
+                  La programación como talento implica la capacidad de desarrollar software y solucionar problemas a través del código. Requiere habilidades técnicas, pensamiento lógico y creatividad. Los talentosos programadores tienen numerosas oportunidades profesionales y la capacidad de influir en el mundo a través de la creación de aplicaciones y tecnologías innovadoras.
                   </p>
                 </div>
               </div>
@@ -196,8 +184,8 @@ export const Home = () => {
         </div>
       </div>
       {/* Heading 2 */}
-      <div className="container-fluid bg-secondary bg-opacity-25 m-0">
-        <div className="container py-4">
+      <div className="container-fluid bg-opacity-25 m-0" id="backgroundcomment">
+        <div className="container py-4" id="prueba">
           <div className="row">
             <div className="col-md-12 d-flex justify-content-center">
               <i className="fas fa-comment fa-5x" id="iconcoment"></i>
@@ -248,59 +236,53 @@ export const Home = () => {
               </span>
               <div className="row d-flex justify-content-between mt-5">
                 <div className="col-md-4 d-flex justify-content-center">
-                  <i className="fas fa-user-circle fa-5x"></i>
+                <img
+                src={testimonio1}
+                className="rounded-circle rounded-2"
+                id="karateteacher"
+                alt="..."
+              />
                 </div>
                 <div className="col-md-4 d-flex justify-content-center">
-                  <i className="fas fa-user-circle fa-5x"></i>
+                <img
+                src={testimonio2}
+                className="rounded-circle rounded-2"
+                id="karateteacher"
+                alt="..."
+              />
                 </div>
                 <div className="col-md-4 d-flex justify-content-center">
-                  <i className="fas fa-user-circle fa-5x"></i>
+                <img
+                src={testimonio3}
+                className="rounded-circle rounded-2"
+                id="karateteacher"
+                alt="..."
+              />
                 </div>
               </div>
               <div className="row d-flex justify-content-between mt-2">
                 <div className="col-md-4 mt-2 p-1">
                   <div className="d-flex justify-content-center">
-                    <h2>Samuel Carmona</h2>
+                    <h2>Gabriela Canales</h2>
                   </div>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
-                    deleniti quis, autem harum corrupti numquam veniam eligendi
-                    eos pariatur laudantium? Ex molestiae quia dolores ut illum.
-                    Neque voluptatibus non adipisci. Lorem ipsum dolor sit amet
-                    consectetur adipisicing elit. Ipsum obcaecati fugit dicta
-                    ipsam eaque quaerat quas, tempore perferendis aut nulla! Vel
-                    soluta cupiditate quam praesentium qui voluptatem sequi
-                    natus voluptate.
+                  <p id="talentomasbuscado">
+                  "Buscatalento cautiva con su interfaz moderna y elegante. Presenta una galería visualmente deslumbrante de talentos destacados, mostrando una variedad de disciplinas artísticas, como música, danza, pintura, fotografía y más."
                   </p>
                 </div>
                 <div className="col-md-4 mt-2 p-1">
                   <div className="d-flex justify-content-center">
-                    <h2>Alexander De Matteo</h2>
+                    <h2>Lucas Palacios</h2>
                   </div>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
-                    deleniti quis, autem harum corrupti numquam veniam eligendi
-                    eos pariatur laudantium? Ex molestiae quia dolores ut illum.
-                    Neque voluptatibus non adipisci. Lorem ipsum dolor sit amet
-                    consectetur adipisicing elit. Ipsum obcaecati fugit dicta
-                    ipsam eaque quaerat quas, tempore perferendis aut nulla! Vel
-                    soluta cupiditate quam praesentium qui voluptatem sequi
-                    natus voluptate.
+                  <p id="talentomasbuscado">
+                    " La navegación intuitiva y amigable del sitio web permite explorar fácilmente las categorías y descubrir nuevos talentos emergentes."
                   </p>
                 </div>
                 <div className="col-md-4 mt-2 p-1">
                   <div className="d-flex justify-content-center">
-                    <h2>Samuel Carmona</h2>
+                    <h2>Deborah Silles</h2>
                   </div>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
-                    deleniti quis, autem harum corrupti numquam veniam eligendi
-                    eos pariatur laudantium? Ex molestiae quia dolores ut illum.
-                    Neque voluptatibus non adipisci. Lorem ipsum dolor sit amet
-                    consectetur adipisicing elit. Ipsum obcaecati fugit dicta
-                    ipsam eaque quaerat quas, tempore perferendis aut nulla! Vel
-                    soluta cupiditate quam praesentium qui voluptatem sequi
-                    natus voluptate.
+                  <p id="talentomasbuscado">
+                  "Buscatalento es una aplicación web extraordinaria que pone al alcance de todos la posibilidad de descubrir y conectarse con talentos únicos de todo el mundo."
                   </p>
                 </div>
               </div>
