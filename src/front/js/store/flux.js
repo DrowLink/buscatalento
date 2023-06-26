@@ -3,10 +3,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			user: localStorage.getItem("user") || {},
 			perfil: {},
-			categorias: [],
+			categoria: "",
 			token: localStorage.getItem("token") || null
 		},
 		actions: {
+			selectCategoria: (categoria) => {
+				setStore({categoria: categoria})
+			},
 			getProfileById: async (user_id) => {
 				try {
 					const resp = await fetch(`/perfil/${user_id}`)
@@ -202,6 +205,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const data = await resp.json()
 					console.log(data)
 
+				} catch (error) {
+					
+				}
+			},
+			enviarpeticion: async (peticionEnviada)=>{
+				try {
+					
+					const bodyfetch = {peticion: peticionEnviada}
+
+					const resp = await fetch (process.env.BACKEND_URL + "api/talentrequest",{
+						method: "POST",
+						body: JSON.stringify(bodyfetch),
+						headers:{
+							'Content-Type': 'application/json'
+						}
+					})
+					const data = await resp.json()
+					console.log(data)
 				} catch (error) {
 					
 				}

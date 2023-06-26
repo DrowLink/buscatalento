@@ -18,10 +18,6 @@ export const Resultados = () => {
   return (
     <>
       <CardPersonal/>
-      {
-        store.categorias.length > 0 &&
-        store.categorias.map((categoriaSeleccionada) => <CardPersonal item={categoriaSeleccionada} key={categoriaSeleccionada.id} />)
-      }
     </>
 
     

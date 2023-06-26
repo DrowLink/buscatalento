@@ -3,7 +3,7 @@ This module takes care of starting the API Server, Loading the DB and Adding the
 """
 import os
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Perfil, Talent, Categories
+from api.models import db, User, Perfil, Talent, Categories, Talent_request
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
@@ -130,3 +130,14 @@ def select_categories():
     db.session.commit()
 
     return jsonify(categoria_seleccionada.serialize()), 200
+
+@api.route('/talentrequest', methods=['POST'])
+def enviar_peticion():
+    body = request.json
+
+    peticion = Talent_request(body['request'], body['perfil_solicitante_id'], body['perfil_receptor_id'])
+    print(peticion)
+    db.session.add(peticion)
+    db.session.commit()
+
+    return jsonify(peticion.serialize()), 200

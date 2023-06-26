@@ -305,7 +305,7 @@ export const Home = () => {
             </div>
             <div className="col-md-6 p-2 d-flex flex-column">
               <div className="p-2 justify-content-center">
-                <h1> <i className="fas fa-info-circle"></i>¿Sabias que...? </h1>
+                <h1> <i className="fas fa-info-circle"></i>  ¿Sabias que...? </h1>
                 
               </div>
               <div className="p-2 justify-content-center">
