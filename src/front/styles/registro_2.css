@@ -130,6 +130,11 @@
   background-color: #8924a3;
   margin-top: 50px;
   width: 103px;
+  transition: background-color 0.9s;
+}
+
+.confirmation-button-registro:hover {
+  background-color: #bd31e0;
 }
 
 #confirmation-button-registro {
@@ -139,6 +144,11 @@
   background-color: #8924a3;
   margin-top: 50px;
   width: 103px;
+  transition: background-color 0.9s;
+}
+
+#confirmation-button-registro:hover {
+  background-color: #bd31e0;
 }
 
 #trophy-img-modal-registro2 {
