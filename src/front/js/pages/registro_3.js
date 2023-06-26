@@ -15,12 +15,35 @@ const Registro3 = () => {
   const [imagenTalent, setImagenTalent] = useState("") //IMAGEN TALENTO
   const [moreAboutTalent, setMoreAboutTalent] = useState("") //Cuentanos mas sobre tu talento
 
+      //LOGICA PREVIEW
+    const [selectedFile, setSelectedFile] = useState()
+    const [preview, setPreview] = useState()
 
-  //logica
-  // const [modalShown, setModalShown] = useState(true);
-  // ESTOS STATES SON DE PREVIEW DE LA IMAGEN
-  // const [files2, setFiles2] = useState();
-  // const [previews2, setPreviews2] = useState();
+    // create a preview as a side effect, whenever selected file is changed
+    useEffect(() => {
+      if (!selectedFile) {
+          setPreview(undefined)
+          return
+      }
+
+      const objectUrl = URL.createObjectURL(selectedFile)
+      setPreview(objectUrl)
+
+      // free memory when ever this component is unmounted
+      return () => URL.revokeObjectURL(objectUrl)
+  }, [selectedFile])
+
+  const onSelectFile = e => {
+      if (!e.target.files || e.target.files.length === 0) {
+          setSelectedFile(undefined)
+          return
+      }
+
+      // I've kept this example simple by using the first image instead of multiple
+      setSelectedFile(e.target.files[0])
+  }
+
+
 
     //LISTENERS CREADOS  TALENTO TABLA
     const handlerCategoryTalent = (event) => {
@@ -85,10 +108,7 @@ const Registro3 = () => {
               id="img-talent"
               className="d-flex justify-content-center align-items-center "
             >
-              {/* {previews2 &&
-              previews2.map((pic) => {
-                return <img id="preview-img-registro2" src={pic} />; //PREVIEW
-              })}  ACA ES LOGICA DE PREVIEW DE LA IMAGEN SUBIDA AL INPUT*/}
+              {selectedFile &&  <img src={preview} id="img-preview-reg2" className="img-fluid"/> }
             </div>
           </div>
           <div id="input2-box-2" className="col">
@@ -128,7 +148,7 @@ const Registro3 = () => {
             <form>
               <div className="form-group" id="input-img-box">
                 <p>Sube alguna foto alusiva a tu talento: </p>                 
-                  <input type="file" className="form-control" id="inputGroupFile02" value={imagenTalent} onChange={handlerImagenTalent }/>
+                  <input type="file" className="form-control" id="inputGroupFile02" onChange={onSelectFile}/>
               </div>
             </form>
           </div>
