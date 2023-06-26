@@ -57,6 +57,9 @@ export const Registro2 = () => {
   const handlerName = (event) => {
     setName(event.target.value);
   };
+  const handlerProfileImgLink = (event) => {
+    setProfileImgLink(event.target.files[0]);
+  }
   const handlerLastname = (event) => {
     setLastname(event.target.value);
   };
@@ -170,7 +173,8 @@ export const Registro2 = () => {
                     className="form-control mt-2" 
                     id="inputGroupFile03" 
                     accept="image/*"
-                    onChange={onSelectFile}/>
+                    onChange={onSelectFile}
+                    onInput={handlerProfileImgLink}/>
           </div>
           <div id="input-section-3" className="col">
             <p>Apellido</p>

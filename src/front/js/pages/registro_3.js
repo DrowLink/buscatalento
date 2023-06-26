@@ -56,7 +56,7 @@ const Registro3 = () => {
         setDateSinceTalent(event.target.value);
       };
       const handlerImagenTalent = (event) => {
-        setImagenTalent(event.target.value);
+        setImagenTalent(event.target.files[0]);
       };
       const handlerExperienceTalent = (event) => {
         setExperienceTalent(event.target.value);
