@@ -8,6 +8,7 @@ import karateteacher from "../../img/karateteacher.jpg";
 import testimonio1 from "../../img/testimonio1.jpg"
 import testimonio2 from "../../img/testimonio2.jpg"
 import testimonio3 from "../../img/testimonio3.jpg"
+import sabiasqueimage from "../../img/sabiasqueimage.jpg"
 import "../../styles/home.css";
 import { Link } from "react-router-dom";
 
@@ -291,39 +292,34 @@ export const Home = () => {
         </div>
       </div>
       {/* Heading4 */}
-      <div className="container-fluid bg-secondary bg-opacity-25 m-0">
+      <div className="container-fluid bg-opacity-25 m-0" id="sabiasque">
         <div className="">
           <div className="row d-flex">
             <div className="col-md-6 d-flex justify-content-start m-0 p-0">
               <img
-                src={karateteacher}
+                src={sabiasqueimage}
                 id="knowthat"
                 className="float-start"
                 alt="..."
               />
             </div>
             <div className="col-md-6 p-2 d-flex flex-column">
-              <div className="p-2 d-flex justify-content-center">
-                <h1>Sabias que...?</h1>
+              <div className="p-2 justify-content-center">
+                <h1> <i className="fas fa-info-circle"></i>¿Sabias que...? </h1>
+                
               </div>
-              <div className="p-2 d-flex justify-content-center">
+              <div className="p-2 justify-content-center">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
-                  deleniti quis, autem harum corrupti numquam veniam eligendi
-                  eos pariatur laudantium? Ex molestiae quia dolores ut illum.
-                  Neque voluptatibus non adipisci. Lorem ipsum dolor sit amet
-                  consectetur adipisicing elit. Ipsum obcaecati fugit dicta
-                  ipsam eaque quaerat quas, tempore perferendis aut nulla! Vel
-                  soluta cupiditate quam praesentium qui voluptatem sequi natus
-                  voluptateLorem ipsum dolor sit amet, consectetur adipisicing
-                  elit. Ad deleniti quis, autem harum corrupti numquam veniam
-                  eligendi eos pariatur laudantium? Ex molestiae quia dolores ut
-                  illum. Neque voluptatibus non adipisci. Lorem ipsum dolor sit
-                  amet consectetur adipisicing elit. Ipsum obcaecati fugit dicta
-                  ipsam eaque quaerat quas, tempore perferendis aut nulla! Vel
-                  soluta cupiditate quam praesentium qui voluptatem sequi natus
-                  voluptate
+                Todos tenemos el potencial de desarrollar nuevos talentos: Aunque puedas pensar que no tienes habilidad en ciertas áreas, la verdad es que todos tienen el potencial de aprender y desarrollar nuevos talentos. La práctica constante, la dedicación y la pasión pueden llevar a grandes logros.
                 </p>
+                <p>
+                Los talentos pueden ser compartidos: No guardes tus talentos solo para ti. Compartir tus habilidades con los demás puede ser gratificante y enriquecedor tanto para ti como para quienes te rodean. Puedes enseñar, inspirar y colaborar con otras personas, lo que puede llevar a experiencias únicas y conexiones significativas.
+                </p>
+                <div>
+                <p>
+                Recuerda que cada persona es única y tiene algo especial que ofrecer al mundo. ¡Explora tus talentos, abraza tus habilidades y aprovecha al máximo tus dones!
+                </p>
+                </div>
               </div>
             </div>
           </div>
@@ -337,7 +333,7 @@ export const Home = () => {
           </div>
           <div className="d-flex justify-content-center mt-5">
             <Link to="/registro-1">
-              <span className="btn btn-primary btn-lg" href="#" role="button">
+              <span className="btn btn btn-lg" href="#" role="button" id="registerbutton">
                 Vamos!
               </span>
             </Link>
