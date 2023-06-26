@@ -22,12 +22,97 @@ const users = [{
     direccion: "Caracas, Venezuela",
 },
 {
-    nombre: "Joan suarez",
+    nombre: "Joan Suarez",
     edad: "21",
     categoria: "Deporte",
-    talento: "Futbolista",
+    talento: "Futbolista Amateur",
     direccion: "Caracas, Venezuela",
-}]
+},
+{
+    nombre: "Micaela Rodriguez",
+    edad: "21",
+    categoria: "Deporte",
+    talento: "Karateca Profesional",
+    direccion: "Ciudad de Buenos Aires, Argentina",
+},
+{
+    nombre: "Hector Caraballo",
+    edad: "21",
+    categoria: "Tecnologia",
+    talento: "Programador Full-Stack Novato",
+    direccion: "Ciudad de Buenos Aires, Argentina",
+},
+{
+    nombre: "Flor Fernandez",
+    edad: "27",
+    categoria: "Danza",
+    talento: "Bailarina Profesional",
+    direccion: "Valencia, Venezuela",
+},
+{
+    nombre: "Sarahy Rivas",
+    edad: "25",
+    categoria: "Fotografia",
+    talento: "Fotografa amateur",
+    direccion: "Merida, Venezuela", 
+},
+{
+    nombre: "Samuel Carmona",
+    edad: "27",
+    categoria: "Deporte",
+    talento: "Nadador amateur",
+    direccion: "Caracas, Venezuela",
+},
+{
+    nombre: "Luis Ramos",
+    edad: "30",
+    categoria: "Tecnologia",
+    talento: "Experto tecnico en celulares",
+    direccion: "Caracas, Venezuela",
+},
+{
+    nombre: "Ariel Rivas",
+    edad: "18",
+    categoria: "Música",
+    talento: "Guitarrista Profesional",
+    direccion: "Caracas, Venezuela",
+},
+{
+    nombre: "Agustina Soler",
+    edad: "23",
+    categoria: "Gastronomia",
+    talento: "Chef Profesional",
+    direccion: "Caracas, Venezuela",
+},
+{
+    nombre: "Marco Dionisio",
+    edad: "25",
+    categoria: "Diseño",
+    talento: "Diseñador Amateur",
+    direccion: "Caracas, Venezuela",
+},
+{
+    nombre: "Nohelia Lopez",
+    edad: "35",
+    categoria: "Idiomas",
+    talento: "Experta en idiomas",
+    direccion: "Caracas, Venezuela",
+},
+{
+    nombre: "Ramiro Rojas",
+    edad: "35",
+    categoria: "Escritura",
+    talento: "Experto Redactor",
+    direccion: "Madrid, España",
+},
+{
+    nombre: "Gabriela Files",
+    edad: "34",
+    categoria: "DesarrolloPersonal",
+    talento: "Experto en Desarrollo Personal",
+    direccion: "Madrid, España",
+}
+]
 
 export const CardPersonal = (props) => {
 
