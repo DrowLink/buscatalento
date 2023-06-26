@@ -27,7 +27,7 @@ export const Registro2 = () => {
   const [previews, setPreviews] = useState();
   const [files2, setFiles2] = useState();
   const [previews2, setPreviews2] = useState();
-
+  const booleanRefresh = true
 
   const imagenPreview = (e) => { //preview foto de perfil cuando la subes
     if (e.target.files && e.target.files.length > 0) {
@@ -35,6 +35,15 @@ export const Registro2 = () => {
     }
   }
 
+  
+
+  const refresher = () => {
+    for (let i=0; i>100; i++) {
+      if (i>99) {
+        window.location.reload(false);
+      }
+    }
+ }
 
   //LISTENERS CREADOS PERFIL
   const handlerName = (event) => {
@@ -448,6 +457,7 @@ export const Registro2 = () => {
               <option value="ZW">Zimbabue</option>
             </select>
             <button className="confirmation-button-registro" onClick={handleClickPerfil}>Guardar Datos</button>
+            {refresher()}
           </div>
         </div>
       </div>
