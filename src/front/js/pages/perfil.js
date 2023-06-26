@@ -19,7 +19,8 @@ export const Perfil = () => {
             <h1 id="perfiltitulo-perfil">Tu perfil</h1>
                 <div id="section-1-card-perfil" className="row">
                     <div id="description-profile-box-perfil" className="col">
-                        <input id="inputperfil-1" type="text" value="Alejandro"/>
+                        <input id="inputperfil-1" type="text" value={store.perfil && store.perfil.perfil.name || ""}/>
+
                         <input id="inputperfil-5" type="text" value="24 años"/>
                         <input id="inputperfil-5" type="text" value="Caracas, Venezuela"/>
                         <input id="inputperfil-5" type="text" value="Jugador Amateur de Ajedrez"/>

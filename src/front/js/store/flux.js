@@ -1,17 +1,17 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			user: localStorage.getItem("user") || {},
-			perfil: {},
+			user: localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null,
+			perfil: null,
 			categorias: [],
 			token: localStorage.getItem("token") || null
 		},
 		actions: {
 			getProfileById: async (user_id) => {
 				try {
-					const resp = await fetch(`/perfil/${user_id}`)
+					const resp = await fetch(process.env.BACKEND_URL + `/api/perfil/${user_id}`)
 					const data = await resp.json()
-					getStore({
+					setStore({
 						perfil: data
 					})
 				}
@@ -31,9 +31,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (resp.ok) {
 						const data = await resp.json()
 						setStore({
-							user: data.results
+							user: data.user,
+							token: data.token
 						})
 						localStorage.setItem("token", data.token)
+						localStorage.setItem("user", JSON.stringify(data.user))
 						console.log(data)
 						return true
 						// return data;

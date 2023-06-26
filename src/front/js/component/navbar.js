@@ -61,7 +61,7 @@ export const Navbar = () => {
         </div>
         <div className="d-flex justify-content-end">
         <div className="m-3 p-1">
-        {store.token != null ? <Link to={`/perfil/`+store.user.user_id}><button className="btn btn-outline-light" id="buttons-navbar-home">Mi Perfil</button></Link> : <Link to="/iniciosesion">
+        {store.token != null ? <Link to={`/perfil/`+store.user?.user_id}><button className="btn btn-outline-light" id="buttons-navbar-home">Mi Perfil</button></Link> : <Link to="/iniciosesion">
           <button className="btn btn-outline-light" id="buttons-navbar-home">Inicia sesion</button>
         </Link>}
         </div>
