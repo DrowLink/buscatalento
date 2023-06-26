@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import "../../styles/perfil.css"
 import { Context } from "../store/appContext";
+import iconperfil from "../../img/iconperfil.png"
 
 export const Perfil = () => {
 	const { store, actions } = useContext(Context);
@@ -32,13 +33,22 @@ export const Perfil = () => {
                         </div>
                     </div>
 					<div id="photo-profile-box-perfil" className="col-4">
-                        <div id="circle-profile-card-img-perfil" className="m-4"></div>
+                        <div id="circle-profile-card-img-perfil" className="m-4">
+                                <img
+                            src={iconperfil}
+                            className="rounded-circle rounded-2 img-fluid"
+                            id="iconperfil-perfil"
+                            alt="..."
+                        />
+                        </div>
                     </div>
                 </div>
                 <h1 id="talentotitulo-perfil">Tu talento</h1>
                 <div id="section-photos-card-perfil" className="row">
                     <div className="col-5" id="add-photos-container-card-perfil">
-                        <div id="section3-box-talent-card"></div>
+                        <div id="section3-box-talent-card-perfil">
+                            <img id="img-photo-perfil-css" src="https://wellaggio.com/wp-content/uploads/2015/09/la-importancia-de-las-imagenes-en-el-dise%C3%B1o-web1.jpg" />
+                        </div>
                     </div>
                     <div className="col" id="description-photos-container-card-perfil">
                         <h2 className="mb-4">Nombre del Talento</h2>

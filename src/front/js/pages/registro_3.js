@@ -66,7 +66,7 @@ const Registro3 = () => {
       };
 
       const handleClick = () => {
-        if (categoryTalent.trim() != "" && talentName.trim() != "" && dateSinceTalent.trim() != "" && imagenTalent.trim() != "" && experienceTalent.trim() != "" && moreAboutTalent.trim() != "") {
+        if (categoryTalent.trim() != "" && talentName.trim() != "" && dateSinceTalent.trim() != ""  && experienceTalent.trim() != "" && moreAboutTalent.trim() != "") {
             actions.newTalento({
                 talent_name: talentName,
                 practice_time: dateSinceTalent,
@@ -148,7 +148,7 @@ const Registro3 = () => {
             <form>
               <div className="form-group" id="input-img-box">
                 <p>Sube alguna foto alusiva a tu talento: </p>                 
-                  <input type="file" className="form-control" id="inputGroupFile02" onChange={onSelectFile}/>
+                  <input type="file" className="form-control" id="inputGroupFile02" onChange={onSelectFile} onInput={handlerImagenTalent}/>
               </div>
             </form>
           </div>
