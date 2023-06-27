@@ -48,10 +48,15 @@ class Perfil(db.Model):
 
     def serialize(self):
         return{
+            "user_id": self.user_id,
+
             "name": self.name,
             "last_name": self.last_name,
-            "user_id": self.user_id,
             "image_url": self.image_url,
+            "phone": self.phone,
+            "age": self.age,
+            "country": self.country,
+            "state": self.state,
             #"talent": self.talent.serialize()
         }
 
@@ -83,7 +88,10 @@ class Talent(db.Model):
             "talent_name" : self.talent_name,
             "about_you": self.about_you,
             "perfil_id": self.perfil_id,
-            "imagetalent_url": self.imagetalent_url
+            "imagetalent_url": self.imagetalent_url,
+
+            "practice_time": self.practice_time,
+            
         }
 
 class Categories(db.Model):
