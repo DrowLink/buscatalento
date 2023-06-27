@@ -303,7 +303,7 @@ export const Home = () => {
                 alt="..."
               />
             </div>
-            <div className="col-md-6 p-2 d-flex flex-column">
+            <div className="col-md-6 p-2 d-flex flex-column justify-content-center">
               <div className="p-2 justify-content-center">
                 <h1> <i className="fas fa-info-circle"></i>  ¿Sabias que...? </h1>
                 
@@ -316,9 +316,9 @@ export const Home = () => {
                 Los talentos pueden ser compartidos: No guardes tus talentos solo para ti. Compartir tus habilidades con los demás puede ser gratificante y enriquecedor tanto para ti como para quienes te rodean. Puedes enseñar, inspirar y colaborar con otras personas, lo que puede llevar a experiencias únicas y conexiones significativas.
                 </p>
                 <div>
-                <p>
-                Recuerda que cada persona es única y tiene algo especial que ofrecer al mundo. ¡Explora tus talentos, abraza tus habilidades y aprovecha al máximo tus dones!
-                </p>
+                  <p>
+                  Recuerda que cada persona es única y tiene algo especial que ofrecer al mundo. ¡Explora tus talentos, abraza tus habilidades y aprovecha al máximo tus dones!
+                  </p>
                 </div>
               </div>
             </div>
