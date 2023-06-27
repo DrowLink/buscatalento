@@ -50,6 +50,7 @@ export const Registro1 = () => {
         "password": password
       })
         navigate("/registro-2")
+        window.location.reload(false);
     }
     else {
         setPasswordMatch(false)

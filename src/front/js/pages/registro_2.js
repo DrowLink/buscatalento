@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import "../../styles/registro_2.css";
 import { Context } from "../store/appContext";
 import trophy from "../../img/trophy.png";
-import ScrollToTop from "../component/scrollToTop"
 import toast, { Toaster } from 'react-hot-toast';
 
 export const Registro2 = () => {
@@ -22,24 +21,45 @@ export const Registro2 = () => {
 
 
 
-  //logica
-  const [files, setFiles] = useState();
-  const [previews, setPreviews] = useState();
-  const [files2, setFiles2] = useState();
-  const [previews2, setPreviews2] = useState();
+ //Preview Foto Logica
+ const [selectedFile, setSelectedFile] = useState()
+ const [preview, setPreview] = useState()
 
-
-  const imagenPreview = (e) => { //preview foto de perfil cuando la subes
-    if (e.target.files && e.target.files.length > 0) {
-      setFiles(e.target.files);
-    }
+ useEffect(() => {
+  if (!selectedFile) {
+      setPreview(undefined)
+      return
   }
+
+  const objectUrl = URL.createObjectURL(selectedFile)
+  setPreview(objectUrl)
+
+  // free memory when ever this component is unmounted
+  return () => URL.revokeObjectURL(objectUrl)
+  }, [selectedFile])
+
+  const onSelectFile = e => {
+    if (!e.target.files || e.target.files.length === 0) {
+        setSelectedFile(undefined)
+        return
+    }
+
+    setSelectedFile(e.target.files[0])
+}
+
+
+
+  //logica
+
 
 
   //LISTENERS CREADOS PERFIL
   const handlerName = (event) => {
     setName(event.target.value);
   };
+  const handlerProfileImgLink = (event) => {
+    setProfileImgLink(event.target.files[0]);
+  }
   const handlerLastname = (event) => {
     setLastname(event.target.value);
   };
@@ -55,9 +75,6 @@ export const Registro2 = () => {
   const handlerAge = (event) => {
     setAge(event.target.value);
   };
-  const handlerProfileImgLink = (event) => {
-    setProfileImgLink(event.target.files[0]);
-  };
 
   //ENVIAR INFO
   const handleClickPerfil = () => {
@@ -67,8 +84,7 @@ export const Registro2 = () => {
       phone.trim() != "" &&
       age.trim() != "" &&
       state.trim() != "" &&
-      country.trim() != "" //&&
-      //profileImgLink.trim() != ""
+      country.trim() != ""
     ) { 
          let resp = actions.newimage({
           name: name,
@@ -96,27 +112,9 @@ export const Registro2 = () => {
     }
   };
 
-  //rendering previews FOTO PERFIL
-  useEffect(() => {
-    if (!files) return;
-
-    let tmp = [];
-    for (let i=0 ; i < files.length; i++) {
-      tmp.push(URL.createObjectURL(files[i]));
-    }
-    const objectUrls = tmp;
-    setPreviews(objectUrls);
-
-    //free memory PREVIEW FOTO PERFIL
-    for (let i=0; i < objectUrls.length; i++) {
-      return () => {
-        URL.revokeObjectURL(objectUrls[i]);
-      };
-    };
-  }, [files]);
 
 
- const handlerKeyPress = (event) =>{
+ const handlerKeyPress = (event) =>{ // Ni idea que cumple esto att: paulo
   event.preventDefault()
   console.log(datosPerfil)
  }
@@ -134,10 +132,7 @@ export const Registro2 = () => {
             className="col-4 d-flex justify-content-center"
           >
             <div id="circle-profile-img">
-            {previews &&
-              previews.map((pic) => {
-                return <img id="preview-img-registro2-perfil" src={pic} />;
-              })}
+            {selectedFile &&  <img src={preview} id="img-preview-reg2" className="img-fluid"/> }
             </div>
           </div>
           <div id="input-section-2" className="col">
@@ -178,7 +173,8 @@ export const Registro2 = () => {
                     className="form-control mt-2" 
                     id="inputGroupFile03" 
                     accept="image/*"
-                    onChange={handlerProfileImgLink}/>
+                    onChange={onSelectFile}
+                    onInput={handlerProfileImgLink}/>
           </div>
           <div id="input-section-3" className="col">
             <p>Apellido</p>

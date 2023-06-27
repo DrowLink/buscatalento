@@ -36,7 +36,7 @@ export const CategoriesSelect = () =>{
                         alt="..." 
                         onClick={() => {
                             toggleSelection(1)
-                            actions.guardarcategoria("Deporte")
+                            actions.selectCategoria("Deporte")
                         }}/>
 
                     </div>
@@ -51,7 +51,7 @@ export const CategoriesSelect = () =>{
                     alt="..." 
                     onClick={() => {
                         toggleSelection(2)
-                        actions.guardarcategoria("Tecnologia")
+                        actions.selectCategoria("Tecnologia")
                     }}/>
                 </div>
                 </div>
@@ -65,7 +65,7 @@ export const CategoriesSelect = () =>{
                         alt="..." 
                         onClick={() => {
                             toggleSelection(3)
-                            actions.guardarcategoria("Música")
+                            actions.selectCategoria("Música")
                         }}/>
                     </div>
                 </div>  
@@ -81,7 +81,7 @@ export const CategoriesSelect = () =>{
                         alt="..." 
                         onClick={() => {
                             toggleSelection(4)
-                            actions.guardarcategoria("Arte")
+                            actions.selectCategoria("Arte")
                         }}/>
 
                     </div>
@@ -96,7 +96,7 @@ export const CategoriesSelect = () =>{
                     alt="..." 
                     onClick={() => {
                         toggleSelection(5)
-                        actions.guardarcategoria("Fotografia")
+                        actions.selectCategoria("Fotografia")
                     }}/>
                 </div>
                 </div>
@@ -110,7 +110,7 @@ export const CategoriesSelect = () =>{
                         alt="..." 
                         onClick={() => {
                             toggleSelection(6)
-                            actions.guardarcategoria("Gastronomia")
+                            actions.selectCategoria("Gastronomia")
                         }}/>
                     </div>
                 </div>  
@@ -126,7 +126,7 @@ export const CategoriesSelect = () =>{
                         alt="..." 
                         onClick={() => {
                             toggleSelection(7)
-                            actions.guardarcategoria("Diseño")
+                            actions.selectCategoria("Diseño")
                         }}/>
 
                     </div>
@@ -141,7 +141,7 @@ export const CategoriesSelect = () =>{
                     alt="..." 
                     onClick={() => {
                         toggleSelection(8)
-                        actions.guardarcategoria("Danza")
+                        actions.selectCategoria("Danza")
                     }}/>
                 </div>
                 </div>
@@ -155,7 +155,7 @@ export const CategoriesSelect = () =>{
                         alt="..." 
                         onClick={() => {
                             toggleSelection(9)
-                            actions.guardarcategoria("Idiomas")
+                            actions.selectCategoria("Idiomas")
                         }}/>
                     </div>
                 </div>  
@@ -171,7 +171,7 @@ export const CategoriesSelect = () =>{
                         alt="..." 
                         onClick={() => {
                             toggleSelection(10)
-                            actions.guardarcategoria("Escritura")
+                            actions.selectCategoria("Escritura")
                         }}/>
 
                     </div>
@@ -186,7 +186,7 @@ export const CategoriesSelect = () =>{
                     alt="..." 
                     onClick={() => {
                         toggleSelection(11)
-                        actions.guardarcategoria("Oratoria")
+                        actions.selectCategoria("Oratoria")
                     }}/>
                 </div>
                 </div>
@@ -200,7 +200,7 @@ export const CategoriesSelect = () =>{
                         alt="..." 
                         onClick={() => {
                             toggleSelection(12)
-                            actions.guardarcategoria("Desarrollo personal")
+                            actions.selectCategoria("DesarrolloPersonal")
                         }}/>
                     </div>
                 </div>  
