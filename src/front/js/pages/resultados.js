@@ -11,10 +11,6 @@ export const Resultados = () => {
     store, actions 
   } = useContext(Context);
 
-  useEffect(()=>{
-    actions.retornarcategoria()
-  }, [])
-
   return (
     <>
       <CardPersonal/>
