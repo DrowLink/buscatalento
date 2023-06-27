@@ -10,10 +10,15 @@
   border: 0px;
 }
 
+#iconperfil-perfil {
+  height: 100%;
+}
+
 #circulo-perfil-boton-div {
   display: flex;
   justify-content: end;
 }
+
 
 #circulo-boton-perfil {
   color: #ffff;
@@ -96,9 +101,14 @@
   }
   
   #section3-box-talent-card-perfil {
-    background: rgb(117, 117, 117);
     width: 375px;
     height: 375px;
+  }
+
+  #img-photo-perfil-css {
+    border-radius: 16%;
+    height: 100%;
+    width: 100%;
   }
   
   #section-photos-card-perfil {

@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../../styles/categories.css"
 import { Link } from "react-router-dom";
 import { CategoriesSelect } from "../component/threecategories";
+import { Context } from "../store/appContext";
 
 export const Categories = () => {
+
+    const { store }= useContext(Context)
+
     return(
         <div>
             <div className="container-fluid bg-white bg-opacity-25 m-0">
@@ -16,7 +20,7 @@ export const Categories = () => {
                     <CategoriesSelect/>
 			    </div>
                 <div className="d-flex justify-content-center">
-                    <Link to="/resultados">
+                    <Link to={`/resultados/${store.categoria}`}>
                     <button
                     id="confirmation-button-registro"
                     type="button"

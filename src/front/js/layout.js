@@ -41,7 +41,7 @@ const Layout = () => {
             <Route element={<InicioSesion />} path="/iniciosesion" />
             <Route element={<Perfil />} path="/perfil/:userId"/>
             <Route element={<AboutUs />} path="/aboutus" />
-            <Route element={<Resultados />} path="/resultados" />
+            <Route element={<Resultados />} path="/resultados/:categoria" />
             <Route element={<Registro1 />} path="/registro-1" />
             <Route element={<Registro2 />} path="/registro-2" />
             <Route element={<Registro3 />} path="/registro-3" />
