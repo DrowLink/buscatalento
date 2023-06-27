@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext} from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import "../../styles/resultados.css";
 import { Context } from "../store/appContext";
 import iconperfil from "../../img/iconperfil.png"
@@ -13,13 +13,19 @@ const users = [{
     categoria: "Oratoria",
     talento: "Orador profesional",
     direccion: "Caracas, Venezuela",
+    id: 1,
+    practica: "2 años de practica",
+    correo: "test.test@gmail.com"
 },
 {
     nombre: "Jose Rosales",
     edad: "22",
     categoria: "Arte",
-    talento: "Pintor",
+    talento: "Pintor novato",
     direccion: "Caracas, Venezuela",
+    id: 2,
+    practica: "2 meses de practica",
+    correo: "test.test@gmail.com"
 },
 {
     nombre: "Joan Suarez",
@@ -27,6 +33,9 @@ const users = [{
     categoria: "Deporte",
     talento: "Futbolista Amateur",
     direccion: "Caracas, Venezuela",
+    id: 3,
+    practica: "4 años de practica",
+    correo: "test.test@gmail.com"
 },
 {
     nombre: "Micaela Rodriguez",
@@ -34,6 +43,9 @@ const users = [{
     categoria: "Deporte",
     talento: "Karateca Profesional",
     direccion: "Ciudad de Buenos Aires, Argentina",
+    id: 4,
+    practica: "4 años de practica",
+    correo: "test.test@gmail.com"
 },
 {
     nombre: "Hector Caraballo",
@@ -41,6 +53,9 @@ const users = [{
     categoria: "Tecnologia",
     talento: "Programador Full-Stack Novato",
     direccion: "Ciudad de Buenos Aires, Argentina",
+    id: 5,
+    practica: "8 meses de practica",
+    correo: "test.test@gmail.com"
 },
 {
     nombre: "Flor Fernandez",
@@ -48,6 +63,9 @@ const users = [{
     categoria: "Danza",
     talento: "Bailarina Profesional",
     direccion: "Valencia, Venezuela",
+    id: 6,
+    practica: "4 años de practica",
+    correo: "test.test@gmail.com"
 },
 {
     nombre: "Sarahy Rivas",
@@ -55,6 +73,9 @@ const users = [{
     categoria: "Fotografia",
     talento: "Fotografa amateur",
     direccion: "Merida, Venezuela", 
+    id: 7,
+    practica: "2 años de practica",
+    correo: "test.test@gmail.com"
 },
 {
     nombre: "Samuel Carmona",
@@ -62,6 +83,9 @@ const users = [{
     categoria: "Deporte",
     talento: "Nadador amateur",
     direccion: "Caracas, Venezuela",
+    id: 8,
+    practica: "1 año de practica",
+    correo: "test.test@gmail.com"
 },
 {
     nombre: "Luis Ramos",
@@ -69,6 +93,9 @@ const users = [{
     categoria: "Tecnologia",
     talento: "Experto tecnico en celulares",
     direccion: "Caracas, Venezuela",
+    id: 9,
+    practica: "4 años de practica",
+    correo: "test.test@gmail.com"
 },
 {
     nombre: "Ariel Rivas",
@@ -76,6 +103,9 @@ const users = [{
     categoria: "Música",
     talento: "Guitarrista Profesional",
     direccion: "Caracas, Venezuela",
+    id: 10,
+    practica: "4 años de practica",
+    correo: "test.test@gmail.com"
 },
 {
     nombre: "Agustina Soler",
@@ -83,6 +113,9 @@ const users = [{
     categoria: "Gastronomia",
     talento: "Chef Profesional",
     direccion: "Caracas, Venezuela",
+    id: 11,
+    practica: "5 años de practica",
+    correo: "test.test@gmail.com"
 },
 {
     nombre: "Marco Dionisio",
@@ -90,6 +123,9 @@ const users = [{
     categoria: "Diseño",
     talento: "Diseñador Amateur",
     direccion: "Caracas, Venezuela",
+    id: 12,
+    practica: "4 años de practica",
+    correo: "test.test@gmail.com"
 },
 {
     nombre: "Nohelia Lopez",
@@ -97,6 +133,9 @@ const users = [{
     categoria: "Idiomas",
     talento: "Experta en idiomas",
     direccion: "Caracas, Venezuela",
+    id: 13,
+    practica: "12 años de practica",
+    correo: "test.test@gmail.com"
 },
 {
     nombre: "Ramiro Rojas",
@@ -104,6 +143,9 @@ const users = [{
     categoria: "Escritura",
     talento: "Experto Redactor",
     direccion: "Madrid, España",
+    id: 14,
+    practica: "10 años de practica",
+    correo: "test.test@gmail.com"
 },
 {
     nombre: "Gabriela Files",
@@ -111,10 +153,15 @@ const users = [{
     categoria: "DesarrolloPersonal",
     talento: "Experto en Desarrollo Personal",
     direccion: "Madrid, España",
+    id: 15,
+    practica: "4 años de practica",
+    correo: "test.test@gmail.com"
 }
 ]
 
 export const CardPersonal = (props) => {
+
+    const navigate = useNavigate()
 
     const params = useParams()
     console.log(params)
@@ -156,15 +203,19 @@ export const CardPersonal = (props) => {
                         <i className="fa-solid fa-star"></i>
                         <i className="fa-solid fa-star"></i>
                     </div>
-                        <Link to="/cardpersonal">
+                        {/* <Link to={`/cardpersonal/${store.cards}`}> */}
                             <button
                                 type="button"
                                 id="vermas-btn-cardbox-resultados"
                                 className="btn btn-primary"
+                                onClick={()=>{
+                                    actions.verInfo(user)
+                                    navigate(`/cardpersonal/${user.id}`)
+                                }}
                             >
                                 Ver mas
                             </button>
-                        </ Link>
+                        {/* </ Link> */}
                     </div>
                 </div>
             </div>

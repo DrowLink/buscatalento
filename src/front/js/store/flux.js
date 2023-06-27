@@ -11,6 +11,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			selectCategoria: (categoria) => {
 				setStore({categoria: categoria})
 			},
+			verInfo: (cards) =>{
+				setStore({cards: cards})
+			},
 			getProfileById: async (user_id) => {
 				try {
 					const resp = await fetch(`/perfil/${user_id}`)
