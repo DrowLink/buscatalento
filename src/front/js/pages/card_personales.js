@@ -61,7 +61,7 @@ export const CardPersonal = () => {
 
                 <div id="buttons-final-card" className="text-center">
                     <button id="intercambio-button-card" onClick={intercambioHecho} type="button" className="btn btn">Intercambiar<i className="fas fa-chalkboard-teacher"></i></button>
-                    <Link to="/resultados">
+                    <Link to="/categories">
                     <button id="seguirviendo-button-card" type="button" className="btn btn">Seguir viendo <i className="fas fa-sync-alt"></i></button>
                     </ Link>
                 </div>
