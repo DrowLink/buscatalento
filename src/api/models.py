@@ -34,6 +34,8 @@ class Perfil(db.Model):
     user = db.relationship('User',  backref='perfil')
     image_url = db.Column(db.String(400), nullable=False)
 
+    talent = db.relationship('Talent',  back_populates='perfil')
+
     def __init__(self, name, last_name, phone, age, country, state,  user_id, image_url):
         self.name = name
         self.last_name = last_name
@@ -46,10 +48,16 @@ class Perfil(db.Model):
 
     def serialize(self):
         return{
+            "user_id": self.user_id,
+
             "name": self.name,
             "last_name": self.last_name,
-            "user_id": self.user_id,
-            "image_url": self.image_url
+            "image_url": self.image_url,
+            "phone": self.phone,
+            "age": self.age,
+            "country": self.country,
+            "state": self.state,
+            #"talent": self.talent.serialize()
         }
 
 class Talent(db.Model):
@@ -60,8 +68,10 @@ class Talent(db.Model):
     about_you = db.Column(db.String(100), nullable=False)
     categories_talent = db.Column(db.String(100), nullable=False)
     range_talent = db.Column(db.String(100), nullable=False)
+
     perfil_id = db.Column(db.Integer, db.ForeignKey('perfil.id'), nullable=False)
-    perfil = db.relationship('Perfil', backref='talent')
+    perfil = db.relationship('Perfil', back_populates='talent')
+
     imagetalent_url = db.Column(db.String(400), nullable=False)
 
     def __init__(self, talent_name, practice_time, about_you, categories_talent, range_talent, perfil_id, imagetalent_url):
@@ -78,7 +88,10 @@ class Talent(db.Model):
             "talent_name" : self.talent_name,
             "about_you": self.about_you,
             "perfil_id": self.perfil_id,
-            "imagetalent_url": self.imagetalent_url
+            "imagetalent_url": self.imagetalent_url,
+
+            "practice_time": self.practice_time,
+            
         }
 
 class Categories(db.Model):

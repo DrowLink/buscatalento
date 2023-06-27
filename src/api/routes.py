@@ -54,7 +54,7 @@ def new_user():
         try:
             db.session.add(nuevo_usuario)
             db.session.commit()
-            return jsonify({"message": nuevo_usuario.serialize(), "token": create_access_token(identity=nuevo_usuario.id)})
+            return jsonify({"user": nuevo_usuario.serialize(), "token": create_access_token(identity=nuevo_usuario.id)})
         except Exception as err:
             return jsonify({"message": "Ha ocurrido un error! 💥"}), 500
     
@@ -84,8 +84,10 @@ def new_perfil():
 @api.route('/perfil/<int:id>', methods=['GET'])
 def get_perfil(id):
     perfil =  Perfil.query.filter_by(user_id=id).one_or_none()
+
     if perfil is not None:
-        return jsonify(perfil.serialize()), 200
+        talent  = Talent.query.filter_by(perfil_id=perfil.id)
+        return jsonify({ "perfil": perfil.serialize() , "talents": [ talento.serialize()  for talento in talent ] }), 200
     else:
         return jsonify({"message": "user not found"}), 404   
 
