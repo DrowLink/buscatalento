@@ -2,6 +2,18 @@ import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/categories.css"
 import { Context } from "../store/appContext"
+import music from "../../img/music.png"
+import deporte from "../../img/deporte.png"
+import tecnologia from "../../img/tecnologia.png"
+import arte from "../../img/arte.png"
+import fotografia from "../../img/fotografia.png"
+import gastronomia from "../../img/gastronomia.png"
+import diseno from "../../img/diseno.png"
+import danza from "../../img/danza.png"
+import idiomas from "../../img/idiomas.png"
+import escritura from "../../img/escritura.png"
+import oratoria from "../../img/oratoria.png"
+import desarrollo from "../../img/desarrollo.png"
 
 export const CategoriesSelect = () =>{
 
@@ -30,7 +42,7 @@ export const CategoriesSelect = () =>{
                     <div className="d-flex flex-column">
                         <h3 className="align-self-center mb-4"> Deporte</h3>
                         <img 
-                        src="https://wellaggio.com/wp-content/uploads/2015/09/la-importancia-de-las-imagenes-en-el-dise%C3%B1o-web1.jpg" 
+                        src={deporte}
                         id="categories" 
                         className={`rounded-circle ${isImageSelected(1) ? 'selected img-thumbnail' : 'img-thumbnail'}`} 
                         alt="..." 
@@ -38,14 +50,13 @@ export const CategoriesSelect = () =>{
                             toggleSelection(1)
                             actions.selectCategoria("Deporte")
                         }}/>
-
                     </div>
                 </div>
                 <div className="col-md-4 d-flex justify-content-center">
                     <div className="d-flex flex-column">
                         <h3 className="align-self-center mb-4"> Tecnologia </h3>
                     <img 
-                    src="https://wellaggio.com/wp-content/uploads/2015/09/la-importancia-de-las-imagenes-en-el-dise%C3%B1o-web1.jpg" 
+                    src={tecnologia} 
                     id="categories" 
                     className={`rounded-circle ${isImageSelected(2) ? 'selected img-thumbnail' : 'img-thumbnail'}`} 
                     alt="..." 
@@ -59,7 +70,7 @@ export const CategoriesSelect = () =>{
                     <div className="d-flex flex-column">
                         <h3 className="align-self-center mb-4"> Música </h3>
                         <img 
-                        src="https://wellaggio.com/wp-content/uploads/2015/09/la-importancia-de-las-imagenes-en-el-dise%C3%B1o-web1.jpg" 
+                        src={music} 
                         id="categories" 
                         className={`rounded-circle ${isImageSelected(3) ? 'selected img-thumbnail' : 'img-thumbnail'}`} 
                         alt="..." 
@@ -75,7 +86,7 @@ export const CategoriesSelect = () =>{
                     <div className="d-flex flex-column">
                         <h3 className="align-self-center mb-4"> Arte</h3>
                         <img 
-                        src="https://wellaggio.com/wp-content/uploads/2015/09/la-importancia-de-las-imagenes-en-el-dise%C3%B1o-web1.jpg" 
+                        src={arte} 
                         id="categories" 
                         className={`rounded-circle ${isImageSelected(4) ? 'selected img-thumbnail' : 'img-thumbnail'}`} 
                         alt="..." 
@@ -90,7 +101,7 @@ export const CategoriesSelect = () =>{
                     <div className="d-flex flex-column">
                         <h3 className="align-self-center mb-4"> Fotografia </h3>
                     <img 
-                    src="https://wellaggio.com/wp-content/uploads/2015/09/la-importancia-de-las-imagenes-en-el-dise%C3%B1o-web1.jpg" 
+                    src={fotografia} 
                     id="categories" 
                     className={`rounded-circle ${isImageSelected(5) ? 'selected img-thumbnail' : 'img-thumbnail'}`} 
                     alt="..." 
@@ -104,7 +115,7 @@ export const CategoriesSelect = () =>{
                     <div className="d-flex flex-column">
                         <h3 className="align-self-center mb-4"> Gastronomia </h3>
                         <img 
-                        src="https://wellaggio.com/wp-content/uploads/2015/09/la-importancia-de-las-imagenes-en-el-dise%C3%B1o-web1.jpg" 
+                        src={gastronomia} 
                         id="categories" 
                         className={`rounded-circle ${isImageSelected(6) ? 'selected img-thumbnail' : 'img-thumbnail'}`} 
                         alt="..." 
@@ -120,7 +131,7 @@ export const CategoriesSelect = () =>{
                     <div className="d-flex flex-column">
                         <h3 className="align-self-center mb-4"> Diseño</h3>
                         <img 
-                        src="https://wellaggio.com/wp-content/uploads/2015/09/la-importancia-de-las-imagenes-en-el-dise%C3%B1o-web1.jpg" 
+                        src={diseno} 
                         id="categories" 
                         className={`rounded-circle ${isImageSelected(7) ? 'selected img-thumbnail' : 'img-thumbnail'}`} 
                         alt="..." 
@@ -135,7 +146,7 @@ export const CategoriesSelect = () =>{
                     <div className="d-flex flex-column">
                         <h3 className="align-self-center mb-4"> Danza </h3>
                     <img 
-                    src="https://wellaggio.com/wp-content/uploads/2015/09/la-importancia-de-las-imagenes-en-el-dise%C3%B1o-web1.jpg" 
+                    src={danza}
                     id="categories" 
                     className={`rounded-circle ${isImageSelected(8) ? 'selected img-thumbnail' : 'img-thumbnail'}`} 
                     alt="..." 
@@ -149,7 +160,7 @@ export const CategoriesSelect = () =>{
                     <div className="d-flex flex-column">
                         <h3 className="align-self-center mb-4"> Idiomas </h3>
                         <img 
-                        src="https://wellaggio.com/wp-content/uploads/2015/09/la-importancia-de-las-imagenes-en-el-dise%C3%B1o-web1.jpg" 
+                        src={idiomas} 
                         id="categories" 
                         className={`rounded-circle ${isImageSelected(9) ? 'selected img-thumbnail' : 'img-thumbnail'}`} 
                         alt="..." 
@@ -165,7 +176,7 @@ export const CategoriesSelect = () =>{
                     <div className="d-flex flex-column">
                         <h3 className="align-self-center mb-4"> Escritura</h3>
                         <img 
-                        src="https://wellaggio.com/wp-content/uploads/2015/09/la-importancia-de-las-imagenes-en-el-dise%C3%B1o-web1.jpg" 
+                        src={escritura} 
                         id="categories" 
                         className={`rounded-circle ${isImageSelected(10) ? 'selected img-thumbnail' : 'img-thumbnail'}`} 
                         alt="..." 
@@ -180,7 +191,7 @@ export const CategoriesSelect = () =>{
                     <div className="d-flex flex-column">
                         <h3 className="align-self-center mb-4"> Oratoria </h3>
                     <img 
-                    src="https://wellaggio.com/wp-content/uploads/2015/09/la-importancia-de-las-imagenes-en-el-dise%C3%B1o-web1.jpg" 
+                    src={oratoria} 
                     id="categories" 
                     className={`rounded-circle ${isImageSelected(11) ? 'selected img-thumbnail' : 'img-thumbnail'}`} 
                     alt="..." 
@@ -194,7 +205,7 @@ export const CategoriesSelect = () =>{
                     <div className="d-flex flex-column">
                         <h3 className="align-self-center mb-4"> Desarrollo personal </h3>
                         <img 
-                        src="https://wellaggio.com/wp-content/uploads/2015/09/la-importancia-de-las-imagenes-en-el-dise%C3%B1o-web1.jpg" 
+                        src={desarrollo}
                         id="categories" 
                         className={`rounded-circle ${isImageSelected(12) ? 'selected img-thumbnail' : 'img-thumbnail'}`} 
                         alt="..." 

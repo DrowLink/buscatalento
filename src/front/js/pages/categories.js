@@ -14,7 +14,7 @@ export const Categories = () => {
     		    <div className="container py-4">
                     <div className="row">
                         <div className="col-md-12 d-flex justify-content-around">
-                            <h1>Selecciona las categorias por las que te gustaria empezar</h1>
+                            <h1>Selecciona la categoria por las que te gustaria empezar hoy:</h1>
                         </div>
                     </div>
                     <CategoriesSelect/>

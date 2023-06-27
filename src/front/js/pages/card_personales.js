@@ -8,6 +8,11 @@ import { Context } from "../store/appContext";
 export const CardPersonal = () => {
 	const { store, actions } = useContext(Context);
 
+    const enviarcorreo = ()=>{
+        const url = `https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(store.cards.correo)}`;
+        window.open(url, '_blank');
+    }
+
     const intercambioHecho = () => {
         return toast.success('¡Tu solicitud ha sido enviada! ⭐', {
             style: {
@@ -41,12 +46,12 @@ export const CardPersonal = () => {
                         </div>
                     </div>
                     <div id="description-profile-box" className="col">
-                        <h1>Jose Rosas</h1>
+                        <h1>{store.cards.nombre}</h1>
                         <br/>
-                        <h4>24 años</h4>
-                        <h4>Caracas, Venezuela</h4>
-                        <h4>Jugador Amateur de Ajedrez</h4>
-                        <h4>5 años de practica</h4>
+                        <h4>{store.cards.edad} años</h4>
+                        <h4>{store.cards.direccion}</h4>
+                        <h4>{store.cards.talento}</h4>
+                        <h4>{store.cards.practica}</h4>
                         <h4>Persona entusiasta con ganas de aprender y de enseñar</h4>
                     </div>
                 </div>
@@ -60,7 +65,12 @@ export const CardPersonal = () => {
                 </div>
 
                 <div id="buttons-final-card" className="text-center">
+                    <a target="_blank" href="mailto:yourmail@domain.com">
                     <button id="intercambio-button-card" onClick={intercambioHecho} type="button" className="btn btn">Intercambiar<i className="fas fa-chalkboard-teacher"></i></button>
+                    </a>
+                    <button onClick={enviarcorreo()}>
+                        Prueba
+                    </button>
                     <Link to="/categories">
                     <button id="seguirviendo-button-card" type="button" className="btn btn">Seguir viendo <i className="fas fa-sync-alt"></i></button>
                     </ Link>

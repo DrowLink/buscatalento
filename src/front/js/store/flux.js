@@ -10,6 +10,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			selectCategoria: (categoria) => {
 				setStore({categoria: categoria})
 			},
+			verInfo: (cards) =>{
+				setStore({cards: cards})
+			},
 			getProfileById: async (user_id) => {
 				try {
 					const resp = await fetch(process.env.BACKEND_URL + `/api/perfil/${user_id}`)
@@ -165,6 +168,49 @@ const getState = ({ getStore, getActions, setStore }) => {
 							"country": perfil.country,
 							"state": perfil.state,
 							//"user_id": user.state,
+							"image_url": dataCloudinary.url
+						})
+					})
+					
+				} catch (error) {
+					console.log(error)
+				}
+			},
+			newimageTalent: async (talent) =>{
+
+				let store = getStore()
+
+				try {
+
+					const apiUrl = `https://api.cloudinary.com/v1_1/datq8v8mk/image/upload`
+
+					const formMultimedia = new FormData()
+
+					formMultimedia.append("upload_preset", "v9oseeuk")
+					formMultimedia.append("file", talent.photo)
+
+					const respMediaBucket = await fetch(apiUrl, {
+						method: "POST",
+						body: formMultimedia
+					})
+
+					const dataCloudinary = await respMediaBucket.json()
+
+					console.log(dataCloudinary)
+
+					const resp = await fetch(process.env.BACKEND_URL + "/api/talent",{
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+							'Authorization': `Bearer ${store.token}`
+						},
+						body: JSON.stringify({
+							"name": perfil.name,
+							"talent_name": talent.talent_name,
+							"practice_time": talent.practice_time,
+							"about_you": talent.about_you,
+							"categories_talent": talent.categories_talent,
+							"range_talent": talent.range_talent,
 							"image_url": dataCloudinary.url
 						})
 					})
