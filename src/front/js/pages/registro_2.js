@@ -132,7 +132,7 @@ export const Registro2 = () => {
             className="col-4 d-flex justify-content-center"
           >
             <div id="circle-profile-img">
-            {selectedFile &&  <img src={preview} id="img-preview-reg2" className="img-fluid"/> }
+            {selectedFile &&  <img src={preview} id="img-preview-reg21" className="img-fluid"/> }
             </div>
           </div>
           <div id="input-section-2" className="col">

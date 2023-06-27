@@ -67,7 +67,7 @@ const Registro3 = () => {
 
       const handleClick = () => {
         if (categoryTalent.trim() != "" && talentName.trim() != "" && dateSinceTalent.trim() != ""  && experienceTalent.trim() != "" && moreAboutTalent.trim() != "") {
-            actions.newTalento({
+            actions.newimageTalent({
                 talent_name: talentName,
                 practice_time: dateSinceTalent,
                 about_you: moreAboutTalent,
