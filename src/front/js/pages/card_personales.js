@@ -3,7 +3,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { Link } from "react-router-dom";
 import "../../styles/card_personales.css"
 import { Context } from "../store/appContext";
-
+import iconperfil from "../../img/iconperfil.png"
 
 export const CardPersonal = () => {
 	const { store, actions } = useContext(Context);
@@ -36,7 +36,16 @@ export const CardPersonal = () => {
                 
                 <div id="section-1-card" className="row">
                     <div id="photo-profile-box" className="col-4">
-                        <div id="circle-profile-card-img" className="m-4"></div>
+                        <div id="circle-profile-card-img" className="m-4">
+                        <div id="profile-photo-cardbox-resultados" className="col-4">
+                    <img
+                    src={iconperfil}
+                    className="rounded-circle rounded-2"
+                    id="iconperfil"
+                    alt="..."
+                  />
+                    </div>
+                        </div>
                         <div id="review-card">
                         <i className="fa-solid fa-star fa-2x"></i>
                         <i className="fa-solid fa-star fa-2x"></i>
@@ -66,9 +75,9 @@ export const CardPersonal = () => {
 
                 <div id="buttons-final-card" className="text-center">
                     <a target="_blank" href="mailto:yourmail@domain.com">
-                    <button id="intercambio-button-card" onClick={intercambioHecho} type="button" className="btn btn">Intercambiar<i className="fas fa-chalkboard-teacher"></i></button>
+                    <button id="intercambio-button-card" onClick={()=>{intercambioHecho; enviarcorreo()}} type="button" className="btn btn">Intercambiar<i className="fas fa-chalkboard-teacher"></i></button>
                     </a>
-                    <button onClick={enviarcorreo()}>
+                    <button onClick={()=>enviarcorreo()}>
                         Prueba
                     </button>
                     <Link to="/categories">

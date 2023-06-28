@@ -4,6 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			user: localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null,
 			perfil: null,
 			categorias: [],
+			cards: "",
 			token: localStorage.getItem("token") || null
 		},
 		actions: {
