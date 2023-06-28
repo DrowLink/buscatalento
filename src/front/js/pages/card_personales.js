@@ -35,13 +35,13 @@ export const CardPersonal = () => {
 
                 
                 <div id="section-1-card" className="row">
-                    <div id="photo-profile-box" className="col-4">
+                    <div id="photo-profile-box-cardpersonal" className="col-4">
                         <div id="circle-profile-card-img" className="m-4">
-                        <div id="profile-photo-cardbox-resultados" className="col-4">
+                        <div id="profile-photo-cardbox-cardpersonal" className="">
                     <img
                     src={iconperfil}
                     className="rounded-circle rounded-2"
-                    id="iconperfil"
+                    id="iconperfil-cardpersonal"
                     alt="..."
                   />
                     </div>
