@@ -3,17 +3,19 @@
 } */
 
 #inputperfil-1 {
+  margin-bottom: 19px;
   font-size: 49px;
   max-width: 330px;
   height: 45px;
   border: 0px;
 }
 
+
 #inputperfil-2 {
   font-size: 25px;
   max-width: 330px;
   height: 45px;
-  margin-bottom: -0.5rem;
+  margin-bottom: 7px;
   border: 0px;
 }
 
@@ -75,7 +77,7 @@
 }
 
 #talentotitulo-perfil {
-  margin-top: 62px;
+  margin-top: 92px;
   font-size: 50px;
   text-align: center;
   text-decoration: underline solid #8924a3;
@@ -108,7 +110,7 @@
   }
 
 #description-profile-box-perfil {
-    margin-top: 4rem;
+    margin-top: 5rem;
     margin-left: 13rem;
     display: flex;
     flex-direction: column;
@@ -131,6 +133,7 @@
 
   #description-photos-container-card-perfil {
     margin-left: 50px;
+    margin-top: 38px;
     width: 400px;
     height: 310px;
     display: flex;
