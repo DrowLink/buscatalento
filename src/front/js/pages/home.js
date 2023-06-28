@@ -341,9 +341,8 @@ export const Home = () => {
         </div>
       </div>
       <div className="text-center mt-5">
-        <div className="alert alert-info">
-          {store.message ||
-            "Loading message from the backend (make sure your python backend is running)..."}
+        <div id="footer-home" className="alert alert-info">
+          <h5 id="h5-f-h" >Derechos reservados 2023 ©</h5>
         </div>
       </div>
     </div>

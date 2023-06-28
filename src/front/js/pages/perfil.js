@@ -17,11 +17,14 @@ export const Perfil = () => {
 	return (
 		<div className="container">
             <div id="profile-box-perfil" className="">
-            <h1 id="perfiltitulo-perfil">Tu perfil</h1>
+            <div>
+                {/* <i id="svgtitulo-perfil" className="fa-solid fa-greater-than"></i> */}
+                <h1 id="perfiltitulo-perfil">Tu perfil</h1>
+            </div>
                 <div id="section-1-card-perfil" className="row">
                     <div id="description-profile-box-perfil" className="col">
                         <input id="inputperfil-1" type="text" value={store.perfil && store.perfil.perfil.name + " " + store.perfil.perfil.last_name || ""}/>
-                        <input id="inputperfil-2" type="text" value={store.perfil && store.perfil.perfil.age || ""}/>
+                        <input id="inputperfil-2" type="text" value={store.perfil && store.perfil.perfil.age + " años"|| " "}/>
                         <input id="inputperfil-2" type="text" value={store.perfil && store.perfil.perfil.state + ", " + store.perfil.perfil.country || ""} />
                         <input id="inputperfil-2"  type="text" value={store.user && store.user.email || ""}/>
                         <div id="circulo-perfil-boton-div" className="">
@@ -44,21 +47,28 @@ export const Perfil = () => {
                         </div>
                     </div>
                 </div>
-                <h1 id="talentotitulo-perfil">Tus talentos</h1>
-                { store.perfil && store.perfil.talents.map( talento =>  <div id="section-photos-card-perfil" className="row">
+                <h1 id="talentotitulo-perfil">Tu talento</h1>
+                { store.perfil && store.perfil.talents.map( talento =>   <div id="section-photos-card-perfil" className="row">
                     <div className="col-5" id="add-photos-container-card-perfil">
                         <div id="section3-box-talent-card-perfil">
-                            <img id="img-photo-perfil-css" src="https://wellaggio.com/wp-content/uploads/2015/09/la-importancia-de-las-imagenes-en-el-dise%C3%B1o-web1.jpg" />
+                            { talento.imagetalent_url.trim() != "" ? <img id="img-photo-perfil-css" src={talento.imagetalent_url} /> :
+                                <img id="img-photo-perfil-css" src="https://wellaggio.com/wp-content/uploads/2015/09/la-importancia-de-las-imagenes-en-el-dise%C3%B1o-web1.jpg" />}
                         </div>
                     </div>
                     <div className="col" id="description-photos-container-card-perfil">
-                        <h2 className="mb-4">{talento.talent_name}</h2>
-                        <h3 className="mb-4">Categoria del talento</h3>
-                        <h4 className="mb-4">Tiempo de practica</h4>
-                        <h4 className="mb-4">Experiencia</h4>
-                        <p className="mb-4">Descripcion breve del talento</p>
+                        <input id="inputtalento-1" type="text" value={talento.talent_name}  className="mb-2" />
+                        <input id="inputtalento-2" type="text" value={talento.categories_talent}  className="" />
+                        <input id="inputtalento-2" type="text" value={talento.practice_time}  className="" />
+                        <input id="inputtalento-2" type="text" value={talento.range_talent}  className="" />
+                        <textarea id="inputtalento-3" type="text" value={talento.about_you}  className="" />
                     </div>
                 </div>)}
+                {/* posible footer */}
+                {/* <div className="text-center mt-5">
+                    <div id="footer-home" className="alert alert-info">
+                    <h5 id="h5-f-h" >Derechos reservados 2023 ©</h5>
+                    </div>
+                </div> */}
             </div>
         </div>  
 		

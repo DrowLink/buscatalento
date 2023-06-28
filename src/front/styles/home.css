@@ -12,6 +12,16 @@
     font-family: 'Kanit', sans-serif;
 }
 
+
+#footer-home {
+ background-color: #8924a3;
+}
+
+#h5-f-h {
+    color: white;
+    font-weight: 600
+}
+
 #buttons-navbar-home {
     border-radius: 50px;
 }

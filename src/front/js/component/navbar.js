@@ -18,21 +18,21 @@ export const Navbar = () => {
           {/* <span className="navbar-brand mb-0 h1">Buscatalento⭐</span> */}
         </Link>
         <Link to="/" id="navlink">
-        <div className="">
+        <div id="titulo-boton-navbar" className="">
           <span className="fs-4 text-white">
             Home
           </span>
         </div>
         </Link>
         <Link to="/categories" id="navlink">
-        {store.token != null ? <div className="">
+        {store.token != null ? <div id="titulo-boton-navbar" className="">
           <span className="fs-4 text-white">
             Categories
           </span>
         </div> : "" }
         </Link>
         <Link to="/aboutus" id="navlink">
-          <div className="">
+          <div id="titulo-boton-navbar" className="">
             <span className="fs-4 text-white">
               About us
             </span>
