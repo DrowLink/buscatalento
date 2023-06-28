@@ -9,7 +9,7 @@ export const Perfil = () => {
     let { userId } = useParams();
 
 
-
+    console.log(store.perfil)
     useEffect (() => {
         actions.getProfileById(userId)
     }, [])

@@ -176,7 +176,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 			newimageTalent: async (talent) =>{
-
+				console.log(talent)
 				let store = getStore()
 
 				try {
@@ -186,7 +186,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const formMultimedia = new FormData()
 
 					formMultimedia.append("upload_preset", "v9oseeuk")
-					formMultimedia.append("file", talent.photo)
+					formMultimedia.append("file", talent.imagetalent_url)
 
 					const respMediaBucket = await fetch(apiUrl, {
 						method: "POST",
@@ -204,13 +204,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 							'Authorization': `Bearer ${store.token}`
 						},
 						body: JSON.stringify({
-							"name": perfil.name,
+							"name": talent.name,
 							"talent_name": talent.talent_name,
 							"practice_time": talent.practice_time,
 							"about_you": talent.about_you,
 							"categories_talent": talent.categories_talent,
 							"range_talent": talent.range_talent,
-							"image_url": dataCloudinary.url
+							"imagetalent_url": dataCloudinary.url
 						})
 					})
 					

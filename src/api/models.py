@@ -89,7 +89,8 @@ class Talent(db.Model):
             "about_you": self.about_you,
             "perfil_id": self.perfil_id,
             "imagetalent_url": self.imagetalent_url,
-
+            "categories_talent": self.categories_talent,
+            "range_talent": self.range_talent,
             "practice_time": self.practice_time,
             
         }
