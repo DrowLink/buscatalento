@@ -3,6 +3,7 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import "../../styles/resultados.css";
 import { Context } from "../store/appContext";
 import iconperfil from "../../img/iconperfil.png"
+import deporte from "../../img/deporte.png"
 
 
 //ESTE COMP. SE RENDERIZA EN /RESULTADOS

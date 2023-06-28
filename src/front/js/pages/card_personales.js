@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import "../../styles/card_personales.css"
 import { Context } from "../store/appContext";
 import iconperfil from "../../img/iconperfil.png"
+import karateteacher from "../../img/karateteacher.jpg"
+import buscatalento from "../../img/buscatalento_logo.png"
 
 export const CardPersonal = () => {
 	const { store, actions } = useContext(Context);
@@ -36,16 +38,12 @@ export const CardPersonal = () => {
                 
                 <div id="section-1-card" className="row">
                     <div id="photo-profile-box" className="col-4">
-                        <div id="circle-profile-card-img" className="m-4">
-                        <div id="profile-photo-cardbox-resultados" className="col-4">
                     <img
-                    src={iconperfil}
+                    src={karateteacher}
                     className="rounded-circle rounded-2"
-                    id="iconperfil"
+                    id="iconperfil2"
                     alt="..."
                   />
-                    </div>
-                        </div>
                         <div id="review-card">
                         <i className="fa-solid fa-star fa-2x"></i>
                         <i className="fa-solid fa-star fa-2x"></i>
@@ -66,23 +64,21 @@ export const CardPersonal = () => {
                 </div>
                 <div className="row d-flex justify-content-around" id="section-photos-card">
                     <div className="col-md-2" id="add-photos-container-card">
-                        <div id="section3-box-talent-card"></div>
+                    <div id="imagetalent" className="col-4">
+                    <img
+                    src={buscatalento}
+                    className="img-thumbnail border border-0"
+                    id="iconperfil3"
+                    alt="..."
+                  />
+                  </div>
                     </div>
-                    <div className="col-md-2" id="add-photos-container-card">
-                        <div id="section3-box-talent-card"></div>
-                    </div>
-                </div>
-
-                <div id="buttons-final-card" className="text-center">
-                    <a target="_blank" href="mailto:yourmail@domain.com">
+                    <div id="buttons-final-card" className="col-md-6 text-center">
                     <button id="intercambio-button-card" onClick={()=>{intercambioHecho; enviarcorreo()}} type="button" className="btn btn">Intercambiar<i className="fas fa-chalkboard-teacher"></i></button>
-                    </a>
-                    <button onClick={()=>enviarcorreo()}>
-                        Prueba
-                    </button>
                     <Link to="/categories">
                     <button id="seguirviendo-button-card" type="button" className="btn btn">Seguir viendo <i className="fas fa-sync-alt"></i></button>
                     </ Link>
+                </div>
                 </div>
                 </div>
                 </div>
