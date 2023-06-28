@@ -121,17 +121,17 @@ const Registro3 = () => {
               onChange={handlerCategoryTalent}
             >
               <option selected>Selecciona una categoría</option>
-              <option value="1">Deportes</option>
-              <option value="2">Tecnologia</option>
-              <option value="3">Música</option>
-              <option value="4">Arte</option>
-              <option value="5">Fotografia</option>
-              <option value="6">Gastronomia</option>
-              <option value="7">Diseño</option>
-              <option value="8">Danza</option>
-              <option value="9">Idiomas</option>
-              <option value="10">Oratoria</option>
-              <option value="11">Desarrollo Personal</option>
+              <option value="Deportes">Deportes</option>
+              <option value="Tecnologia">Tecnologia</option>
+              <option value="Música">Música</option>
+              <option value="Arte">Arte</option>
+              <option value="Fotografia">Fotografia</option>
+              <option value="Gastronomia">Gastronomia</option>
+              <option value="Diseño">Diseño</option>
+              <option value="Danza">Danza</option>
+              <option value="Idiomas">Idiomas</option>
+              <option value="Oratoria">Oratoria</option>
+              <option value="Desarrollo Personal">Desarrollo Personal</option>
             </select>
             <p>¿Desde hace cuanto lo practicas?</p>
             <input
@@ -175,10 +175,10 @@ const Registro3 = () => {
               aria-describedby="basic-addon1"          
             >
              <option selected>Selecciona un rango</option>
-              <option value="1">Novato</option>
-              <option value="2">Experto</option>
-              <option value="3">Profesional</option>
-              <option value="4">Amateur</option>
+              <option value="Novato">Novato</option>
+              <option value="Experto">Experto</option>
+              <option value="Profesional">Profesional</option>
+              <option value="Amateur">Amateur</option>
             </select>
             <p>Cuéntanos mas sobre tu talento:</p>
             <div className="form-floating">
