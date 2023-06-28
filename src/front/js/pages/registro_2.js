@@ -219,7 +219,7 @@ export const Registro2 = () => {
               <option value="AN">Antillas Holandesas</option>
               <option value="SA">Arabia Saudí</option>
               <option value="DZ">Argelia</option>
-              <option value="AR">Argentina</option>
+              <option value="Argentina">Argentina</option>
               <option value="AM">Armenia</option>
               <option value="AW">Aruba</option>
               <option value="AU">Australia</option>
@@ -253,7 +253,7 @@ export const Registro2 = () => {
               <option value="CN">China</option>
               <option value="CY">Chipre</option>
               <option value="VA">Ciudad del Vaticano (Santa Sede)</option>
-              <option value="CO">Colombia</option>
+              <option value="Colombia">Colombia</option>
               <option value="KM">Comores</option>
               <option value="CG">Congo</option>
               <option value="CD">Congo, República Democrática del</option>
@@ -434,9 +434,9 @@ export const Registro2 = () => {
               <option value="UA">Ucrania</option>
               <option value="UG">Uganda</option>
               <option value="UY">Uruguay</option>
-              <option value="UZ">Uzbekistán</option>
-              <option value="VU">Vanuatu</option>
-              <option value="VE">Venezuela</option>
+              <option value="Uzbekistán">Uzbekistán</option>
+              <option value="Vanuatu">Vanuatu</option>
+              <option value="Venezuela">Venezuela</option>
               <option value="VN">Vietnam</option>
               <option value="YE">Yemen</option>
               <option value="YU">Yugoslavia</option>

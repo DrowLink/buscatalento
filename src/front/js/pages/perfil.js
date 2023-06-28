@@ -20,28 +20,27 @@ export const Perfil = () => {
             <h1 id="perfiltitulo-perfil">Tu perfil</h1>
                 <div id="section-1-card-perfil" className="row">
                     <div id="description-profile-box-perfil" className="col">
-                        <input id="inputperfil-1" type="text" value={store.perfil && store.perfil.perfil.name || ""}/>
-
+                        <input id="inputperfil-1" type="text" value={store.perfil && store.perfil.perfil.name + " " + store.perfil.perfil.last_name || ""}/>
                         <input id="inputperfil-2" type="text" value={store.perfil && store.perfil.perfil.age || ""}/>
-                        <input id="inputperfil-3" type="text" value={store.perfil && store.perfil.perfil.state + " " + store.perfil.perfil.country || ""} />
-                        <input id="inputperfil-4" type="text" value={store.perfil && store.perfil.perfil.phone || ""}/>
-                        {/* <input id="inputperfil-5" type="text" value="Jugador Amateur de Ajedrez"/>
-                        <input id="inputperfil-5" type="text" value="5 años de práctica"/>
-                        <div id="inputperfil-2" className="form-group">
-                            <textarea id="text-area-perfil" value="Persona entusiasta con ganas de aprender y de enseñar" rows="2"></textarea>
-                        </div> */}
+                        <input id="inputperfil-2" type="text" value={store.perfil && store.perfil.perfil.state + ", " + store.perfil.perfil.country || ""} />
+                        <input id="inputperfil-2"  type="text" value={store.user && store.user.email || ""}/>
                         <div id="circulo-perfil-boton-div" className="">
                         <button id="circulo-boton-perfil" ><i className="fa-solid fa-pen-to-square"></i></button>
                         </div>
                     </div>
 					<div id="photo-profile-box-perfil" className="col-4">
                         <div id="circle-profile-card-img-perfil" className="m-4">
-                                <img
-                            src={iconperfil}
+                               {store.perfil && store.perfil.perfil.image_url != "" ? <img
+                            src={store.perfil.perfil.image_url}
                             className="rounded-circle rounded-2 img-fluid"
                             id="iconperfil-perfil"
                             alt="..."
-                        />
+                        /> : <img
+                            src={iconperfil}
+                            className="rounded-circle img-fluid"
+                            id="iconperfil-perfil"
+                            alt="..."
+                        />}
                         </div>
                     </div>
                 </div>

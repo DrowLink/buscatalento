@@ -28,7 +28,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			newUsers: async (user) => { //registro-1
 				try {
 					const resp = await fetch(process.env.BACKEND_URL + "/api/user", {
-						method: "POST", //REVISAR ESTO SI VA ASI
+						method: "POST", 
 						body: JSON.stringify(user),
 						headers: {
 							'Content-Type': 'application/json'
@@ -44,7 +44,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						localStorage.setItem("user", JSON.stringify(data.user))
 						console.log(data)
 						return true
-						// return data;
 					}
 					else {
 						return false;
