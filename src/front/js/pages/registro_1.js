@@ -4,76 +4,82 @@ import "../../styles/registro_1.css";
 import PeopleSharing from "../../img/people-sharing.jpg";
 import ScrollToTop from "../component/scrollToTop.js";
 import { Context } from "../store/appContext";
-import toast, { Toaster } from 'react-hot-toast';
-
+import toast, { Toaster } from "react-hot-toast";
 
 export const Registro1 = () => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate(); //Linkeo
 
-  //useEffect 
+  //useEffect
   // useEffect ( () => {
-  //   actions.loadUsers(); 
+  //   actions.loadUsers();
   // }, [])
 
   //useStates de los INPUTS
-  const[username, setUsername] = useState("")
-  const[email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [confirmPassword, setConfirmPassword] = useState("")
-  const [passwordMatch, setPasswordMatch] = useState(true)
-  const[shown, setShown] = useState(false)
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [passwordMatch, setPasswordMatch] = useState(true);
+  const [shown, setShown] = useState(false);
 
   const handlerUsername = (event) => {
     setUsername(event.target.value);
-  }
+  };
 
   const handlerEmail = (event) => {
-    setEmail(event.target.value)
-  }
+    setEmail(event.target.value);
+  };
 
   const handlerPassword = (event) => {
-    setPassword(event.target.value)
-  }
+    setPassword(event.target.value);
+  };
 
   const handlerConfirmPassword = (event) => {
-    setConfirmPassword(event.target.value)
-  }
+    setConfirmPassword(event.target.value);
+  };
 
-  const handlerKeyPress = async (event) => { //ACA HACE LA LOGICA DE QUE LAS CONTRASEÑAS SEAN IGUALES
-    event.preventDefault()
+  const handlerKeyPress = async (event) => {
+    //ACA HACE LA LOGICA DE QUE LAS CONTRASEÑAS SEAN IGUALES
+    event.preventDefault();
     // console.log(`username: ${username}, password: ${password}, email: ${email}, confirmPassword: ${confirmPassword}`)
-    if (password === confirmPassword && username.trim() != "" && email.trim() != "" && password.trim() != "") {
+    if (
+      password === confirmPassword &&
+      username.trim() != "" &&
+      email.trim() != "" &&
+      password.trim() != ""
+    ) {
       let resp = await actions.newUsers({
-        "user_name": username,
-        "email": email,
-        "password": password
-      })
-        navigate("/registro-2")
-        window.location.reload(false);
+        user_name: username,
+        email: email,
+        password: password,
+      });
+      navigate("/registro-2");
+      window.location.reload(false);
+    } else {
+      setPasswordMatch(false);
+      console.log("Contraseña inválida");
+      toast.error("Contraseña y confirmar contraseña no son iguales.", {
+        style: {
+          border: "1px solid #713200",
+          padding: "16px",
+          color: "#8924a3",
+        },
+        iconTheme: {
+          primary: "#8924a3",
+          secondary: "#ffffff",
+        },
+      });
     }
-    else {
-        setPasswordMatch(false)
-         console.log("Contraseña inválida")
-         toast.error("Contraseña y confirmar contraseña no son iguales.", {
-           style: {
-             border: '1px solid #713200',
-             padding: '16px',
-             color: '#8924a3',
-           },
-           iconTheme: {
-             primary: '#8924a3',
-             secondary: '#ffffff',
-           },
-         })
-    }
-  }
+  };
 
   const switchShown = () => setShown(!shown); //mostrar contrasena
 
   return (
     <div className="text-center mt-5">
-      <div><Toaster position="bottom-center" reverseOrder={false}/></div>
+      <div>
+        <Toaster position="bottom-center" reverseOrder={false} />
+      </div>
       <h1 id="h1-profile">¡Regístrate con nosotros!</h1>
       <h2 id="h2-profile">Por favor llena los siguientes datos:</h2>
       <div className="container-fluid">
@@ -102,25 +108,23 @@ export const Registro1 = () => {
             />
             <p id="p-profile">Contraseña:</p>
             <div id="is-relative">
-            <input
-              type={shown ? 'text': 'password'}
-              value={password}
-              onChange={handlerPassword}
-              className="form-control"
-              aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-sm"
-            />
-            <span id="iconregistro">
-              <i className="fas fa-eye"
-                onClick={switchShown}>
-              </i>
-            </span>
+              <input
+                type={shown ? "text" : "password"}
+                value={password}
+                onChange={handlerPassword}
+                className="form-control"
+                aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm"
+              />
+              <span id="iconregistro">
+                <i className="fas fa-eye" onClick={switchShown}></i>
+              </span>
             </div>
             <p id="p-profile">Confirma tu contraseña:</p>
             <input
               value={confirmPassword}
               onChange={handlerConfirmPassword}
-              type={shown ? 'text': 'password'}
+              type={shown ? "text" : "password"}
               className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-sm"
@@ -137,14 +141,14 @@ export const Registro1 = () => {
                 He leído los términos y condiciones.
               </label>
             </div>
-              <button
-                type="button"
-                id="btn-create"
-                className="btn btn-primary"
-                onClick={handlerKeyPress}
-              >
-                CREAR PERFIL
-              </button>
+            <button
+              type="button"
+              id="btn-create"
+              className="btn btn-primary"
+              onClick={handlerKeyPress}
+            >
+              CREAR PERFIL
+            </button>
           </div>
         </div>
       </div>

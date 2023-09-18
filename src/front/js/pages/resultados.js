@@ -4,19 +4,12 @@ import "../../styles/resultados.css";
 import { CardPersonal } from "../component/cardPersonal.js";
 import { Context } from "../store/appContext";
 
-
 export const Resultados = () => {
-  
-  const { 
-    store, actions 
-  } = useContext(Context);
+  const { store, actions } = useContext(Context);
 
   return (
     <>
-      <CardPersonal/>
+      <CardPersonal />
     </>
-
-    
-
   );
 };

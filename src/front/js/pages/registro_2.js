@@ -3,10 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import "../../styles/registro_2.css";
 import { Context } from "../store/appContext";
 import trophy from "../../img/trophy.png";
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast";
 
 export const Registro2 = () => {
-  const {actions, store} = useContext(Context)
+  const { actions, store } = useContext(Context);
   const navigate = useNavigate();
 
   //creacion de variables de la tabla PERFIL
@@ -18,40 +18,33 @@ export const Registro2 = () => {
   const [country, setCountry] = useState("");
   const [profileImgLink, setProfileImgLink] = useState(""); //LINK FOTO DE PERFIL
 
+  //Preview Foto Logica
+  const [selectedFile, setSelectedFile] = useState();
+  const [preview, setPreview] = useState();
 
-
-
- //Preview Foto Logica
- const [selectedFile, setSelectedFile] = useState()
- const [preview, setPreview] = useState()
-
- useEffect(() => {
-  if (!selectedFile) {
-      setPreview(undefined)
-      return
-  }
-
-  const objectUrl = URL.createObjectURL(selectedFile)
-  setPreview(objectUrl)
-
-  // free memory when ever this component is unmounted
-  return () => URL.revokeObjectURL(objectUrl)
-  }, [selectedFile])
-
-  const onSelectFile = e => {
-    if (!e.target.files || e.target.files.length === 0) {
-        setSelectedFile(undefined)
-        return
+  useEffect(() => {
+    if (!selectedFile) {
+      setPreview(undefined);
+      return;
     }
 
-    setSelectedFile(e.target.files[0])
-}
+    const objectUrl = URL.createObjectURL(selectedFile);
+    setPreview(objectUrl);
 
+    // free memory when ever this component is unmounted
+    return () => URL.revokeObjectURL(objectUrl);
+  }, [selectedFile]);
 
+  const onSelectFile = (e) => {
+    if (!e.target.files || e.target.files.length === 0) {
+      setSelectedFile(undefined);
+      return;
+    }
+
+    setSelectedFile(e.target.files[0]);
+  };
 
   //logica
-
-
 
   //LISTENERS CREADOS PERFIL
   const handlerName = (event) => {
@@ -59,7 +52,7 @@ export const Registro2 = () => {
   };
   const handlerProfileImgLink = (event) => {
     setProfileImgLink(event.target.files[0]);
-  }
+  };
   const handlerLastname = (event) => {
     setLastname(event.target.value);
   };
@@ -85,44 +78,44 @@ export const Registro2 = () => {
       age.trim() != "" &&
       state.trim() != "" &&
       country.trim() != ""
-    ) { 
-         let resp = actions.newimage({
-          name: name,
-          last_name: lastname,
-          phone: phone,
-          age: age,
-          country: country,
-          state: state,
-          photo: profileImgLink
-         })
-          navigate("/registro-3")
-    } 
-    else {
+    ) {
+      let resp = actions.newimage({
+        name: name,
+        last_name: lastname,
+        phone: phone,
+        age: age,
+        country: country,
+        state: state,
+        photo: profileImgLink,
+      });
+      navigate("/registro-3");
+    } else {
       toast.error("Faltan datos por rellenar", {
         style: {
-          border: '1px solid #713200',
-          padding: '16px',
-          color: '#8924a3',
+          border: "1px solid #713200",
+          padding: "16px",
+          color: "#8924a3",
         },
         iconTheme: {
-          primary: '#8924a3',
-          secondary: '#ffffff',
+          primary: "#8924a3",
+          secondary: "#ffffff",
         },
-      })
+      });
     }
   };
 
-
-
- const handlerKeyPress = (event) =>{ // Ni idea que cumple esto att: paulo
-  event.preventDefault()
-  console.log(datosPerfil)
- }
+  const handlerKeyPress = (event) => {
+    // Ni idea que cumple esto att: paulo
+    event.preventDefault();
+    console.log(datosPerfil);
+  };
 
   return (
     <>
       <div id="container-registro" className="">
-      <div><Toaster position="bottom-center" reverseOrder={false}/></div>
+        <div>
+          <Toaster position="bottom-center" reverseOrder={false} />
+        </div>
         <div id="input-box-1" className="row">
           <div id="h1-box-registro2-1">
             <h1 id="h1-registro">Ayúdanos a terminar de completar tu perfil</h1>{" "}
@@ -132,7 +125,13 @@ export const Registro2 = () => {
             className="col-4 d-flex justify-content-center"
           >
             <div id="circle-profile-img">
-            {selectedFile &&  <img src={preview} id="img-preview-reg21" className="img-fluid"/> }
+              {selectedFile && (
+                <img
+                  src={preview}
+                  id="img-preview-reg21"
+                  className="img-fluid"
+                />
+              )}
             </div>
           </div>
           <div id="input-section-2" className="col">
@@ -166,15 +165,16 @@ export const Registro2 = () => {
               placeholder="Estado"
               value={state}
               onChange={handlerState}
-
             />
             <p>Sube una foto para tu perfil:</p>
-            <input type="file" 
-                    className="form-control mt-2" 
-                    id="inputGroupFile03" 
-                    accept="image/*"
-                    onChange={onSelectFile}
-                    onInput={handlerProfileImgLink}/>
+            <input
+              type="file"
+              className="form-control mt-2"
+              id="inputGroupFile03"
+              accept="image/*"
+              onChange={onSelectFile}
+              onInput={handlerProfileImgLink}
+            />
           </div>
           <div id="input-section-3" className="col">
             <p>Apellido</p>
@@ -272,7 +272,9 @@ export const Registro2 = () => {
               <option value="AE">Emiratos Árabes Unidos</option>
               <option value="ER">Eritrea</option>
               <option value="SI">Eslovenia</option>
-              <option value="ES" selected>España</option>
+              <option value="ES" selected>
+                España
+              </option>
               <option value="US">Estados Unidos</option>
               <option value="EE">Estonia</option>
               <option value="ET">Etiopía</option>
@@ -443,7 +445,12 @@ export const Registro2 = () => {
               <option value="ZM">Zambia</option>
               <option value="ZW">Zimbabue</option>
             </select>
-            <button className="confirmation-button-registro" onClick={handleClickPerfil}>Guardar Datos</button>
+            <button
+              className="confirmation-button-registro"
+              onClick={handleClickPerfil}
+            >
+              Guardar Datos
+            </button>
           </div>
         </div>
       </div>
@@ -451,17 +458,8 @@ export const Registro2 = () => {
   );
 };
 
-
-
-
-
-
-
-
-
-
-
-{/* <div
+{
+  /* <div
             class="modal fade"
             id="exampleModal"
             tabindex="-1"
@@ -491,4 +489,5 @@ export const Registro2 = () => {
                 </div>
               </div>
             </div>
-          </div>) */}
+          </div>) */
+}
